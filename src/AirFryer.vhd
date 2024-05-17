@@ -19,21 +19,18 @@ entity AirFryer is
     -- Temperature Display: HEX0, HEX1 e HEX2 (código BCD)
     -- Time Display: HEX4 e HEX5 (código BCD)
     -- RefClock: CLOCK_50
-	port
-    (
-		CLOCK_50 : in  std_logic;
-		KEY      : in  std_logic_vector(3 downto 0); 
-		SW       : in  std_logic_vector(7 downto 0);
-		
-		LEDR     : out std_logic_vector(2 downto 0); 
-		LEDG     : out std_logic_vector(7 downto 0);
-		
-		HEX0     : out std_logic_vector(6 downto 0);
-		HEX1     : out std_logic_vector(6 downto 0);
-		HEX2     : out std_logic_vector(6 downto 0);
-		HEX4     : out std_logic_vector(6 downto 0);
-		HEX5     : out std_logic_vector(6 downto 0)
-	);
+	port(CLOCK_50    : in  std_logic;
+            KEY      : in  std_logic_vector(3 downto 0); 
+            SW       : in  std_logic_vector(7 downto 0);
+            
+            LEDR     : out std_logic_vector(2 downto 0); 
+            LEDG     : out std_logic_vector(7 downto 0);
+            
+            HEX0     : out std_logic_vector(6 downto 0);
+            HEX1     : out std_logic_vector(6 downto 0);
+            HEX2     : out std_logic_vector(6 downto 0);
+            HEX4     : out std_logic_vector(6 downto 0);
+		    HEX5     : out std_logic_vector(6 downto 0));
 end AirFryer;
 
 architecture Demo of AirFryer is 
@@ -43,17 +40,13 @@ architecture Demo of AirFryer is
 begin 
     -- Debouncer for all keys
     keys_debounce   : entity work.DebounceUnits(Behavioral)
-    port map
-    (
-        clock           => CLOCK_50,
-        timer_up_key    => KEY(0),
-        timer_dw_key    => KEY(1),
-        temp_up_key     => KEY(2),
-        temp_dw_key     => KEY(3),
-
-        timer_up_out    => s_timeUp,
-        timer_dw_out    => s_timeDown,
-        temp_up_out     => s_tempUp,
-        temp_dw_out     => s_timeDown
-    );
+    port map(clock          => CLOCK_50,
+            timer_up_key    => KEY(0),
+            timer_dw_key    => KEY(1),
+            temp_up_key     => KEY(2),
+            temp_dw_key     => KEY(3),
+            timer_up_out    => s_timeUp,
+            timer_dw_out    => s_timeDown,
+            temp_up_out     => s_tempUp,
+            temp_dw_out     => s_timeDown);
 
