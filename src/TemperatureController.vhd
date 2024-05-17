@@ -49,4 +49,9 @@ begin
             end if;       
         end if; 
     end process; 
+
+    Temperature_BCD <= current_temp;
+    FOOD_IN <= '0'; -- place holder, ajustar conforme necessário
+    Status_LEDs <= "0000"; -- place holder, ajustar conforme necessário
+
 end Behavioral; 
