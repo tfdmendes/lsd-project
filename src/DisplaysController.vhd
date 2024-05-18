@@ -7,6 +7,8 @@ entity DisplaysController is
         tempDozens      : in std_logic_vector(3 downto 0);
         tempHundreds    : in std_logic_vector(3 downto 0);
         
+		  timeUnits			: in std_logic_vector(3 downto 0);
+		  timeDozens		: in std_logic_vector(3 downto 0);
 		  
         s_HEX0            : out std_logic_vector(6 downto 0);
         s_HEX1            : out std_logic_vector(6 downto 0);
@@ -14,9 +16,9 @@ entity DisplaysController is
         s_HEX4            : out std_logic_vector(6 downto 0);
         s_HEX5            : out std_logic_vector(6 downto 0));
 end DisplaysController;
-
+	
 architecture Behavioral of DisplaysController is
-
+	signal teste	: std_logic_vector(6 downto 0);
 
 begin 
     bin7SegTemperatura : entity work.Bin7SegDecoder(Behavioral)
@@ -28,4 +30,15 @@ begin
              decOut_u           => s_HEX0,
              decOut_d           => s_HEX1,
              decOut_h           => s_HEX2);
+				 
+	bin7SegTime	: entity work.Bin7SegDecoder(Behavioral)
+	port map(enable 				  => enable,
+				binInput_units		  => timeUnits,
+				binInput_dozens     => timeDozens,
+				binInput_hundreds	  => "0000",
+				
+				decOut_u				  => S_HEX4,
+				decOut_d				  => S_HEX5,
+				decOut_h			     => teste);
+				
 end Behavioral;
