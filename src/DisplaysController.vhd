@@ -26,6 +26,4 @@ begin
              decOut_u           => s_HEX0
              decOut_d           => s_HEX1
              decOut_h           => s_HEX2);
-
-
 end Behavioral;
