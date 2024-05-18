@@ -45,7 +45,6 @@ set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:48:13  MAY 18, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.2 Lite Edition"
 set_global_assignment -name VHDL_FILE Debouncer.vhd
 set_global_assignment -name VHDL_FILE DebounceUnits.vhd
-set_global_assignment -name VHDL_FILE CounterUpDown4.vhd
 set_global_assignment -name VHDL_FILE DisplaysController.vhd
 set_global_assignment -name VHDL_FILE BinToBCD.vhd
 set_global_assignment -name VHDL_FILE Bin7SegDecoder.vhd
