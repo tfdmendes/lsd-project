@@ -36,6 +36,7 @@ end AirFryer;
 architecture Demo of AirFryer is 
 
         signal s_timeUp, s_timeDown, s_tempUp, s_tempDown  : std_logic;
+        signal s_Temp_Uni, s_Temp_Dec, s_Temp_Cen          : std_logic_vector(3 downto 0);
 
 begin 
     -- Debouncer for all keys
@@ -48,5 +49,21 @@ begin
             timer_up_out    => s_timeUp,
             timer_dw_out    => s_timeDown,
             temp_up_out     => s_tempUp,
-            temp_dw_out     => s_timeDown);
+            temp_dw_out     => s_timeDown
+            );
+
+    TemperatureController : entity work.TemperatureController(Behavioral)
+    port map(clk            => CLOCK_50,
+             tempInicial    => "11001000", -- temperatura do programa selecionado
+             estado         => '0';     -- estar aberto ou fechado (a cuba)
+             programa       => "001",
+             tempUp         => s_tempUp,
+             tempDown       => s_timeDown,
+             enable         => SW(0),
+             run            => SW(1),
+             tempUnidades   => s_Temp_Uni,
+             tempDezenas    => s_Temp_Dec,
+             tempCentenas   => s_Temp_Cen
+             );
+    
 

@@ -4,49 +4,48 @@ use IEEE.NUMERIC_STD.all;
 
 
 entity TemperatureController is
-    Port(clk       : in std_logic;
-        Temp_Inicial    : in std_logic_vector(7 downto 0); -- considerando ate 255°C
-        Temp_Final      : in std_logic_vector(7 downto 0);
-        N               : in STD_LOGIC_VECTOR(7 downto 0); -- Ajustável se necessário
-        program         : in STD_LOGIC_VECTOR(2 downto 0);
-        Temp_Up         : in STD_LOGIC;
-        Temp_Down       : in STD_LOGIC;
-        RUN             : in STD_LOGIC;
-        Temperature_BCD : out STD_LOGIC_VECTOR(7 downto 0); -- 4 bits para dezenas e 4 para centenas
-        FOOD_IN         : out STD_LOGIC;
-        Status_LEDs     : out STD_LOGIC_VECTOR(3 downto 0));
+    Port(clk        : in std_logic;
+        tempInicial : in std_logic_vector(7 downto 0); -- temperatura do programa selecionado
+        estado      : in std_logic;     -- estar aberto ou fechado (a cuba)
+        programa    : in std_logic_vector(2 downto 0);
+        tempUp      : in std_logic;
+        tempDown    : in std_logic;
+        enable      : in std_logic:
+        run         : in std_logic;
+
+        tempUnidades : out std_logic_vector(3 downto 0);
+        tempDezenas  : out std_logic(3 downto 0);
+        tempCentenas : out std_logic(3 downto 0));
+
 end TemperatureController;
 
 architecture Behavioral of TemperatureController is
-    signal current_temp          : unsigned(7 downto 0);
-    signal target_temp           : unsigned(7 downto 0);
-    signal is_cooking            : BOOLEAN := false;
-    signal user_mode_selected    : BOOLEAN;
+    signal tempMinima       : INTEGER := 20;
+    signal tempMaxima        : INTEGER := 250;
+    signal tempAlcancar     : INTEGER;
+    signal tempDemonstrada   : INTEGER;
 begin
-    user_mode <= (Program = "001"); -- verifica se o program está no modo USER
     process(clk)
-    begin 
-        if rising_edge(clk) then
-            current_temp <= (unsigned(Temp_Inicial));
+    begin
+        if (rising_edge(clk)) then
+            if run = 0 then
+                tempDemonstrada  <= to_integer(unsigned(tempInicial));
+                    
+                if programa = "001" then
+                    if tempUp = '1' and tempDemonstrada <= tempMaxima  then
+                        tempDemonstrada <= tempDemonstrada + 10;
+                    elsif tempDown = '1' and tempDemonstrada > tempMinima then
+                        tempDemonstrada <= tempDemonstrada - 10;
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
 
-            if Run = '1' then
-                if not is_cooking then
-                    is_cooking <= true;
-                    target_temp <= unsigned(Temp_Final);
-                    current_temp <= unsigned(Temp_Inicial); 
-                end if;
-                
-                if user_mode_selected and not is_cooking then
-                    -- Incrementar temperatura
-                    if Temp_Up = '1' and current_temp < unsigned(Temp_Final) then
-                        current_temp <= current_temp + unsigned(N);
-                    end if;
-                    -- Decrementar temperatura
-                    if Temp_Down = '1' and current_temp >= 20 then
-                        current_temp <= current_temp - unsigned(N);
-                    end if;
-                end if;
-            end if;       
-        end if; 
-    end process; 
+    process(tempDemonstrada)
+    begin 
+        tempCentenas <= std_logic_vector(to_unsigned((tempDemonstrada / 100) mod 10, 4));
+        tempDezenas  <= std_logic_vector(to_unsigned((tempDemonstrada / 10) mod 10, 4));
+        tempUnidades <= std_logic_vector(to_unsigned(tempDemonstrada mod 10, 4));
+    end process;
 end Behavioral; 
