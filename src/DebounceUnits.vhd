@@ -21,7 +21,7 @@ end DebounceUnits;
 architecture Behavioral of DebounceUnits is
 begin
 	
-	time_dw_debouncer   : entity work.Debouncer(Behavioral)
+	time_up_debouncer   : entity work.Debouncer(Behavioral)
 	port map
 	(
 		refClk    => clock,

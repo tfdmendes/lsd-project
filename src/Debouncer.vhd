@@ -18,7 +18,6 @@ architecture Behavioral of Debouncer is
      signal s_debounceCnt : TCounter := 0;
      signal s_dirtyIn, s_previousIn, s_pulsedOut : std_logic;
 begin
-
  in_sync_proc : process(refClk)
  begin
      if (rising_edge(refClk)) then
@@ -55,3 +54,4 @@ begin
          end if;
      end if;
  end process;
+ end Behavioral;

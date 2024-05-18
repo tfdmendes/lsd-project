@@ -49,25 +49,25 @@ begin
             timer_up_out    => s_timeUp,
             timer_dw_out    => s_timeDown,
             temp_up_out     => s_tempUp,
-            temp_dw_out     => s_timeDown
+            temp_dw_out     => s_tempDown
             );
 
     TemperatureController : entity work.TemperatureController(Behavioral)
     port map(clk            => CLOCK_50,
-             tempInicial    => "11001000", -- temperatura do programa selecionado
-             estado         => '0';     -- estar aberto ou fechado (a cuba)
+             tempInicial    => "01100100", -- temperatura do programa selecionado
+             estado         => '0',    -- estar aberto ou fechado (a cuba)
              programa       => "001",
-             tempUp         => s_tempUp,
-             tempDown       => s_timeDown,
+             tempUp         => not KEY(2),
+             tempDown       => not KEY(3),
              enable         => SW(0),
-             run            => SW(1),
+             run        	 => SW(1),
              tempUnidades   => s_Temp_Uni,
              tempDezenas    => s_Temp_Dec,
-             tempCentenas   => s_Temp_Cen
-             );
+             tempCentenas   => s_Temp_Cen);
 
     DisplaysController : entity work.DisplaysController(Behavioral)
-    port map(tempUnits       => s_Temp_Uni,
+    port map(enable 			  => SW(0),
+	          tempUnits       => s_Temp_Uni,
              tempDozens      => s_Temp_Dec,
              tempHundreds    => s_Temp_Cen,
             
