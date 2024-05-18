@@ -65,5 +65,16 @@ begin
              tempDezenas    => s_Temp_Dec,
              tempCentenas   => s_Temp_Cen
              );
-    
 
+    DisplaysController : entity work.DisplaysController(Behavioral)
+    port map(tempUnits       => s_Temp_Uni,
+             tempDozens      => s_Temp_Dec,
+             tempHundreds    => s_Temp_Cen,
+            
+             s_HEX0          => HEX0,
+             s_HEX1          => HEX1,
+             s_HEX2          => HEX2,
+             s_HEX4          => HEX4,
+             s_HEX5          => HEX5);
+
+end Demo;
