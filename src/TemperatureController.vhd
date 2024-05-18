@@ -23,8 +23,6 @@ architecture Behavioral of TemperatureController is
     signal tempMaxima      : INTEGER := 250;
     signal tempDemonstrada : INTEGER := 0;
     signal tempInitialized : std_logic := '0';
-    signal prev_tempUp     : std_logic := '0';
-    signal prev_tempDown   : std_logic := '0';
 begin
     process(clk)
     begin
@@ -36,10 +34,10 @@ begin
                         tempInitialized <= '1';
                     else
                         -- Verifica a borda de subida de tempUp
-                        if tempUp = '1' and prev_tempUp = '0' and tempDemonstrada <= tempMaxima - 10 then
+                        if tempUp = '1' and tempDemonstrada <= tempMaxima - 10 then
                             tempDemonstrada <= tempDemonstrada + 10;
                         -- Verifica a borda de subida de tempDown
-                        elsif tempDown = '1' and prev_tempDown = '0' and tempDemonstrada >= tempMinima + 10 then
+                        elsif tempDown = '1' and tempDemonstrada >= tempMinima + 10 then
                             tempDemonstrada <= tempDemonstrada - 10;
                         end if;
                     end if;
@@ -47,9 +45,6 @@ begin
                     tempInitialized <= '0'; -- Redefine a inicialização quando run está ativado
                 end if;
             end if;
-            -- Atualiza os estados anteriores dos sinais tempUp e tempDown
-            prev_tempUp <= tempUp;
-            prev_tempDown <= tempDown;
         end if;
     end process;
 

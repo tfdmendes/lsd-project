@@ -96,11 +96,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[2]",
+					"name" : "SW[1]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[1]",
+					"name" : "KEY[2]",
 					"strict" : false
 				},
 				{

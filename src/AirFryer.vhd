@@ -57,8 +57,8 @@ begin
              tempInicial    => "01100100", -- temperatura do programa selecionado
              estado         => '0',    -- estar aberto ou fechado (a cuba)
              programa       => "001",
-             tempUp         => not KEY(2),
-             tempDown       => not KEY(3),
+             tempUp         => s_tempUp,
+             tempDown       => s_tempDown,
              enable         => SW(0),
              run        	 => SW(1),
              tempUnidades   => s_Temp_Uni,

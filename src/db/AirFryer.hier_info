@@ -4,9 +4,7 @@ CLOCK_50 => temperaturecontroller:TemperatureController.clk
 KEY[0] => debounceunits:keys_debounce.timer_up_key
 KEY[1] => debounceunits:keys_debounce.timer_dw_key
 KEY[2] => debounceunits:keys_debounce.temp_up_key
-KEY[2] => temperaturecontroller:TemperatureController.tempUp
 KEY[3] => debounceunits:keys_debounce.temp_dw_key
-KEY[3] => temperaturecontroller:TemperatureController.tempDown
 SW[0] => temperaturecontroller:TemperatureController.enable
 SW[0] => displayscontroller:DisplaysController.enable
 SW[1] => temperaturecontroller:TemperatureController.run
@@ -16,52 +14,52 @@ SW[4] => ~NO_FANOUT~
 SW[5] => ~NO_FANOUT~
 SW[6] => ~NO_FANOUT~
 SW[7] => ~NO_FANOUT~
-LEDR[0] << LEDR[0].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[1] << LEDR[1].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[2] << LEDR[2].DB_MAX_OUTPUT_PORT_TYPE
-LEDG[0] << comb.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[1] << LEDG[1].DB_MAX_OUTPUT_PORT_TYPE
-LEDG[2] << LEDG[2].DB_MAX_OUTPUT_PORT_TYPE
-LEDG[3] << LEDG[3].DB_MAX_OUTPUT_PORT_TYPE
-LEDG[4] << LEDG[4].DB_MAX_OUTPUT_PORT_TYPE
-LEDG[5] << LEDG[5].DB_MAX_OUTPUT_PORT_TYPE
-LEDG[6] << LEDG[6].DB_MAX_OUTPUT_PORT_TYPE
-LEDG[7] << LEDG[7].DB_MAX_OUTPUT_PORT_TYPE
-HEX0[0] << displayscontroller:DisplaysController.s_HEX0[0]
-HEX0[1] << displayscontroller:DisplaysController.s_HEX0[1]
-HEX0[2] << displayscontroller:DisplaysController.s_HEX0[2]
-HEX0[3] << displayscontroller:DisplaysController.s_HEX0[3]
-HEX0[4] << displayscontroller:DisplaysController.s_HEX0[4]
-HEX0[5] << displayscontroller:DisplaysController.s_HEX0[5]
-HEX0[6] << displayscontroller:DisplaysController.s_HEX0[6]
-HEX1[0] << displayscontroller:DisplaysController.s_HEX1[0]
-HEX1[1] << displayscontroller:DisplaysController.s_HEX1[1]
-HEX1[2] << displayscontroller:DisplaysController.s_HEX1[2]
-HEX1[3] << displayscontroller:DisplaysController.s_HEX1[3]
-HEX1[4] << displayscontroller:DisplaysController.s_HEX1[4]
-HEX1[5] << displayscontroller:DisplaysController.s_HEX1[5]
-HEX1[6] << displayscontroller:DisplaysController.s_HEX1[6]
-HEX2[0] << displayscontroller:DisplaysController.s_HEX2[0]
-HEX2[1] << displayscontroller:DisplaysController.s_HEX2[1]
-HEX2[2] << displayscontroller:DisplaysController.s_HEX2[2]
-HEX2[3] << displayscontroller:DisplaysController.s_HEX2[3]
-HEX2[4] << displayscontroller:DisplaysController.s_HEX2[4]
-HEX2[5] << displayscontroller:DisplaysController.s_HEX2[5]
-HEX2[6] << displayscontroller:DisplaysController.s_HEX2[6]
-HEX4[0] << displayscontroller:DisplaysController.s_HEX4[0]
-HEX4[1] << displayscontroller:DisplaysController.s_HEX4[1]
-HEX4[2] << displayscontroller:DisplaysController.s_HEX4[2]
-HEX4[3] << displayscontroller:DisplaysController.s_HEX4[3]
-HEX4[4] << displayscontroller:DisplaysController.s_HEX4[4]
-HEX4[5] << displayscontroller:DisplaysController.s_HEX4[5]
-HEX4[6] << displayscontroller:DisplaysController.s_HEX4[6]
-HEX5[0] << displayscontroller:DisplaysController.s_HEX5[0]
-HEX5[1] << displayscontroller:DisplaysController.s_HEX5[1]
-HEX5[2] << displayscontroller:DisplaysController.s_HEX5[2]
-HEX5[3] << displayscontroller:DisplaysController.s_HEX5[3]
-HEX5[4] << displayscontroller:DisplaysController.s_HEX5[4]
-HEX5[5] << displayscontroller:DisplaysController.s_HEX5[5]
-HEX5[6] << displayscontroller:DisplaysController.s_HEX5[6]
+LEDR[0] <= LEDR[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= LEDR[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= LEDR[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= LEDG[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= LEDG[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= LEDG[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[4] <= LEDG[4].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[5] <= LEDG[5].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[6] <= LEDG[6].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[7] <= LEDG[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= displayscontroller:DisplaysController.s_HEX0[0]
+HEX0[1] <= displayscontroller:DisplaysController.s_HEX0[1]
+HEX0[2] <= displayscontroller:DisplaysController.s_HEX0[2]
+HEX0[3] <= displayscontroller:DisplaysController.s_HEX0[3]
+HEX0[4] <= displayscontroller:DisplaysController.s_HEX0[4]
+HEX0[5] <= displayscontroller:DisplaysController.s_HEX0[5]
+HEX0[6] <= displayscontroller:DisplaysController.s_HEX0[6]
+HEX1[0] <= displayscontroller:DisplaysController.s_HEX1[0]
+HEX1[1] <= displayscontroller:DisplaysController.s_HEX1[1]
+HEX1[2] <= displayscontroller:DisplaysController.s_HEX1[2]
+HEX1[3] <= displayscontroller:DisplaysController.s_HEX1[3]
+HEX1[4] <= displayscontroller:DisplaysController.s_HEX1[4]
+HEX1[5] <= displayscontroller:DisplaysController.s_HEX1[5]
+HEX1[6] <= displayscontroller:DisplaysController.s_HEX1[6]
+HEX2[0] <= displayscontroller:DisplaysController.s_HEX2[0]
+HEX2[1] <= displayscontroller:DisplaysController.s_HEX2[1]
+HEX2[2] <= displayscontroller:DisplaysController.s_HEX2[2]
+HEX2[3] <= displayscontroller:DisplaysController.s_HEX2[3]
+HEX2[4] <= displayscontroller:DisplaysController.s_HEX2[4]
+HEX2[5] <= displayscontroller:DisplaysController.s_HEX2[5]
+HEX2[6] <= displayscontroller:DisplaysController.s_HEX2[6]
+HEX4[0] <= displayscontroller:DisplaysController.s_HEX4[0]
+HEX4[1] <= displayscontroller:DisplaysController.s_HEX4[1]
+HEX4[2] <= displayscontroller:DisplaysController.s_HEX4[2]
+HEX4[3] <= displayscontroller:DisplaysController.s_HEX4[3]
+HEX4[4] <= displayscontroller:DisplaysController.s_HEX4[4]
+HEX4[5] <= displayscontroller:DisplaysController.s_HEX4[5]
+HEX4[6] <= displayscontroller:DisplaysController.s_HEX4[6]
+HEX5[0] <= displayscontroller:DisplaysController.s_HEX5[0]
+HEX5[1] <= displayscontroller:DisplaysController.s_HEX5[1]
+HEX5[2] <= displayscontroller:DisplaysController.s_HEX5[2]
+HEX5[3] <= displayscontroller:DisplaysController.s_HEX5[3]
+HEX5[4] <= displayscontroller:DisplaysController.s_HEX5[4]
+HEX5[5] <= displayscontroller:DisplaysController.s_HEX5[5]
+HEX5[6] <= displayscontroller:DisplaysController.s_HEX5[6]
 
 
 |AirFryer|DebounceUnits:keys_debounce
@@ -80,32 +78,54 @@ temp_dw_out <= debouncer:temp_dw_debouncer.pulsedOut
 
 
 |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_up_debouncer
-refClk => ~NO_FANOUT~
-dirtyIn => ~NO_FANOUT~
-pulsedOut <= comb.DB_MAX_OUTPUT_PORT_TYPE
+refClk => s_pulsedOut.CLK
+refClk => s_debounceCnt[0].CLK
+refClk => s_debounceCnt[1].CLK
+refClk => s_debounceCnt[2].CLK
+refClk => s_debounceCnt[3].CLK
+refClk => s_previousIn.CLK
+refClk => s_dirtyIn.CLK
+dirtyIn => s_dirtyIn.DATAIN
+pulsedOut <= s_pulsedOut.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer
-refClk => ~NO_FANOUT~
-dirtyIn => ~NO_FANOUT~
-pulsedOut <= comb.DB_MAX_OUTPUT_PORT_TYPE
+refClk => s_pulsedOut.CLK
+refClk => s_debounceCnt[0].CLK
+refClk => s_debounceCnt[1].CLK
+refClk => s_debounceCnt[2].CLK
+refClk => s_debounceCnt[3].CLK
+refClk => s_previousIn.CLK
+refClk => s_dirtyIn.CLK
+dirtyIn => s_dirtyIn.DATAIN
+pulsedOut <= s_pulsedOut.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer
-refClk => ~NO_FANOUT~
-dirtyIn => ~NO_FANOUT~
-pulsedOut <= comb.DB_MAX_OUTPUT_PORT_TYPE
+refClk => s_pulsedOut.CLK
+refClk => s_debounceCnt[0].CLK
+refClk => s_debounceCnt[1].CLK
+refClk => s_debounceCnt[2].CLK
+refClk => s_debounceCnt[3].CLK
+refClk => s_previousIn.CLK
+refClk => s_dirtyIn.CLK
+dirtyIn => s_dirtyIn.DATAIN
+pulsedOut <= s_pulsedOut.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer
-refClk => ~NO_FANOUT~
-dirtyIn => ~NO_FANOUT~
-pulsedOut <= comb.DB_MAX_OUTPUT_PORT_TYPE
+refClk => s_pulsedOut.CLK
+refClk => s_debounceCnt[0].CLK
+refClk => s_debounceCnt[1].CLK
+refClk => s_debounceCnt[2].CLK
+refClk => s_debounceCnt[3].CLK
+refClk => s_previousIn.CLK
+refClk => s_dirtyIn.CLK
+dirtyIn => s_dirtyIn.DATAIN
+pulsedOut <= s_pulsedOut.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |AirFryer|TemperatureController:TemperatureController
-clk => prev_tempDown.CLK
-clk => prev_tempUp.CLK
 clk => tempInitialized.CLK
 clk => tempDemonstrada[0].CLK
 clk => tempDemonstrada[1].CLK
@@ -152,9 +172,7 @@ programa[0] => ~NO_FANOUT~
 programa[1] => ~NO_FANOUT~
 programa[2] => ~NO_FANOUT~
 tempUp => process_0.IN1
-tempUp => prev_tempUp.DATAIN
 tempDown => process_0.IN1
-tempDown => prev_tempDown.DATAIN
 enable => tempDemonstrada[9].ENA
 enable => tempDemonstrada[8].ENA
 enable => tempDemonstrada[7].ENA
