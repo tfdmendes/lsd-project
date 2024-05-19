@@ -57,7 +57,7 @@ begin
                     else
                         if estado = '0' and tempCookShown <= tempMax - 10 then
                             tempCookCookShown <= tempCookShown + 10;
-                        elsif estado = '1' and tempUserShown >= tempMin + 20 then
+                        elsif estado = '1' and tempCookShown >= tempMin + 20 then
                             tempCookShown <= tempCookShown - 20;
                         elsif estado = '1' and tempCookhown >= tempMin + 40 and fastCooler = '1' then
                             tempCookShown <= tempCookShown - 40;
