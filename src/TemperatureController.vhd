@@ -59,7 +59,7 @@ begin
                             tempCookCookShown <= tempCookShown + 10;
                         elsif estado = '1' and tempUserShown >= tempMin + 20 then
                             tempCookShown <= tempCookShown - 20;
-                        elsif estado = '1' and tempUserShown >= tempMin + 40 and fastCooler = '1' then
+                        elsif estado = '1' and tempCookhown >= tempMin + 40 and fastCooler = '1' then
                             tempCookShown <= tempCookShown - 40;
                         end if;
                     end if;
