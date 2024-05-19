@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.all;
 entity TemperatureController is
     Port(
         clk          : in std_logic;
-        clkEnable   
+        clkEnable    : in std_logic
         startingTemp : in std_logic_vector(7 downto 0); -- temperatura do program selecionado
         estado       : in std_logic;     -- estar aberto ou fechado (a cuba)
         fastCooler   : in std_logic;
@@ -29,7 +29,7 @@ architecture Behavioral of TemperatureController is
 begin
     process(clk)
     begin
-        if rising_edge(clk and clkEnable = '1') then
+        if rising_edge(clk) and clkEnable = '1' then
             if enable = '1' then
                 if run = '0' then
 						if program = "001" then
