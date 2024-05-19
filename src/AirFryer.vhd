@@ -37,14 +37,22 @@ end AirFryer;
 
 architecture Demo of AirFryer is 
 
-        signal s_timeUp, s_timeDown, s_tempUp, s_tempDown  : std_logic;
-        signal s_temp_Uni, s_temp_Doz, s_temp_Cen          : std_logic_vector(3 downto 0);
-		  signal s_time_Uni, s_time_Doz							  : std_logic_vector(3 downto 0);
+    signal s_timeUp, s_timeDown, s_tempUp, s_tempDown, s_1Hz  : std_logic;
+    signal s_temp_Uni, s_temp_Doz, s_temp_Cen                 : std_logic_vector(3 downto 0);
+    signal s_time_Uni, s_time_Doz				              : std_logic_vector(3 downto 0); 
+    
 
-begin 
+begin
+
+    clkDivider : entity work.ClkDividerN(Behavioral)
+    generic map (divFactor => 50_000)
+
+    port map (clkIn => CLOCK_50,
+              clkOut => s_1Hz);
+
     -- Debouncer for all keys
     keys_debounce   : entity work.DebounceUnits(Behavioral)
-    port map(clock          => CLOCK_50,
+    port map(clock          => s_1Hz,
             timer_up_key    => KEY(0),
             timer_dw_key    => KEY(1),
             temp_up_key     => KEY(2),
@@ -57,37 +65,38 @@ begin
 				
 	 -- TEMPERATURA
     TemperatureController : entity work.TemperatureController(Behavioral)
-    port map(clk            => CLOCK_50,
+    port map(clk             => s_1Hz,
              startingTemp    => "01100100", -- temperatura do programa selecionado
-             estado         => '0',    -- estar aberto ou fechado (a cuba)
-             program       => "001",
-             tempUp         => s_tempUp,
-             tempDown       => s_tempDown,
-             enable         => SW(0),
+             estado          => SW(2),    -- estar aberto ou fechado (a cuba)
+             fastCooler      => SW(7),
+             program         => SW(6 downto 4),
+             tempUp          => s_tempUp,
+             tempDown        => s_tempDown,
+             enable          => SW(0),
              run        	 => SW(1),
-             tempUnits   => s_temp_Uni,
-             tempDozens    => s_temp_Doz,
-             tempHundreds   => s_temp_Cen);
+             tempUnits       => s_temp_Uni,
+             tempDozens      => s_temp_Doz,
+             tempHundreds    => s_temp_Cen);
 				 
 				 
 				 
 	-- TEMPO
-	 TimeController : entity work.TimeController(Behavioral)
+	TimeController : entity work.TimeController(Behavioral)
     port map(clk            => CLOCK_50,
-				 timeHeat		 => "00000", -- MUDAR
-				 timeCook		 => "00000", -- MUDAR
+			 timeHeat		=> "00000", -- MUDAR
+		     timeCook		=> "00000", -- MUDAR
 				 
              estado         => '0',    -- estar aberto ou fechado (a cuba)
-             program       => "001",
-             fastCooler  => SW(7),
-				 heatOrCook		=> SW(8),
+             program        => SW(6 downto 4),
+			 heatOrCook		=> SW(8),
              timeUp         => s_timeUp,
              timeDown       => s_timeDown,
              enable         => SW(0),
-             run        	 => SW(1),
+             run        	=> SW(1),
              timeUnits   	=> s_time_Uni,
-             timeDozens    => s_time_Doz,
-				 ledSignal		=> LEDR(8));
+             timeDozens     => s_time_Doz,
+			 ledSignal		=> LEDR(8),
+             ledEndPreHeat  => LEDG(0));
 
 				 
     DisplaysController : entity work.DisplaysController(Behavioral)

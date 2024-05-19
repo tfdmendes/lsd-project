@@ -24,14 +24,7 @@ architecture Behavioral of TemperatureController is
     signal tempMax      : INTEGER := 250;
     signal tempShown : INTEGER := 0;
     signal tempInitialized : std_logic := '0';
-    signal s_1Hz        : std_logic;
 begin
-    ClkDividerN : entity work.ClkDividerN(Behavioral)
-        generic map (divFactor => 50_000)
-
-        port map (clkIn => clk,
-                  clkOut => s_1Hz);
-
     process(clk)
     begin
         if rising_edge(clk) then
@@ -55,14 +48,12 @@ begin
                     tempInitialized <= '0'; -- Redefine a inicialização quando run está ativado
                     tempMax <= tempShown
                     tempShown <= tempMin;
-                    if rising_edge(s_1Hz) then
-                        if estado = '0' and tempShown <= tempMax - 10 then
-                            tempShown <= tempShown + 10;
-                        elsif estado = '1' and tempShown >= tempMin + 20 then
-                            tempShown <= tempShown - 20;
-                        elsif estado = '1' and tempShown >= tempMin + 40 and fastCooler = '1' then
-                            tempShown <= tempShown - 40;
-                        end if;
+                    if estado = '0' and tempShown <= tempMax - 10 then
+                        tempShown <= tempShown + 10;
+                    elsif estado = '1' and tempShown >= tempMin + 20 then
+                        tempShown <= tempShown - 20;
+                    elsif estado = '1' and tempShown >= tempMin + 40 and fastCooler = '1' then
+                        tempShown <= tempShown - 40;
                     end if;
                 end if;
             end if;

@@ -18,7 +18,8 @@ entity TimeController is
         run          : in std_logic;
         timeUnits    : out std_logic_vector(3 downto 0);
         timeDozens   : out std_logic_vector(3 downto 0);
-        ledSignal    : out std_logic
+        ledSignal    : out std_logic;
+        ledEndPreHeat    : out std_logic;
     );
 end TimeController;
 
@@ -34,8 +35,10 @@ architecture Behavioral of TimeController is
 	 -- Sinais de mostragem
     signal timePreHeatShown : INTEGER := 0;
     signal timeCookShown    : INTEGER := 0;
+    signal timeTotal        : INTEGER := 0;
+    signal timeTotalShown   : INTEGER := 0;
+    
     signal timeInitialized  : std_logic := '0';
-
 begin
     process(clk)
     begin
@@ -70,6 +73,14 @@ begin
                     end if;
                 else
                     timeInitialized <= '0'; -- Redefine a inicialização quando run está ativado
+                    timeTotal <= timePreHeatShown + timeCookShown
+                    if estado = '0' and timeTotalShown < 0 then
+                        if timeTotal - timePreHeatShown == timeTotalShown then
+                            ledEndPreHeat <= '1';
+                        else
+                            timeTotalShown <= timeTotalShown - 1;
+                        end if;
+                    end if;
                 end if;
             end if;
         end if;
