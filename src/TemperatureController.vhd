@@ -21,11 +21,12 @@ entity TemperatureController is
 end TemperatureController;
 
 architecture Behavioral of TemperatureController is
-    signal tempMin         : INTEGER := 20;
-    signal tempMax         : INTEGER := 250;
-    signal tempShown       : INTEGER := 0;
-    signal tempInitialized : std_logic := '0';
-    signal tempStart       : std_logic := '0';
+    signal tempMin                 : INTEGER := 20;
+    signal tempMax                 : INTEGER := 250;
+    signal tempCookShown           : INTEGER := 0;
+    signal tempUserShown           : INTEGER := 0;
+    signal tempInitialized         : std_logic := '0';
+    signal tempStart               : std_logic := '0';
 begin
     process(clk)
     begin
@@ -34,15 +35,15 @@ begin
                 if run = '0' then
 						if program = "001" then
 							  if tempInitialized = '0' then
-									tempShown <= to_integer(unsigned(startingTemp));
+									tempUserShown <= to_integer(unsigned(startingTemp));
 									tempInitialized <= '1';
 							  else
 									-- Verifica a borda de subida de tempUp
-									if tempUp = '1' and tempShown <= tempMax - 10 then
-										 tempShown <= tempShown + 10;
+									if tempUp = '1' and tempUserShown <= tempMax - 10 then
+										 tempUserShown <= tempUserShown + 10;
 									-- Verifica a borda de subida de tempDown
-									elsif tempDown = '1' and tempShown >= tempMin + 10 then
-										 tempShown <= tempShown - 10;
+									elsif tempDown = '1' and tempUserShown >= tempMin + 10 then
+										 tempUserShown <= tempUserShown - 10;
 									end if;
 							  end if;
 						 end if;
@@ -50,16 +51,16 @@ begin
                 else
                     tempInitialized <= '0'; -- Redefine a inicialização quando run está ativado
                     if tempStart = '0' then
-                        tempShown <= tempMin;
-                        tempMax <= tempShown;
+                        tempCookShown <= tempMin;
+                        tempMax <= tempUserShown;
                         tempStart <= '1';
                     else
-                        if estado = '0' and tempShown <= tempMax - 10 then
-                            tempShown <= tempShown + 10;
-                        elsif estado = '1' and tempShown >= tempMin + 20 then
-                            tempShown <= tempShown - 20;
-                        elsif estado = '1' and tempShown >= tempMin + 40 and fastCooler = '1' then
-                            tempShown <= tempShown - 40;
+                        if estado = '0' and tempUserShown <= tempMax - 10 then
+                            tempUserShown <= tempUserShown + 10;
+                        elsif estado = '1' and tempUserShown >= tempMin + 20 then
+                            tempUserShown <= tempUserShown - 20;
+                        elsif estado = '1' and tempUserShown >= tempMin + 40 and fastCooler = '1' then
+                            tempUserShown <= tempUserShown - 40;
                         end if;
                     end if;
                 end if;
@@ -68,10 +69,16 @@ begin
     end process;
 
     -- Converte a temperatura em dígitos BCD
-    process(tempShown)
+    process(tempUserShown, tempCookShown, run)
     begin
-        tempHundreds <= std_logic_vector(to_unsigned((tempShown / 100) mod 10, 4));
-        tempDozens  <= std_logic_vector(to_unsigned((tempShown / 10) mod 10, 4));
-        tempUnits <= std_logic_vector(to_unsigned(tempShown mod 10, 4));
+        if run = '0' then 
+            tempHundreds <= std_logic_vector(to_unsigned((tempCookShown / 100) mod 10, 4));
+            tempDozens  <= std_logic_vector(to_unsigned((tempCookShown / 10) mod 10, 4));
+            tempUnits <= std_logic_vector(to_unsigned(tempCookShown mod 10, 4));
+        else
+            tempHundreds <= std_logic_vector(to_unsigned((tempUserShown / 100) mod 10, 4));
+            tempDozens  <= std_logic_vector(to_unsigned((tempUserShown / 10) mod 10, 4));
+            tempUnits <= std_logic_vector(to_unsigned(tempUserShown mod 10, 4));
+        end if;
     end process;
 end Behavioral;
