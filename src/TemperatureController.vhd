@@ -55,12 +55,12 @@ begin
                         tempMax <= tempUserShown;
                         tempStart <= '1';
                     else
-                        if estado = '0' and tempUserShown <= tempMax - 10 then
-                            tempUserShown <= tempUserShown + 10;
+                        if estado = '0' and tempCookShown <= tempMax - 10 then
+                            tempCookCookShown <= tempCookShown + 10;
                         elsif estado = '1' and tempUserShown >= tempMin + 20 then
-                            tempUserShown <= tempUserShown - 20;
+                            tempCookShown <= tempCookShown - 20;
                         elsif estado = '1' and tempUserShown >= tempMin + 40 and fastCooler = '1' then
-                            tempUserShown <= tempUserShown - 40;
+                            tempCookShown <= tempCookShown - 40;
                         end if;
                     end if;
                 end if;
