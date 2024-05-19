@@ -59,7 +59,7 @@ begin
                             tempCookCookShown <= tempCookShown + 10;
                         elsif estado = '1' and tempCookShown >= tempMin + 20 then
                             tempCookShown <= tempCookShown - 20;
-                        elsif estado = '1' and tempCookhown >= tempMin + 40 and fastCooler = '1' then
+                        elsif estado = '1' and tempCookShown >= tempMin + 40 and fastCooler = '1' then
                             tempCookShown <= tempCookShown - 40;
                         end if;
                     end if;
@@ -72,13 +72,13 @@ begin
     process(tempUserShown, tempCookShown, run)
     begin
         if run = '0' then 
+            tempHundreds <= std_logic_vector(to_unsigned((tempUserShown / 100) mod 10, 4));
+            tempDozens  <= std_logic_vector(to_unsigned((tempUserShown / 10) mod 10, 4));
+            tempUnits <= std_logic_vector(to_unsigned(tempUSerShown mod 10, 4));
+        else
             tempHundreds <= std_logic_vector(to_unsigned((tempCookShown / 100) mod 10, 4));
             tempDozens  <= std_logic_vector(to_unsigned((tempCookShown / 10) mod 10, 4));
             tempUnits <= std_logic_vector(to_unsigned(tempCookShown mod 10, 4));
-        else
-            tempHundreds <= std_logic_vector(to_unsigned((tempUserShown / 100) mod 10, 4));
-            tempDozens  <= std_logic_vector(to_unsigned((tempUserShown / 10) mod 10, 4));
-            tempUnits <= std_logic_vector(to_unsigned(tempUserShown mod 10, 4));
         end if;
     end process;
 end Behavioral;
