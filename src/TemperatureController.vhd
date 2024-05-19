@@ -20,10 +20,11 @@ entity TemperatureController is
 end TemperatureController;
 
 architecture Behavioral of TemperatureController is
-    signal tempMin      : INTEGER := 20;
-    signal tempMax      : INTEGER := 250;
-    signal tempShown : INTEGER := 0;
+    signal tempMin         : INTEGER := 20;
+    signal tempMax         : INTEGER := 250;
+    signal tempShown       : INTEGER := 0;
     signal tempInitialized : std_logic := '0';
+    signal tempStart       : std_logic := '0';
 begin
     process(clk)
     begin
@@ -44,16 +45,21 @@ begin
 									end if;
 							  end if;
 						 end if;
+                tempStart <= '0';
                 else
                     tempInitialized <= '0'; -- Redefine a inicialização quando run está ativado
-                    tempMax <= tempShown
-                    tempShown <= tempMin;
-                    if estado = '0' and tempShown <= tempMax - 10 then
-                        tempShown <= tempShown + 10;
-                    elsif estado = '1' and tempShown >= tempMin + 20 then
-                        tempShown <= tempShown - 20;
-                    elsif estado = '1' and tempShown >= tempMin + 40 and fastCooler = '1' then
-                        tempShown <= tempShown - 40;
+                    if tempStart = '0' then
+                        tempShown <= tempMin;
+                        tempMax <= tempShown;
+                        tempStart <= '1';
+                    else
+                        if estado = '0' and tempShown <= tempMax - 10 then
+                            tempShown <= tempShown + 10;
+                        elsif estado = '1' and tempShown >= tempMin + 20 then
+                            tempShown <= tempShown - 20;
+                        elsif estado = '1' and tempShown >= tempMin + 40 and fastCooler = '1' then
+                            tempShown <= tempShown - 40;
+                        end if;
                     end if;
                 end if;
             end if;
