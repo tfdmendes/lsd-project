@@ -1,5 +1,7 @@
 |AirFryer
 CLOCK_50 => debounceunits:keys_debounce.clock
+CLOCK_50 => clkdividern:clkDivider.clkIn
+CLOCK_50 => programselector:progamSelector.clk
 CLOCK_50 => temperaturecontroller:TemperatureController.clk
 CLOCK_50 => timecontroller:TimeController.clk
 KEY[0] => debounceunits:keys_debounce.timer_up_key
@@ -13,9 +15,9 @@ SW[1] => temperaturecontroller:TemperatureController.run
 SW[1] => timecontroller:TimeController.run
 SW[2] => ~NO_FANOUT~
 SW[3] => ~NO_FANOUT~
-SW[4] => ~NO_FANOUT~
-SW[5] => ~NO_FANOUT~
-SW[6] => ~NO_FANOUT~
+SW[4] => programselector:progamSelector.input[0]
+SW[5] => programselector:progamSelector.input[1]
+SW[6] => programselector:progamSelector.input[2]
 SW[7] => ~NO_FANOUT~
 SW[8] => timecontroller:TimeController.heatOrCook
 LEDR[0] <= <GND>
@@ -133,6 +135,94 @@ refClk => s_previousIn.CLK
 refClk => s_dirtyIn.CLK
 dirtyIn => s_dirtyIn.DATAIN
 pulsedOut <= s_pulsedOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AirFryer|ClkDividerN:clkDivider
+clkIn => s_divCounter[0].CLK
+clkIn => s_divCounter[1].CLK
+clkIn => s_divCounter[2].CLK
+clkIn => s_divCounter[3].CLK
+clkIn => s_divCounter[4].CLK
+clkIn => s_divCounter[5].CLK
+clkIn => s_divCounter[6].CLK
+clkIn => s_divCounter[7].CLK
+clkIn => s_divCounter[8].CLK
+clkIn => s_divCounter[9].CLK
+clkIn => s_divCounter[10].CLK
+clkIn => s_divCounter[11].CLK
+clkIn => s_divCounter[12].CLK
+clkIn => s_divCounter[13].CLK
+clkIn => s_divCounter[14].CLK
+clkIn => s_divCounter[15].CLK
+clkIn => s_divCounter[16].CLK
+clkIn => s_divCounter[17].CLK
+clkIn => s_divCounter[18].CLK
+clkIn => s_divCounter[19].CLK
+clkIn => s_divCounter[20].CLK
+clkIn => s_divCounter[21].CLK
+clkIn => s_divCounter[22].CLK
+clkIn => s_divCounter[23].CLK
+clkIn => s_divCounter[24].CLK
+clkIn => s_divCounter[25].CLK
+clkIn => clkOut~reg0.CLK
+clkOut <= clkOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AirFryer|ProgramSelector:progamSelector
+clk => ps_timeHeat[0]~reg0.CLK
+clk => ps_timeHeat[1]~reg0.CLK
+clk => ps_timeHeat[2]~reg0.CLK
+clk => ps_timeHeat[3]~reg0.CLK
+clk => ps_timeHeat[4]~reg0.CLK
+clk => ps_timeCook[0]~reg0.CLK
+clk => ps_timeCook[1]~reg0.CLK
+clk => ps_timeCook[2]~reg0.CLK
+clk => ps_timeCook[3]~reg0.CLK
+clk => ps_timeCook[4]~reg0.CLK
+clk => ps_temp[0]~reg0.CLK
+clk => ps_temp[1]~reg0.CLK
+clk => ps_temp[2]~reg0.CLK
+clk => ps_temp[3]~reg0.CLK
+clk => ps_temp[4]~reg0.CLK
+clk => ps_temp[5]~reg0.CLK
+clk => ps_temp[6]~reg0.CLK
+clk => ps_temp[7]~reg0.CLK
+input[0] => Equal0.IN2
+input[0] => Equal1.IN2
+input[0] => Equal2.IN1
+input[0] => Equal3.IN2
+input[0] => Equal4.IN1
+input[0] => Equal5.IN2
+input[1] => Equal0.IN1
+input[1] => Equal1.IN1
+input[1] => Equal2.IN2
+input[1] => Equal3.IN1
+input[1] => Equal4.IN0
+input[1] => Equal5.IN0
+input[2] => Equal0.IN0
+input[2] => Equal1.IN0
+input[2] => Equal2.IN0
+input[2] => Equal3.IN0
+input[2] => Equal4.IN2
+input[2] => Equal5.IN1
+ps_temp[0] <= ps_temp[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_temp[1] <= ps_temp[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_temp[2] <= ps_temp[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_temp[3] <= ps_temp[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_temp[4] <= ps_temp[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_temp[5] <= ps_temp[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_temp[6] <= ps_temp[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_temp[7] <= ps_temp[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeCook[0] <= ps_timeCook[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeCook[1] <= ps_timeCook[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeCook[2] <= ps_timeCook[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeCook[3] <= ps_timeCook[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeCook[4] <= ps_timeCook[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeHeat[0] <= ps_timeHeat[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeHeat[1] <= ps_timeHeat[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeHeat[2] <= ps_timeHeat[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeHeat[3] <= ps_timeHeat[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ps_timeHeat[4] <= ps_timeHeat[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |AirFryer|TemperatureController:TemperatureController

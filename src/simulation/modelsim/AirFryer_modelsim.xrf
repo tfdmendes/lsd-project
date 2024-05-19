@@ -1,7 +1,6 @@
 vendor_name = ModelSim
 source_file = 1, /home/tiago/Documents/lsd-project/src/Debouncer.vhd
 source_file = 1, /home/tiago/Documents/lsd-project/src/DebounceUnits.vhd
-source_file = 1, /home/tiago/Documents/lsd-project/src/CounterUpDown4.vhd
 source_file = 1, /home/tiago/Documents/lsd-project/src/DisplaysController.vhd
 source_file = 1, /home/tiago/Documents/lsd-project/src/BinToBCD.vhd
 source_file = 1, /home/tiago/Documents/lsd-project/src/Bin7SegDecoder.vhd
@@ -9,6 +8,8 @@ source_file = 1, /home/tiago/Documents/lsd-project/src/AirFryer.vhd
 source_file = 1, /home/tiago/Documents/lsd-project/src/TemperatureController.vhd
 source_file = 1, /home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd
 source_file = 1, /home/tiago/Documents/lsd-project/src/TimeController.vhd
+source_file = 1, /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd
+source_file = 1, /home/tiago/Documents/lsd-project/src/ClkDividerN.vhd
 source_file = 1, /home/tiago/.intel_fpga_lite/22.1.2/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, /home/tiago/.intel_fpga_lite/22.1.2/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
 source_file = 1, /home/tiago/.intel_fpga_lite/22.1.2/quartus/libraries/vhdl/ieee/timing_b.vhd

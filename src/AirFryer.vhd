@@ -40,6 +40,9 @@ architecture Demo of AirFryer is
         signal s_timeUp, s_timeDown, s_tempUp, s_tempDown  : std_logic;
         signal s_temp_Uni, s_temp_Doz, s_temp_Cen          : std_logic_vector(3 downto 0);
 		  signal s_time_Uni, s_time_Doz							  : std_logic_vector(3 downto 0);
+		  signal s_1Hz													  : std_logic;
+		  signal s_timeCook, s_timeHeat				  			  : std_logic_vector(4 downto 0);
+		  signal s_temp											     : std_logic_vector(7 downto 0);
 
 begin 
     -- Debouncer for all keys
@@ -55,18 +58,34 @@ begin
             temp_dw_out     => s_tempDown);
 				
 				
+	 -- CLOCK DIVIDER
+	 clkDivider : entity work.ClkDividerN(Behavioral)
+    generic map (divFactor => 50_000_000)
+    port map (clkIn => CLOCK_50,
+              clkOut => s_1Hz);
+				  
+				  
+	 -- PROGRAM SELECTOR
+	 progamSelector : entity work.ProgramSelector(Behavioral)
+	 port map(clk				=> CLOCK_50,
+				 input			=> SW(6 downto 4),
+				  ps_temp 		=> s_temp,
+				  ps_timeCook 	=> s_timeCook,
+				  ps_timeHeat 	=> s_timeHeat);
+				
+				
 	 -- TEMPERATURA
     TemperatureController : entity work.TemperatureController(Behavioral)
     port map(clk            => CLOCK_50,
-             startingTemp    => "01100100", -- temperatura do programa selecionado
-             estado         => '0',    -- estar aberto ou fechado (a cuba)
-             program       => "001",
+             startingTemp   => "01100100", -- temperatura do programa selecionado
+             estado         => '0',    	 -- estar aberto ou fechado (a cuba)
+             program        => "001",
              tempUp         => s_tempUp,
              tempDown       => s_tempDown,
              enable         => SW(0),
              run        	 => SW(1),
-             tempUnits   => s_temp_Uni,
-             tempDozens    => s_temp_Doz,
+             tempUnits      => s_temp_Uni,
+             tempDozens     => s_temp_Doz,
              tempHundreds   => s_temp_Cen);
 				 
 				 
@@ -88,7 +107,7 @@ begin
              timeDozens    => s_time_Doz,
 				 ledSignal		=> LEDR(8));
 
-				 
+	 -- DISPLAYS CONTROLLER
     DisplaysController : entity work.DisplaysController(Behavioral)
     port map(enable 			  => SW(0),
 	          tempUnits       => s_temp_Uni,
