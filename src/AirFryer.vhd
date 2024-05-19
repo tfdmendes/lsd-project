@@ -79,6 +79,7 @@ begin
 				 
              estado         => '0',    -- estar aberto ou fechado (a cuba)
              program       => "001",
+             fastCooler  => SW(7),
 				 heatOrCook		=> SW(8),
              timeUp         => s_timeUp,
              timeDown       => s_timeDown,
