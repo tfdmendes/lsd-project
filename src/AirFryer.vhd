@@ -77,13 +77,15 @@ begin
 	 -- TEMPERATURA
     TemperatureController : entity work.TemperatureController(Behavioral)
     port map(clk            => CLOCK_50,
+				 clkEnable		 => s_1Hz,
              startingTemp   => "01100100", -- temperatura do programa selecionado
+             enable         => SW(0),
+             run        	 => SW(1),
              estado         => '0',    	 -- estar aberto ou fechado (a cuba)
+				 fastCooler		 => SW(8),
              program        => "001",
              tempUp         => s_tempUp,
              tempDown       => s_tempDown,
-             enable         => SW(0),
-             run        	 => SW(1),
              tempUnits      => s_temp_Uni,
              tempDozens     => s_temp_Doz,
              tempHundreds   => s_temp_Cen);

@@ -5,13 +5,15 @@ use IEEE.NUMERIC_STD.all;
 entity TemperatureController is
     Port(
         clk         : in std_logic;
+		  clkEnable		: in std_logic;
         startingTemp : in std_logic_vector(7 downto 0); -- temperatura do program selecionado
+        enable      : in std_logic;
+        run         : in std_logic; -- se esta a trabalhar
         estado      : in std_logic;     -- estar aberto ou fechado (a cuba)
+        fastCooler   : in std_logic;
         program    : in std_logic_vector(2 downto 0);
         tempUp      : in std_logic;
         tempDown    : in std_logic;
-        enable      : in std_logic;
-        run         : in std_logic; -- se esta a trabalhar
         tempUnits : out std_logic_vector(3 downto 0);
         tempDozens  : out std_logic_vector(3 downto 0);
         tempHundreds : out std_logic_vector(3 downto 0)

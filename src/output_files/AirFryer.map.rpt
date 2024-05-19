@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AirFryer
-Sun May 19 18:01:44 2024
+Sun May 19 18:06:47 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -36,10 +36,9 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
  28. Port Connectivity Checks: "TimeController:TimeController"
  29. Port Connectivity Checks: "TemperatureController:TemperatureController"
  30. Port Connectivity Checks: "ProgramSelector:progamSelector"
- 31. Port Connectivity Checks: "ClkDividerN:clkDivider"
- 32. Post-Synthesis Netlist Statistics for Top Partition
- 33. Elapsed Time Per Partition
- 34. Analysis & Synthesis Messages
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -66,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 19 18:01:43 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sun May 19 18:06:47 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; AirFryer                                       ;
 ; Top-level Entity Name              ; AirFryer                                       ;
@@ -743,15 +742,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ClkDividerN:clkDivider"                                                               ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; clkout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -794,7 +784,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun May 19 18:01:24 2024
+    Info: Processing started: Sun May 19 18:06:27 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AirFryer -c AirFryer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -817,7 +807,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file AirFrye
     Info (12022): Found design unit 1: AirFryer-Demo File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 38
     Info (12023): Found entity 1: AirFryer File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file TemperatureController.vhd
-    Info (12022): Found design unit 1: TemperatureController-Behavioral File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 21
+    Info (12022): Found design unit 1: TemperatureController-Behavioral File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 23
     Info (12023): Found entity 1: TemperatureController File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 5
 Info (12021): Found 0 design units, including 0 entities, in source file TemperatureController_tb.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file TimeController.vhd
@@ -831,7 +821,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file ClkDivi
     Info (12023): Found entity 1: ClkDividerN File: /home/tiago/Documents/lsd-project/src/ClkDividerN.vhd Line: 4
 Info (12127): Elaborating entity "AirFryer" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at AirFryer.vhd(29): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-Warning (10036): Verilog HDL or VHDL warning at AirFryer.vhd(43): object "s_1Hz" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 43
 Warning (10036): Verilog HDL or VHDL warning at AirFryer.vhd(44): object "s_timeCook" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 44
 Warning (10036): Verilog HDL or VHDL warning at AirFryer.vhd(44): object "s_timeHeat" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 44
 Warning (10036): Verilog HDL or VHDL warning at AirFryer.vhd(45): object "s_temp" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 45
@@ -839,32 +828,32 @@ Warning (10873): Using initial value X (don't care) for net "LEDR[7..0]" at AirF
 Info (12129): Elaborating entity "DebounceUnits" using architecture "A:behavioral" for hierarchy "DebounceUnits:keys_debounce" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 49
 Info (12129): Elaborating entity "Debouncer" using architecture "A:behavioral" for hierarchy "DebounceUnits:keys_debounce|Debouncer:time_up_debouncer" File: /home/tiago/Documents/lsd-project/src/DebounceUnits.vhd Line: 24
 Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDivider" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 62
-Info (12129): Elaborating entity "ProgramSelector" using architecture "A:behavioral" for hierarchy "ProgramSelector:progamSelector" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 70
-Info (12129): Elaborating entity "TemperatureController" using architecture "A:behavioral" for hierarchy "TemperatureController:TemperatureController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 79
-Warning (10540): VHDL Signal Declaration warning at TemperatureController.vhd(22): used explicit default value for signal "tempMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 22
-Warning (10540): VHDL Signal Declaration warning at TemperatureController.vhd(23): used explicit default value for signal "tempMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 23
-Info (12129): Elaborating entity "TimeController" using architecture "A:behavioral" for hierarchy "TimeController:TimeController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 95
+Info (12129): Elaborating entity "ProgramSelector" using architecture "A:behavioral" for hierarchy "ProgramSelector:progamSelector" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 69
+Info (12129): Elaborating entity "TemperatureController" using architecture "A:behavioral" for hierarchy "TemperatureController:TemperatureController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 78
+Warning (10540): VHDL Signal Declaration warning at TemperatureController.vhd(24): used explicit default value for signal "tempMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 24
+Warning (10540): VHDL Signal Declaration warning at TemperatureController.vhd(25): used explicit default value for signal "tempMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 25
+Info (12129): Elaborating entity "TimeController" using architecture "A:behavioral" for hierarchy "TimeController:TimeController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 96
 Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(27): used explicit default value for signal "timeCookMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 27
 Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(28): used explicit default value for signal "timeCookMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 28
 Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(31): used explicit default value for signal "timePreHeatMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 31
 Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(32): used explicit default value for signal "timePreHeatMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 32
-Info (12129): Elaborating entity "DisplaysController" using architecture "A:behavioral" for hierarchy "DisplaysController:DisplaysController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 112
+Info (12129): Elaborating entity "DisplaysController" using architecture "A:behavioral" for hierarchy "DisplaysController:DisplaysController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 113
 Warning (10036): Verilog HDL or VHDL warning at DisplaysController.vhd(21): object "teste" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/DisplaysController.vhd Line: 21
 Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura" File: /home/tiago/Documents/lsd-project/src/DisplaysController.vhd Line: 24
 Info (278001): Inferred 11 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 57
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 57
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 56
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 56
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 60
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod3" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 88
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 84
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 87
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod2" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 87
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div0" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 83
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod0" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 83
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod2" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
+Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 60
+Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod2" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 60
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -882,8 +871,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_8pc File: /home/tiago/Documents/lsd-project/src/db/add_sub_8pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
     Info (12023): Found entity 1: lpm_abs_i0a File: /home/tiago/Documents/lsd-project/src/db/lpm_abs_i0a.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 57
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 57
+Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
+Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -897,15 +886,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_67f File: /home/tiago/Documents/lsd-project/src/db/alt_u_div_67f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
     Info (12023): Found entity 1: lpm_abs_2v9 File: /home/tiago/Documents/lsd-project/src/db/lpm_abs_2v9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 57
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 57
+Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
+Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 56
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div0" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 56
+Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
+Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div0" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -959,9 +948,9 @@ Info (21057): Implemented 13685 device resources after synthesis - the final res
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 52 output pins
     Info (21061): Implemented 13619 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
-    Info: Peak virtual memory: 553 megabytes
-    Info: Processing ended: Sun May 19 18:01:44 2024
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
+    Info: Peak virtual memory: 541 megabytes
+    Info: Processing ended: Sun May 19 18:06:47 2024
     Info: Elapsed time: 00:00:20
     Info: Total CPU time (on all processors): 00:00:29
 
