@@ -1,5 +1,5 @@
 Fitter report for AirFryer
-Mon May 20 16:24:40 2024
+Mon May 20 18:09:07 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -39,8 +39,10 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
  31. I/O Rules Matrix
  32. Fitter Device Options
  33. Operating Settings and Conditions
- 34. Fitter Messages
- 35. Fitter Suppressed Messages
+ 34. Estimated Delay Added for Hold Timing Summary
+ 35. Estimated Delay Added for Hold Timing Details
+ 36. Fitter Messages
+ 37. Fitter Suppressed Messages
 
 
 
@@ -67,17 +69,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Mon May 20 16:24:40 2024          ;
+; Fitter Status                      ; Successful - Mon May 20 18:09:07 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; AirFryer                                       ;
 ; Top-level Entity Name              ; AirFryer                                       ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE115F29C7                                  ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 17,687 / 114,480 ( 15 % )                      ;
-;     Total combinational functions  ; 17,650 / 114,480 ( 15 % )                      ;
-;     Dedicated logic registers      ; 237 / 114,480 ( < 1 % )                        ;
-; Total registers                    ; 237                                            ;
+; Total logic elements               ; 17,760 / 114,480 ( 16 % )                      ;
+;     Total combinational functions  ; 17,699 / 114,480 ( 15 % )                      ;
+;     Dedicated logic registers      ; 235 / 114,480 ( < 1 % )                        ;
+; Total registers                    ; 235                                            ;
 ; Total pins                         ; 66 / 529 ( 12 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                          ;
@@ -154,16 +156,16 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.05        ;
+; Average used               ; 1.06        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.0%      ;
-;     Processor 3            ;   1.0%      ;
-;     Processor 4            ;   1.0%      ;
-;     Processor 5            ;   1.0%      ;
-;     Processor 6            ;   1.0%      ;
+;     Processor 2            ;   1.2%      ;
+;     Processor 3            ;   1.2%      ;
+;     Processor 4            ;   1.2%      ;
+;     Processor 5            ;   1.1%      ;
+;     Processor 6            ;   1.1%      ;
 +----------------------------+-------------+
 
 
@@ -634,8 +636,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]        ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+----------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                      ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 18030 ) ; 0.00 % ( 0 / 18030 )       ; 0.00 % ( 0 / 18030 )     ;
-;     -- Achieved     ; 0.00 % ( 0 / 18030 ) ; 0.00 % ( 0 / 18030 )       ; 0.00 % ( 0 / 18030 )     ;
+;     -- Requested    ; 0.00 % ( 0 / 18078 ) ; 0.00 % ( 0 / 18078 )       ; 0.00 % ( 0 / 18078 )     ;
+;     -- Achieved     ; 0.00 % ( 0 / 18078 ) ; 0.00 % ( 0 / 18078 )       ; 0.00 % ( 0 / 18078 )     ;
 ;                     ;                      ;                            ;                          ;
 ; Routing (by net)    ;                      ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )     ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -658,7 +660,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 18020 )  ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 18068 )  ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -674,26 +676,26 @@ The pin-out file can be found in /home/tiago/Documents/lsd-project/src/output_fi
 +---------------------------------------------+---------------------------+
 ; Resource                                    ; Usage                     ;
 +---------------------------------------------+---------------------------+
-; Total logic elements                        ; 17,687 / 114,480 ( 15 % ) ;
-;     -- Combinational with no register       ; 17450                     ;
-;     -- Register only                        ; 37                        ;
-;     -- Combinational with a register        ; 200                       ;
+; Total logic elements                        ; 17,760 / 114,480 ( 16 % ) ;
+;     -- Combinational with no register       ; 17525                     ;
+;     -- Register only                        ; 61                        ;
+;     -- Combinational with a register        ; 174                       ;
 ;                                             ;                           ;
 ; Logic element usage by number of LUT inputs ;                           ;
-;     -- 4 input functions                    ; 5539                      ;
-;     -- 3 input functions                    ; 5753                      ;
-;     -- <=2 input functions                  ; 6358                      ;
-;     -- Register only                        ; 37                        ;
+;     -- 4 input functions                    ; 5556                      ;
+;     -- 3 input functions                    ; 5761                      ;
+;     -- <=2 input functions                  ; 6382                      ;
+;     -- Register only                        ; 61                        ;
 ;                                             ;                           ;
 ; Logic elements by mode                      ;                           ;
-;     -- normal mode                          ; 11778                     ;
+;     -- normal mode                          ; 11827                     ;
 ;     -- arithmetic mode                      ; 5872                      ;
 ;                                             ;                           ;
-; Total registers*                            ; 237 / 117,053 ( < 1 % )   ;
-;     -- Dedicated logic registers            ; 237 / 114,480 ( < 1 % )   ;
+; Total registers*                            ; 235 / 117,053 ( < 1 % )   ;
+;     -- Dedicated logic registers            ; 235 / 114,480 ( < 1 % )   ;
 ;     -- I/O registers                        ; 0 / 2,573 ( 0 % )         ;
 ;                                             ;                           ;
-; Total LABs:  partially or completely used   ; 1,322 / 7,155 ( 18 % )    ;
+; Total LABs:  partially or completely used   ; 1,329 / 7,155 ( 19 % )    ;
 ; Virtual pins                                ; 0                         ;
 ; I/O pins                                    ; 66 / 529 ( 12 % )         ;
 ;     -- Clock pins                           ; 1 / 7 ( 14 % )            ;
@@ -711,11 +713,11 @@ The pin-out file can be found in /home/tiago/Documents/lsd-project/src/output_fi
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )             ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )             ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )             ;
-; Average interconnect usage (total/H/V)      ; 4.0% / 3.6% / 4.6%        ;
-; Peak interconnect usage (total/H/V)         ; 17.3% / 15.7% / 19.7%     ;
-; Maximum fan-out                             ; 256                       ;
-; Highest non-global fan-out                  ; 256                       ;
-; Total fan-out                               ; 52287                     ;
+; Average interconnect usage (total/H/V)      ; 3.9% / 3.4% / 4.8%        ;
+; Peak interconnect usage (total/H/V)         ; 17.6% / 16.0% / 22.2%     ;
+; Maximum fan-out                             ; 258                       ;
+; Highest non-global fan-out                  ; 258                       ;
+; Total fan-out                               ; 52367                     ;
 ; Average fan-out                             ; 2.89                      ;
 +---------------------------------------------+---------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -729,26 +731,26 @@ The pin-out file can be found in /home/tiago/Documents/lsd-project/src/output_fi
 +---------------------------------------------+-------------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                     ; Low                            ;
 ;                                             ;                         ;                                ;
-; Total logic elements                        ; 17687 / 114480 ( 15 % ) ; 0 / 114480 ( 0 % )             ;
-;     -- Combinational with no register       ; 17450                   ; 0                              ;
-;     -- Register only                        ; 37                      ; 0                              ;
-;     -- Combinational with a register        ; 200                     ; 0                              ;
+; Total logic elements                        ; 17760 / 114480 ( 16 % ) ; 0 / 114480 ( 0 % )             ;
+;     -- Combinational with no register       ; 17525                   ; 0                              ;
+;     -- Register only                        ; 61                      ; 0                              ;
+;     -- Combinational with a register        ; 174                     ; 0                              ;
 ;                                             ;                         ;                                ;
 ; Logic element usage by number of LUT inputs ;                         ;                                ;
-;     -- 4 input functions                    ; 5539                    ; 0                              ;
-;     -- 3 input functions                    ; 5753                    ; 0                              ;
-;     -- <=2 input functions                  ; 6358                    ; 0                              ;
-;     -- Register only                        ; 37                      ; 0                              ;
+;     -- 4 input functions                    ; 5556                    ; 0                              ;
+;     -- 3 input functions                    ; 5761                    ; 0                              ;
+;     -- <=2 input functions                  ; 6382                    ; 0                              ;
+;     -- Register only                        ; 61                      ; 0                              ;
 ;                                             ;                         ;                                ;
 ; Logic elements by mode                      ;                         ;                                ;
-;     -- normal mode                          ; 11778                   ; 0                              ;
+;     -- normal mode                          ; 11827                   ; 0                              ;
 ;     -- arithmetic mode                      ; 5872                    ; 0                              ;
 ;                                             ;                         ;                                ;
-; Total registers                             ; 237                     ; 0                              ;
-;     -- Dedicated logic registers            ; 237 / 114480 ( < 1 % )  ; 0 / 114480 ( 0 % )             ;
+; Total registers                             ; 235                     ; 0                              ;
+;     -- Dedicated logic registers            ; 235 / 114480 ( < 1 % )  ; 0 / 114480 ( 0 % )             ;
 ;     -- I/O registers                        ; 0                       ; 0                              ;
 ;                                             ;                         ;                                ;
-; Total LABs:  partially or completely used   ; 1322 / 7155 ( 18 % )    ; 0 / 7155 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 1329 / 7155 ( 19 % )    ; 0 / 7155 ( 0 % )               ;
 ;                                             ;                         ;                                ;
 ; Virtual pins                                ; 0                       ; 0                              ;
 ; I/O pins                                    ; 66                      ; 0                              ;
@@ -764,8 +766,8 @@ The pin-out file can be found in /home/tiago/Documents/lsd-project/src/output_fi
 ;     -- Registered Output Connections        ; 0                       ; 0                              ;
 ;                                             ;                         ;                                ;
 ; Internal Connections                        ;                         ;                                ;
-;     -- Total Connections                    ; 52282                   ; 5                              ;
-;     -- Registered Connections               ; 2323                    ; 0                              ;
+;     -- Total Connections                    ; 52362                   ; 5                              ;
+;     -- Registered Connections               ; 2344                    ; 0                              ;
 ;                                             ;                         ;                                ;
 ; External Connections                        ;                         ;                                ;
 ;     -- Top                                  ; 0                       ; 0                              ;
@@ -797,20 +799,20 @@ The pin-out file can be found in /home/tiago/Documents/lsd-project/src/output_fi
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; CLOCK_50 ; Y2    ; 2        ; 0            ; 36           ; 14           ; 237                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; CLOCK_50 ; Y2    ; 2        ; 0            ; 36           ; 14           ; 235                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[0]   ; M23   ; 6        ; 115          ; 40           ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[1]   ; M21   ; 6        ; 115          ; 53           ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[2]   ; N21   ; 6        ; 115          ; 42           ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[3]   ; R24   ; 5        ; 115          ; 35           ; 21           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; SW[0]    ; AB28  ; 5        ; 115          ; 17           ; 0            ; 51                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; SW[1]    ; AC28  ; 5        ; 115          ; 14           ; 0            ; 71                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; SW[2]    ; AC27  ; 5        ; 115          ; 15           ; 7            ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; SW[0]    ; AB28  ; 5        ; 115          ; 17           ; 0            ; 46                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; SW[1]    ; AC28  ; 5        ; 115          ; 14           ; 0            ; 42                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; SW[2]    ; AC27  ; 5        ; 115          ; 15           ; 7            ; 6                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; SW[3]    ; AD27  ; 5        ; 115          ; 13           ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; SW[4]    ; AB27  ; 5        ; 115          ; 18           ; 7            ; 6                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; SW[5]    ; AC26  ; 5        ; 115          ; 11           ; 7            ; 8                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; SW[6]    ; AD26  ; 5        ; 115          ; 10           ; 0            ; 8                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; SW[7]    ; AB26  ; 5        ; 115          ; 15           ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; SW[8]    ; AC25  ; 5        ; 115          ; 4            ; 21           ; 21                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; SW[8]    ; AC25  ; 5        ; 115          ; 4            ; 21           ; 53                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -1779,18 +1781,18 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +--------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                       ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                                                                                                ; Entity Name           ; Library Name ;
 +--------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |AirFryer                                        ; 17687 (1)   ; 237 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 66   ; 0            ; 17450 (1)    ; 37 (0)            ; 200 (0)          ; |AirFryer                                                                                                                                          ; AirFryer              ; work         ;
-;    |DebounceUnits:keys_debounce|                 ; 60 (0)      ; 28 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 32 (0)       ; 3 (0)             ; 25 (0)           ; |AirFryer|DebounceUnits:keys_debounce                                                                                                              ; DebounceUnits         ; work         ;
+; |AirFryer                                        ; 17760 (0)   ; 235 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 66   ; 0            ; 17525 (0)    ; 61 (0)            ; 174 (0)          ; |AirFryer                                                                                                                                          ; AirFryer              ; work         ;
+;    |DebounceUnits:keys_debounce|                 ; 60 (0)      ; 28 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 32 (0)       ; 4 (0)             ; 24 (0)           ; |AirFryer|DebounceUnits:keys_debounce                                                                                                              ; DebounceUnits         ; work         ;
 ;       |Debouncer:temp_dw_debouncer|              ; 15 (15)     ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 1 (1)             ; 6 (6)            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer                                                                                  ; Debouncer             ; work         ;
 ;       |Debouncer:temp_up_debouncer|              ; 15 (15)     ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 1 (1)             ; 6 (6)            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer                                                                                  ; Debouncer             ; work         ;
 ;       |Debouncer:time_dw_debouncer|              ; 15 (15)     ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 1 (1)             ; 6 (6)            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer                                                                                  ; Debouncer             ; work         ;
-;       |Debouncer:time_up_debouncer|              ; 15 (15)     ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 7 (7)            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_up_debouncer                                                                                  ; Debouncer             ; work         ;
+;       |Debouncer:time_up_debouncer|              ; 15 (15)     ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 1 (1)             ; 6 (6)            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_up_debouncer                                                                                  ; Debouncer             ; work         ;
 ;    |DisplaysController:DisplaysController|       ; 91 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 91 (0)       ; 0 (0)             ; 0 (0)            ; |AirFryer|DisplaysController:DisplaysController                                                                                                    ; DisplaysController    ; work         ;
 ;       |Bin7SegDecoder:bin7SegTemperatura|        ; 53 (53)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 53 (53)      ; 0 (0)             ; 0 (0)            ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura                                                                  ; Bin7SegDecoder        ; work         ;
 ;       |Bin7SegDecoder:bin7SegTime|               ; 38 (38)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 38 (38)      ; 0 (0)             ; 0 (0)            ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime                                                                         ; Bin7SegDecoder        ; work         ;
 ;    |ProgramSelector:progamSelector|              ; 12 (12)     ; 12 (12)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 10 (10)          ; |AirFryer|ProgramSelector:progamSelector                                                                                                           ; ProgramSelector       ; work         ;
-;    |TemperatureController:TemperatureController| ; 6172 (357)  ; 98 (64)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 6074 (292)   ; 0 (0)             ; 98 (65)          ; |AirFryer|TemperatureController:TemperatureController                                                                                              ; TemperatureController ; work         ;
-;       |TimerN:timer|                             ; 48 (2)      ; 34 (1)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (1)       ; 0 (0)             ; 34 (1)           ; |AirFryer|TemperatureController:TemperatureController|TimerN:timer                                                                                 ; TimerN                ; work         ;
+;    |TemperatureController:TemperatureController| ; 6179 (364)  ; 98 (64)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 6081 (300)   ; 23 (23)           ; 75 (41)          ; |AirFryer|TemperatureController:TemperatureController                                                                                              ; TemperatureController ; work         ;
+;       |TimerN:timer|                             ; 47 (1)      ; 34 (1)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 13 (0)       ; 0 (0)             ; 34 (1)           ; |AirFryer|TemperatureController:TemperatureController|TimerN:timer                                                                                 ; TimerN                ; work         ;
 ;          |PulseGen:pulseGen|                     ; 46 (46)     ; 33 (33)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 13 (13)      ; 0 (0)             ; 33 (33)          ; |AirFryer|TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen                                                               ; PulseGen              ; work         ;
 ;       |lpm_divide:Div0|                          ; 685 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 685 (0)      ; 0 (0)             ; 0 (0)            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div0                                                                              ; lpm_divide            ; work         ;
 ;          |lpm_divide_s0p:auto_generated|         ; 685 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 685 (0)      ; 0 (0)             ; 0 (0)            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div0|lpm_divide_s0p:auto_generated                                                ; lpm_divide_s0p        ; work         ;
@@ -1817,7 +1819,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;             |abs_divider_4dg:divider|            ; 1518 (6)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1518 (6)     ; 0 (0)             ; 0 (0)            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg       ; work         ;
 ;                |alt_u_div_6af:divider|           ; 1508 (1508) ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1508 (1508)  ; 0 (0)             ; 0 (0)            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af         ; work         ;
 ;                |lpm_abs_i0a:my_abs_num|          ; 4 (4)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a           ; work         ;
-;    |TimeController:TimeController|               ; 11353 (519) ; 99 (99)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 11252 (419)  ; 32 (32)           ; 69 (68)          ; |AirFryer|TimeController:TimeController                                                                                                            ; TimeController        ; work         ;
+;    |TimeController:TimeController|               ; 11419 (585) ; 97 (97)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 11321 (487)  ; 32 (32)           ; 66 (66)          ; |AirFryer|TimeController:TimeController                                                                                                            ; TimeController        ; work         ;
 ;       |lpm_divide:Div0|                          ; 557 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 557 (0)      ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0                                                                                            ; lpm_divide            ; work         ;
 ;          |lpm_divide_p0p:auto_generated|         ; 557 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 557 (0)      ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0|lpm_divide_p0p:auto_generated                                                              ; lpm_divide_p0p        ; work         ;
 ;             |abs_divider_kbg:divider|            ; 557 (64)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 557 (64)     ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                                      ; abs_divider_kbg       ; work         ;
@@ -1858,10 +1860,10 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;             |abs_divider_4dg:divider|            ; 1541 (6)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1541 (6)     ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod4|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                                      ; abs_divider_4dg       ; work         ;
 ;                |alt_u_div_6af:divider|           ; 1498 (1498) ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1498 (1498)  ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod4|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider                ; alt_u_div_6af         ; work         ;
 ;                |lpm_abs_i0a:my_abs_num|          ; 37 (37)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 37 (37)      ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod4|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Mod5|                          ; 1519 (0)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1518 (0)     ; 0 (0)             ; 1 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5                                                                                            ; lpm_divide            ; work         ;
-;          |lpm_divide_cqo:auto_generated|         ; 1519 (0)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1518 (0)     ; 0 (0)             ; 1 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5|lpm_divide_cqo:auto_generated                                                              ; lpm_divide_cqo        ; work         ;
-;             |abs_divider_4dg:divider|            ; 1519 (5)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1518 (5)     ; 0 (0)             ; 1 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                                      ; abs_divider_4dg       ; work         ;
-;                |alt_u_div_6af:divider|           ; 1510 (1510) ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1509 (1509)  ; 0 (0)             ; 1 (1)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider                ; alt_u_div_6af         ; work         ;
+;       |lpm_divide:Mod5|                          ; 1519 (0)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1519 (0)     ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5                                                                                            ; lpm_divide            ; work         ;
+;          |lpm_divide_cqo:auto_generated|         ; 1519 (0)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1519 (0)     ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5|lpm_divide_cqo:auto_generated                                                              ; lpm_divide_cqo        ; work         ;
+;             |abs_divider_4dg:divider|            ; 1519 (5)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1519 (5)     ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                                      ; abs_divider_4dg       ; work         ;
+;                |alt_u_div_6af:divider|           ; 1510 (1510) ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1510 (1510)  ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider                ; alt_u_div_6af         ; work         ;
 ;                |lpm_abs_i0a:my_abs_num|          ; 4 (4)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
 +--------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -1927,12 +1929,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HEX5[5]  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; HEX5[6]  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; SW[0]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
-; SW[8]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
-; SW[1]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
+; SW[8]    ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; SW[1]    ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
 ; CLOCK_50 ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; SW[2]    ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
-; SW[4]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
-; SW[5]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
+; SW[2]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
+; SW[4]    ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; SW[5]    ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
 ; SW[6]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; KEY[2]   ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; KEY[3]   ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
@@ -1951,7 +1953,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SW[0]                                                                                         ;                   ;         ;
 ;      - TemperatureController:TemperatureController|tempRun                                    ; 0                 ; 6       ;
 ;      - TemperatureController:TemperatureController|TimerN:timer|timerOut                      ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeRun                                                  ; 0                 ; 6       ;
 ;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura|decOut_u[0]~1  ; 0                 ; 6       ;
 ;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura|decOut_u~3     ; 0                 ; 6       ;
 ;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura|decOut_u[2]~5  ; 0                 ; 6       ;
@@ -1989,131 +1990,134 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[4]~10        ; 0                 ; 6       ;
 ;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[5]~13        ; 0                 ; 6       ;
 ;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[6]~14        ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeCookShown[28]~34                                     ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[31]~12                           ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[1]~19                            ; 0                 ; 6       ;
-;      - TimeController:TimeController|timePreHeatShown[31]~108                                 ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeTotalShown[31]~106                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeInitialized~2                                        ; 0                 ; 6       ;
+;      - TimeController:TimeController|timeCookShown[28]~4                                      ; 0                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[31]~35                           ; 0                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[1]~44                            ; 0                 ; 6       ;
+;      - TimeController:TimeController|timeTotalShown[31]~96                                    ; 0                 ; 6       ;
 ;      - TemperatureController:TemperatureController|tempInitialized~0                          ; 0                 ; 6       ;
 ;      - TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen|pulse~0     ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen|count[4]~35 ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeCookShown[31]~104                                    ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeInitialized~3                                        ; 0                 ; 6       ;
+;      - TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen|count[5]~35 ; 0                 ; 6       ;
 ; SW[8]                                                                                         ;                   ;         ;
-;      - TimeController:TimeController|Add9~2                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add9~5                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[3]~6                                           ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[3]~13                                          ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits~17                                             ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits~18                                             ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[0]~20                                          ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[0]~21                                          ; 0                 ; 6       ;
-;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[4]~0         ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add7~0                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[3]~13                                         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[3]~14                                         ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add7~4                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add7~5                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[3]~17                                         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[3]~20                                         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens~24                                            ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens~25                                            ; 0                 ; 6       ;
-;      - TimeController:TimeController|ledSignal~0                                              ; 0                 ; 6       ;
-;      - TimeController:TimeController|timePreHeatShown[31]~107                                 ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeCookShown[31]~104                                    ; 0                 ; 6       ;
+;      - TimeController:TimeController|Add9~2                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|Add9~5                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[3]~6                                           ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[3]~13                                          ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits~17                                             ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits~18                                             ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[0]~20                                          ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[0]~21                                          ; 1                 ; 6       ;
+;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[4]~0         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[2]~10                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[2]~11                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[2]~13                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[2]~14                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|Add7~0                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[2]~19                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[3]~24                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens~28                                            ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens~29                                            ; 1                 ; 6       ;
+;      - TimeController:TimeController|ledSignal~0                                              ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown[18]~44                                  ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown[31]~46                                  ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~47                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~51                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~52                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~53                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~54                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~55                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~56                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~57                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~58                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeCookShown[16]~6                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeCookShown[31]~8                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~59                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~60                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~61                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~62                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~63                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~64                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~65                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~66                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~67                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~68                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~69                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~70                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~71                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~72                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~73                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~74                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~75                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~76                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~77                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~78                                      ; 1                 ; 6       ;
+;      - TimeController:TimeController|timePreHeatShown~79                                      ; 1                 ; 6       ;
 ; SW[1]                                                                                         ;                   ;         ;
-;      - TemperatureController:TemperatureController|tempRun                                    ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeRun                                                  ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add9~2                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add9~4                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add9~5                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add9~6                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[3]~6                                           ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[3]~9                                           ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[3]~13                                          ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[3]~15                                          ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[1]~19                                          ; 0                 ; 6       ;
-;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_u[4]~0         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeUnits[0]~22                                          ; 0                 ; 6       ;
-;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_u[2]~8         ; 0                 ; 6       ;
-;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_u[4]~13        ; 0                 ; 6       ;
-;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[4]~0         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[0]~12                                         ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add7~0                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add7~1                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|Add7~7                                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[3]~19                                         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[3]~20                                         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[3]~21                                         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeDozens[1]~26                                         ; 0                 ; 6       ;
-;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[4]~8         ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeCookShown[28]~34                                     ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[3]~3                             ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[24]~4                            ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~5                                ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~6                                ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~7                                ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~8                                ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[31]~12                           ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~16                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~18                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[3]~20                            ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[3]~21                            ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[3]~22                            ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown[3]~25                            ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~36                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~38                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~40                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~42                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~44                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~46                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~48                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~50                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~52                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~54                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~56                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~58                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~60                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~62                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~64                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~66                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~68                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~70                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~72                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~74                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~76                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~78                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~80                               ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~82                               ; 0                 ; 6       ;
-;      - TimeController:TimeController|timePreHeatShown[31]~108                                 ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeTotalShown[31]~107                                   ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeInitialized~2                                        ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempInitialized~0                          ; 0                 ; 6       ;
-;      - TemperatureController:TemperatureController|TimerN:timer|timerOut~0                    ; 0                 ; 6       ;
-;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|Equal17~2             ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeCookShown[31]~104                                    ; 0                 ; 6       ;
-;      - TimeController:TimeController|timeInitialized~3                                        ; 0                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempRun                                    ; 1                 ; 6       ;
+;      - TimeController:TimeController|Add9~2                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|Add9~4                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|Add9~5                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|Add9~6                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[3]~6                                           ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[3]~9                                           ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[3]~13                                          ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[3]~15                                          ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[1]~19                                          ; 1                 ; 6       ;
+;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_u[4]~0         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeUnits[0]~22                                          ; 1                 ; 6       ;
+;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_u[2]~8         ; 1                 ; 6       ;
+;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_u[4]~13        ; 1                 ; 6       ;
+;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[4]~0         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[0]~8                                          ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[2]~16                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|Add7~0                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|Add7~1                                                   ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[2]~19                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[2]~20                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[3]~26                                         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeDozens[1]~30                                         ; 1                 ; 6       ;
+;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[4]~8         ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeCookShown[28]~4                                      ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[21]~26                           ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[31]~27                           ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[21]~28                           ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[21]~31                           ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[31]~35                           ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown~39                               ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown~43                               ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[2]~45                            ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[2]~46                            ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[2]~47                            ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[2]~48                            ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown~59                               ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown~60                               ; 1                 ; 6       ;
+;      - TimeController:TimeController|timeTotalShown[31]~97                                    ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempInitialized~0                          ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|TimerN:timer|timerOut~0                    ; 1                 ; 6       ;
+;      - DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|Equal17~2             ; 1                 ; 6       ;
 ; CLOCK_50                                                                                      ;                   ;         ;
 ; SW[2]                                                                                         ;                   ;         ;
-;      - TemperatureController:TemperatureController|process_0~0                                ; 1                 ; 6       ;
-;      - TemperatureController:TemperatureController|tempShown~84                               ; 1                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[21]~25                           ; 0                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[21]~30                           ; 0                 ; 6       ;
+;      - TemperatureController:TemperatureController|process_0~18                               ; 0                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown[31]~33                           ; 0                 ; 6       ;
+;      - TemperatureController:TemperatureController|tempShown~41                               ; 0                 ; 6       ;
+;      - TimeController:TimeController|timeTotalShown[31]~97                                    ; 0                 ; 6       ;
 ; SW[4]                                                                                         ;                   ;         ;
-;      - ProgramSelector:progamSelector|Mux2~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux0~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux8~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux7~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux6~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|ps_programChosen[0]~feeder                              ; 0                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux2~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux0~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux8~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux7~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux6~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|ps_programChosen[0]~feeder                              ; 1                 ; 6       ;
 ; SW[5]                                                                                         ;                   ;         ;
-;      - ProgramSelector:progamSelector|ps_programChosen[1]                                     ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux4~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux2~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux0~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux5~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux8~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux7~0                                                  ; 0                 ; 6       ;
-;      - ProgramSelector:progamSelector|Mux6~0                                                  ; 0                 ; 6       ;
+;      - ProgramSelector:progamSelector|ps_programChosen[1]                                     ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux4~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux2~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux0~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux5~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux8~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux7~0                                                  ; 1                 ; 6       ;
+;      - ProgramSelector:progamSelector|Mux6~0                                                  ; 1                 ; 6       ;
 ; SW[6]                                                                                         ;                   ;         ;
 ;      - ProgramSelector:progamSelector|ps_programChosen[2]                                     ; 0                 ; 6       ;
 ;      - ProgramSelector:progamSelector|Mux4~0                                                  ; 0                 ; 6       ;
@@ -2139,17 +2143,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 ; Name                                                                                   ; Location           ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                                                                               ; PIN_Y2             ; 237     ; Clock                     ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; SW[0]                                                                                  ; PIN_AB28           ; 51      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; SW[1]                                                                                  ; PIN_AC28           ; 71      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen|count[4]~35 ; LCCOMB_X96_Y29_N4  ; 32      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; TemperatureController:TemperatureController|tempShown[31]~12                           ; LCCOMB_X89_Y33_N6  ; 30      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; TimeController:TimeController|timeCookShown[21]~35                                     ; LCCOMB_X79_Y37_N8  ; 67      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; TimeController:TimeController|timeCookShown[28]~34                                     ; LCCOMB_X66_Y37_N30 ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; TimeController:TimeController|timeCookShown[31]~103                                    ; LCCOMB_X66_Y36_N0  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; TimeController:TimeController|timePreHeatShown[31]~108                                 ; LCCOMB_X62_Y38_N8  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; TimeController:TimeController|timeRun                                                  ; FF_X66_Y37_N7      ; 36      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; TimeController:TimeController|timeTotalShown[31]~107                                   ; LCCOMB_X66_Y40_N4  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; CLOCK_50                                                                               ; PIN_Y2             ; 235     ; Clock                     ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; SW[0]                                                                                  ; PIN_AB28           ; 46      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
+; SW[1]                                                                                  ; PIN_AC28           ; 42      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen|count[5]~35 ; LCCOMB_X83_Y29_N4  ; 32      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; TemperatureController:TemperatureController|tempRun                                    ; FF_X81_Y36_N5      ; 44      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; TemperatureController:TemperatureController|tempShown[21]~31                           ; LCCOMB_X83_Y34_N18 ; 26      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; TemperatureController:TemperatureController|tempShown[31]~35                           ; LCCOMB_X82_Y34_N30 ; 30      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; TimeController:TimeController|timeCookShown[28]~4                                      ; LCCOMB_X81_Y36_N20 ; 34      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; TimeController:TimeController|timeCookShown[31]~8                                      ; LCCOMB_X59_Y42_N8  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; TimeController:TimeController|timePreHeatShown[31]~46                                  ; LCCOMB_X54_Y47_N6  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; TimeController:TimeController|timeTotalShown[31]~108                                   ; LCCOMB_X55_Y30_N2  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
 +----------------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -2158,7 +2162,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name     ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; CLOCK_50 ; PIN_Y2   ; 237     ; 21                                   ; Global Clock         ; GCLK4            ; --                        ;
+; CLOCK_50 ; PIN_Y2   ; 235     ; 28                                   ; Global Clock         ; GCLK4            ; --                        ;
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -2167,163 +2171,159 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+--------------------------+
 ; Routing Resource Type ; Usage                    ;
 +-----------------------+--------------------------+
-; Block interconnects   ; 22,759 / 342,891 ( 7 % ) ;
-; C16 interconnects     ; 97 / 10,120 ( < 1 % )    ;
-; C4 interconnects      ; 10,435 / 209,544 ( 5 % ) ;
-; Direct links          ; 5,075 / 342,891 ( 1 % )  ;
+; Block interconnects   ; 22,710 / 342,891 ( 7 % ) ;
+; C16 interconnects     ; 96 / 10,120 ( < 1 % )    ;
+; C4 interconnects      ; 10,839 / 209,544 ( 5 % ) ;
+; Direct links          ; 4,909 / 342,891 ( 1 % )  ;
 ; Global clocks         ; 1 / 20 ( 5 % )           ;
-; Local interconnects   ; 3,963 / 119,088 ( 3 % )  ;
-; R24 interconnects     ; 180 / 9,963 ( 2 % )      ;
-; R4 interconnects      ; 10,884 / 289,782 ( 4 % ) ;
+; Local interconnects   ; 4,057 / 119,088 ( 3 % )  ;
+; R24 interconnects     ; 126 / 9,963 ( 1 % )      ;
+; R4 interconnects      ; 10,488 / 289,782 ( 4 % ) ;
 +-----------------------+--------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Logic Elements                                                           ;
 +---------------------------------------------+--------------------------------+
-; Number of Logic Elements  (Average = 13.38) ; Number of LABs  (Total = 1322) ;
+; Number of Logic Elements  (Average = 13.36) ; Number of LABs  (Total = 1329) ;
 +---------------------------------------------+--------------------------------+
-; 1                                           ; 80                             ;
-; 2                                           ; 38                             ;
-; 3                                           ; 19                             ;
-; 4                                           ; 13                             ;
+; 1                                           ; 78                             ;
+; 2                                           ; 37                             ;
+; 3                                           ; 25                             ;
+; 4                                           ; 23                             ;
 ; 5                                           ; 9                              ;
-; 6                                           ; 17                             ;
-; 7                                           ; 10                             ;
-; 8                                           ; 8                              ;
+; 6                                           ; 5                              ;
+; 7                                           ; 6                              ;
+; 8                                           ; 15                             ;
 ; 9                                           ; 14                             ;
-; 10                                          ; 24                             ;
-; 11                                          ; 24                             ;
-; 12                                          ; 35                             ;
-; 13                                          ; 53                             ;
-; 14                                          ; 66                             ;
-; 15                                          ; 114                            ;
-; 16                                          ; 798                            ;
+; 10                                          ; 15                             ;
+; 11                                          ; 20                             ;
+; 12                                          ; 36                             ;
+; 13                                          ; 47                             ;
+; 14                                          ; 99                             ;
+; 15                                          ; 121                            ;
+; 16                                          ; 779                            ;
 +---------------------------------------------+--------------------------------+
 
 
 +---------------------------------------------------------------------+
 ; LAB-wide Signals                                                    ;
 +------------------------------------+--------------------------------+
-; LAB-wide Signals  (Average = 0.05) ; Number of LABs  (Total = 1322) ;
+; LAB-wide Signals  (Average = 0.05) ; Number of LABs  (Total = 1329) ;
 +------------------------------------+--------------------------------+
-; 1 Clock                            ; 33                             ;
-; 1 Clock enable                     ; 16                             ;
+; 1 Clock                            ; 38                             ;
+; 1 Clock enable                     ; 20                             ;
 ; 1 Sync. clear                      ; 3                              ;
 ; 1 Sync. load                       ; 12                             ;
-; 2 Clock enables                    ; 1                              ;
 +------------------------------------+--------------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                           ;
 +----------------------------------------------+--------------------------------+
-; Number of Signals Sourced  (Average = 13.23) ; Number of LABs  (Total = 1322) ;
+; Number of Signals Sourced  (Average = 13.21) ; Number of LABs  (Total = 1329) ;
 +----------------------------------------------+--------------------------------+
 ; 0                                            ; 0                              ;
 ; 1                                            ; 86                             ;
-; 2                                            ; 41                             ;
-; 3                                            ; 27                             ;
-; 4                                            ; 13                             ;
-; 5                                            ; 9                              ;
-; 6                                            ; 19                             ;
-; 7                                            ; 9                              ;
-; 8                                            ; 9                              ;
+; 2                                            ; 37                             ;
+; 3                                            ; 35                             ;
+; 4                                            ; 21                             ;
+; 5                                            ; 10                             ;
+; 6                                            ; 5                              ;
+; 7                                            ; 6                              ;
+; 8                                            ; 15                             ;
 ; 9                                            ; 15                             ;
-; 10                                           ; 26                             ;
-; 11                                           ; 22                             ;
-; 12                                           ; 37                             ;
-; 13                                           ; 52                             ;
-; 14                                           ; 83                             ;
-; 15                                           ; 189                            ;
-; 16                                           ; 661                            ;
-; 17                                           ; 6                              ;
+; 10                                           ; 16                             ;
+; 11                                           ; 21                             ;
+; 12                                           ; 36                             ;
+; 13                                           ; 53                             ;
+; 14                                           ; 115                            ;
+; 15                                           ; 183                            ;
+; 16                                           ; 649                            ;
+; 17                                           ; 2                              ;
 ; 18                                           ; 1                              ;
-; 19                                           ; 0                              ;
-; 20                                           ; 1                              ;
-; 21                                           ; 3                              ;
-; 22                                           ; 4                              ;
-; 23                                           ; 0                              ;
-; 24                                           ; 2                              ;
+; 19                                           ; 2                              ;
+; 20                                           ; 4                              ;
+; 21                                           ; 4                              ;
+; 22                                           ; 5                              ;
+; 23                                           ; 3                              ;
+; 24                                           ; 0                              ;
 ; 25                                           ; 0                              ;
-; 26                                           ; 0                              ;
-; 27                                           ; 0                              ;
-; 28                                           ; 0                              ;
+; 26                                           ; 1                              ;
+; 27                                           ; 1                              ;
+; 28                                           ; 1                              ;
 ; 29                                           ; 0                              ;
-; 30                                           ; 1                              ;
+; 30                                           ; 0                              ;
 ; 31                                           ; 0                              ;
-; 32                                           ; 6                              ;
+; 32                                           ; 2                              ;
 +----------------------------------------------+--------------------------------+
 
 
 +-----------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                           ;
 +--------------------------------------------------+--------------------------------+
-; Number of Signals Sourced Out  (Average = 11.47) ; Number of LABs  (Total = 1322) ;
+; Number of Signals Sourced Out  (Average = 11.40) ; Number of LABs  (Total = 1329) ;
 +--------------------------------------------------+--------------------------------+
-; 0                                                ; 0                              ;
-; 1                                                ; 105                            ;
-; 2                                                ; 44                             ;
-; 3                                                ; 29                             ;
-; 4                                                ; 16                             ;
-; 5                                                ; 10                             ;
-; 6                                                ; 23                             ;
-; 7                                                ; 25                             ;
-; 8                                                ; 47                             ;
-; 9                                                ; 60                             ;
-; 10                                               ; 53                             ;
-; 11                                               ; 54                             ;
-; 12                                               ; 92                             ;
-; 13                                               ; 150                            ;
-; 14                                               ; 158                            ;
-; 15                                               ; 149                            ;
-; 16                                               ; 307                            ;
+; 0                                                ; 1                              ;
+; 1                                                ; 101                            ;
+; 2                                                ; 40                             ;
+; 3                                                ; 38                             ;
+; 4                                                ; 24                             ;
+; 5                                                ; 11                             ;
+; 6                                                ; 11                             ;
+; 7                                                ; 21                             ;
+; 8                                                ; 72                             ;
+; 9                                                ; 54                             ;
+; 10                                               ; 41                             ;
+; 11                                               ; 59                             ;
+; 12                                               ; 98                             ;
+; 13                                               ; 136                            ;
+; 14                                               ; 174                            ;
+; 15                                               ; 173                            ;
+; 16                                               ; 275                            ;
 +--------------------------------------------------+--------------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                           ;
 +----------------------------------------------+--------------------------------+
-; Number of Distinct Inputs  (Average = 16.41) ; Number of LABs  (Total = 1322) ;
+; Number of Distinct Inputs  (Average = 16.28) ; Number of LABs  (Total = 1329) ;
 +----------------------------------------------+--------------------------------+
 ; 0                                            ; 0                              ;
 ; 1                                            ; 0                              ;
-; 2                                            ; 59                             ;
-; 3                                            ; 31                             ;
-; 4                                            ; 32                             ;
-; 5                                            ; 16                             ;
-; 6                                            ; 14                             ;
-; 7                                            ; 19                             ;
-; 8                                            ; 19                             ;
-; 9                                            ; 20                             ;
+; 2                                            ; 62                             ;
+; 3                                            ; 40                             ;
+; 4                                            ; 29                             ;
+; 5                                            ; 20                             ;
+; 6                                            ; 16                             ;
+; 7                                            ; 10                             ;
+; 8                                            ; 14                             ;
+; 9                                            ; 16                             ;
 ; 10                                           ; 38                             ;
-; 11                                           ; 37                             ;
-; 12                                           ; 56                             ;
-; 13                                           ; 70                             ;
-; 14                                           ; 72                             ;
-; 15                                           ; 107                            ;
-; 16                                           ; 129                            ;
-; 17                                           ; 98                             ;
-; 18                                           ; 87                             ;
-; 19                                           ; 48                             ;
-; 20                                           ; 49                             ;
-; 21                                           ; 18                             ;
-; 22                                           ; 48                             ;
-; 23                                           ; 10                             ;
-; 24                                           ; 31                             ;
-; 25                                           ; 17                             ;
-; 26                                           ; 37                             ;
-; 27                                           ; 19                             ;
-; 28                                           ; 30                             ;
+; 11                                           ; 40                             ;
+; 12                                           ; 53                             ;
+; 13                                           ; 76                             ;
+; 14                                           ; 78                             ;
+; 15                                           ; 121                            ;
+; 16                                           ; 124                            ;
+; 17                                           ; 110                            ;
+; 18                                           ; 79                             ;
+; 19                                           ; 34                             ;
+; 20                                           ; 54                             ;
+; 21                                           ; 15                             ;
+; 22                                           ; 40                             ;
+; 23                                           ; 17                             ;
+; 24                                           ; 34                             ;
+; 25                                           ; 12                             ;
+; 26                                           ; 35                             ;
+; 27                                           ; 16                             ;
+; 28                                           ; 37                             ;
 ; 29                                           ; 22                             ;
-; 30                                           ; 30                             ;
-; 31                                           ; 41                             ;
-; 32                                           ; 11                             ;
+; 30                                           ; 36                             ;
+; 31                                           ; 35                             ;
+; 32                                           ; 13                             ;
 ; 33                                           ; 2                              ;
 ; 34                                           ; 1                              ;
-; 35                                           ; 1                              ;
-; 36                                           ; 1                              ;
-; 37                                           ; 2                              ;
 +----------------------------------------------+--------------------------------+
 
 
@@ -2491,6 +2491,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Low Junction Temperature  ; 0 °C   ;
 ; High Junction Temperature ; 85 °C  ;
 +---------------------------+--------+
+
+
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary              ;
++-----------------+----------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
+Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
+This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                                                              ;
++----------------------------------------------------------------------------------+---------------------------------------------------------------------+-------------------+
+; Source Register                                                                  ; Destination Register                                                ; Delay Added in ns ;
++----------------------------------------------------------------------------------+---------------------------------------------------------------------+-------------------+
+; DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer|s_previousIn             ; DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer|s_pulsedOut ; 0.013             ;
+; DebounceUnits:keys_debounce|Debouncer:time_up_debouncer|s_debounceCnt[0]         ; DebounceUnits:keys_debounce|Debouncer:time_up_debouncer|s_pulsedOut ; 0.012             ;
+; DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer|s_debounceCnt[0]         ; DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer|s_pulsedOut ; 0.012             ;
+; TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen|pulse ; TemperatureController:TemperatureController|TimerN:timer|timerOut   ; 0.011             ;
++----------------------------------------------------------------------------------+---------------------------------------------------------------------+-------------------+
+Note: This table only shows the top 4 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -2984,20 +3006,20 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "VGA_R[7]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_SYNC_N" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:09
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:10
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:32
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:34
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 3% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 15% of the available device resources in the region that extends from location X81_Y37 to location X91_Y48
+    Info (170196): Router estimated peak interconnect usage is 16% of the available device resources in the region that extends from location X58_Y37 to location X68_Y48
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:07
-Info (11888): Total time spent on timing analysis during the Fitter is 1.83 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
+Info (11888): Total time spent on timing analysis during the Fitter is 2.04 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -3006,10 +3028,10 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:04
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file /home/tiago/Documents/lsd-project/src/output_files/AirFryer.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 459 warnings
-    Info: Peak virtual memory: 1496 megabytes
-    Info: Processing ended: Mon May 20 16:24:41 2024
-    Info: Elapsed time: 00:01:09
-    Info: Total CPU time (on all processors): 00:03:02
+    Info: Peak virtual memory: 1494 megabytes
+    Info: Processing ended: Mon May 20 18:09:09 2024
+    Info: Elapsed time: 00:01:12
+    Info: Total CPU time (on all processors): 00:03:15
 
 
 +----------------------------+

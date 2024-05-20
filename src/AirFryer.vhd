@@ -97,8 +97,7 @@ begin
     port map(clk            => CLOCK_50,
 				 timeHeat		 => s_timeHeat,
 				 timeCook		 => s_timeCook, 
-				 
-             estado         => '0',    -- estar aberto ou fechado (a cuba)
+             estado         => SW(2),    -- estar aberto ou fechado (a cuba)
              program        => s_programChosen,
 				 heatOrCook		 => SW(8),
              timeUp         => s_timeUp,

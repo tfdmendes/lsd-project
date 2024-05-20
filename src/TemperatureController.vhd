@@ -42,8 +42,8 @@ begin
             if enable = '1' then
                 if run = '0' then
                     if tempInitialized = '0' then
-							   tempShown <= to_integer(unsigned(startingTemp));
-								tempInitialized <= '1';
+                        tempShown <= to_integer(unsigned(startingTemp));
+                        tempInitialized <= '1';
                         tempRun <= '0';
                     end if;
                     -- Se o programa for o USER - pode definir temperatura
@@ -55,9 +55,9 @@ begin
                         end if;
 						  else
 								tempShown <= to_integer(unsigned(startingTemp));
-                    end if;
+						  end if;
                     tempTarget <= tempShown; -- Define a temperatura alvo
-                else
+                elsif run = '1' then
                     -- Quando run é 1, a temperatura inicial é definida como 20°
                     if tempRun = '0' then
                         tempShown <= tempMin;
@@ -66,12 +66,15 @@ begin
                     else
                         if one_sec_pulse = '1' then
                             if tempShown < tempTarget then
-											-- Enquanto estiver RUN ativo, se abrir a CUBA
-											if estado = '1' and tempShown >= tempMin then
-												tempShown <= tempShown - 20;
-											else
-												tempShown <= tempShown + 10;
-											end if;
+                                -- Enquanto estiver RUN ativo, se abrir a CUBA
+                                if estado = '1' and tempShown >= tempMin + 20 then
+                                    tempShown <= tempShown - 20;
+										  -- Para o caso em que começa a temperatura  a diminuir num numero em que as dezenas e impar 
+										  elsif estado = '1' and tempShown = 30 then
+												tempShown <= tempShown - 10;
+                                elsif estado = '0' then
+                                    tempShown <= tempShown + 10;
+                                end if;
                             end if;
                         end if;
                     end if;

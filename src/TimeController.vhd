@@ -6,8 +6,8 @@ entity TimeController is
     Port(
         clk          : in std_logic;
 		  
-		  timeHeat		: in std_logic_vector(4 downto 0); -- tempo de Aquecimento que vira do programa
-		  timeCook		: in std_logic_vector(4 downto 0); -- tempo de Coccao que vira do programa
+        timeHeat	 : in std_logic_vector(4 downto 0); -- tempo de Aquecimento que vira do programa
+        timeCook	 : in std_logic_vector(4 downto 0); -- tempo de Coccao que vira do programa
 		  
         estado       : in std_logic; -- estar aberto ou fechado (a cuba)
         program      : in std_logic_vector(2 downto 0);
@@ -18,32 +18,31 @@ entity TimeController is
         run          : in std_logic;
         timeUnits    : out std_logic_vector(3 downto 0);
         timeDozens   : out std_logic_vector(3 downto 0);
-        ledSignal    : out std_logic
-    );
+        ledSignal    : out std_logic);
 end TimeController;
 
 architecture Behavioral of TimeController is
     -- Sinais de Coccao
-    signal timeCookMin     : INTEGER := 10;
-    signal timeCookMax     : INTEGER := 30;
+    signal timeCookMin      : INTEGER := 10;
+    signal timeCookMax      : INTEGER := 30;
     
     -- Sinais de Pré-aquecimento
-    signal timePreHeatMin  : INTEGER := 0;
-    signal timePreHeatMax  : INTEGER := 10;
+    signal timePreHeatMin   : INTEGER := 0;
+    signal timePreHeatMax   : INTEGER := 10;
     
-	 -- Sinais de mostragem
+	-- Sinais de mostragem
     signal timePreHeatShown : INTEGER := 0;
     signal timeCookShown    : INTEGER := 0;
-	 signal timeTotalShown   : INTEGER := 0;
+	signal timeTotalShown   : INTEGER := 0;
     signal timeInitialized  : std_logic := '0';
-	 signal timeRun          : std_logic := '0';
+	signal timeRun          : std_logic := '0';
 	 
-	 signal one_sec_pulse   : std_logic := '0';
+	signal one_sec_pulse    : std_logic := '0';
 
 begin
 	 -- TIMER
     timer : entity work.TimerN(Behavioral)
-    port map(clk       => clk,
+    port map(clk         => clk,
              reset       => not enable,
              timerEnable => run,
              timerOut    => one_sec_pulse);
@@ -53,48 +52,53 @@ begin
         if rising_edge(clk) then
             if enable = '1' then
                 if run = '0' then
+                    if timeInitialized = '0' then
+                        -- Inicializa os tempos de pré-aquecimento e cozimento
+                        timePreHeatShown <= to_integer(unsigned(timeHeat));
+                        timeCookShown <= to_integer(unsigned(timeCook));
+                        timeInitialized <= '1';
+                        timeRun <= '0';
+                    end if;
+                    -- Se o programa for o USER - pode definir TEMPO
                     if program = "001" then
-                        if timeInitialized = '0' then
-                            -- Inicializa os tempos de pré-aquecimento e cozimento
-                            timePreHeatShown <= to_integer(unsigned(timeHeat));
-                            timeCookShown <= to_integer(unsigned(timeCook));
-                            timeInitialized <= '1';
-									 timeRun <= '0';
+                        -- Editando o tempo de pré-aquecimento
+                        if heatOrCook = '1' then
+                            ledSignal <= '1'; -- LED ligado para sinalizar edição do tempo de pré-aquecimento
+                            if timeUp = '1' and timePreHeatShown < timePreHeatMax then
+                                timePreHeatShown <= timePreHeatShown + 1;
+                            elsif timeDown = '1' and timePreHeatShown > timePreHeatMin then
+                                timePreHeatShown <= timePreHeatShown - 1;
+                            end if;
+                        -- Editando o tempo de cozimento
                         else
-                            -- Editando o tempo de pré-aquecimento
-                            if heatOrCook = '1' then
-                                ledSignal <= '1'; -- LED ligado para sinalizar edição do tempo de pré-aquecimento
-                                if timeUp = '1' and timePreHeatShown < timePreHeatMax then
-                                    timePreHeatShown <= timePreHeatShown + 1;
-                                elsif timeDown = '1' and timePreHeatShown > timePreHeatMin then
-                                    timePreHeatShown <= timePreHeatShown - 1;
-                                end if;
-                            -- Editando o tempo de cozimento
-                            else
-                                ledSignal <= '0'; -- LED desligado para sinalizar edição do tempo de cozimento
-                                if timeUp = '1' and timeCookShown < timeCookMax then
-                                    timeCookShown <= timeCookShown + 1;
-                                elsif timeDown = '1' and timeCookShown > timeCookMin then
-                                    timeCookShown <= timeCookShown - 1;
-                                end if;
+                            ledSignal <= '0'; -- LED desligado para sinalizar edição do tempo de cozimento
+                            if timeUp = '1' and timeCookShown < timeCookMax then
+                                timeCookShown <= timeCookShown + 1;
+                            elsif timeDown = '1' and timeCookShown > timeCookMin then
+                                timeCookShown <= timeCookShown - 1;
                             end if;
                         end if;
-							else
-								timePreHeatShown <= to_integer(unsigned(timeHeat));
-								timeCookShown <= to_integer(unsigned(timeCook));
-                    end if;
-                else
-						  if timeRun = '0' then
-                        timeTotalShown <= timePreHeatShown + timeCookShown;
-                        timeInitialized <= '0'; -- Reset timeInitialized para próxima vez que run for 0
-                        timeRun <= '1';
                     else
-                        if one_sec_pulse = '1' then
-                            if timeTotalShown > 0 then
-                                timeTotalShown <= timeTotalShown - 1;
+                        timePreHeatShown <= to_integer(unsigned(timeHeat));
+                        timeCookShown <= to_integer(unsigned(timeCook));
+                    end if;
+                elsif run = '1' then
+                    if timeRun = '0' then
+                            timeTotalShown <= timePreHeatShown + timeCookShown;
+                            timeInitialized <= '0'; -- Reset timeInitialized para próxima vez que run for 0
+                            timeRun <= '1';
+                    end if;
+                    if estado = '0' then
+                        if timeRun = '1' then
+                            if one_sec_pulse = '1' then
+                                if timeTotalShown > 0 then
+                                    timeTotalShown <= timeTotalShown - 1;
+                                end if;
                             end if;
                         end if;
-                    end if;
+                    else
+                        timeTotalShown <= timeTotalShown;
+					end if;
                 end if;
             end if;
         end if;
