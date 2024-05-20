@@ -1,0 +1,34 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity PulseGen is
+    generic (
+        MAX : integer := 50_000_000  -- Assuming a 50 MHz clock
+    );
+    port (
+        clock : in std_logic;
+        reset : in std_logic;
+        pulse : out std_logic
+    );
+end PulseGen;
+
+architecture Behavioral of PulseGen is
+    signal count : integer := 0;
+begin
+    process(clock, reset)
+    begin
+        if reset = '1' then
+            count <= 0;
+            pulse <= '0';
+        elsif rising_edge(clock) then
+            if count = MAX-1 then
+                count <= 0;
+                pulse <= '1';
+            else
+                count <= count + 1;
+                pulse <= '0';
+            end if;
+        end if;
+    end process;
+end Behavioral;

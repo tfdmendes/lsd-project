@@ -1,7 +1,8 @@
 m255
 K4
 z2
-!s99 nomlopt
+Z0 !s99 nomlopt
+R0
 !s11e vcom 2021.2 2021.04, Apr 14 2021
 13
 !s112 1.1
@@ -9,101 +10,111 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/tiago/Documents/lsd-project/src/simulation/modelsim
+Z1 d/home/tiago/Documents/lsd-project/src/simulation/modelsim
 T_opt
 !s110 1716032804
 VYVHY_<?2W>Y0DAM9:MVVo0
-04 24 10 work temperaturecontroller_tb behavioral 1
+Z2 04 24 10 work temperaturecontroller_tb behavioral 1
 =1-000ae431a4f1-66489524-fe30-c679
-!s124 OEM10U2 
-o-quiet -auto_acc_if_foreign -work work +acc
-tCvgOpt 0
+Z3 !s124 OEM10U2 
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
+Z5 tCvgOpt 0
 n@_opt
-OL;O;2021.2;73
+Z6 OL;O;2021.2;73
+R1
+T_opt1
+!s110 1716141467
+V8Q<BYZSJZEe241:UXf[J21
+R2
+=1-000ae431a4f1-664a3d9b-a3dd5-2a224
+R3
+R4
+R5
+n@_opt1
+R6
 Etemperaturecontroller
-Z1 w1716032726
-Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z7 w1716141130
+Z8 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z9 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z10 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 !i122 0
-R0
-Z5 8/home/tiago/Documents/lsd-project/src/TemperatureController.vhd
-Z6 F/home/tiago/Documents/lsd-project/src/TemperatureController.vhd
+R1
+Z11 8/home/tiago/Documents/lsd-project/src/TemperatureController.vhd
+Z12 F/home/tiago/Documents/lsd-project/src/TemperatureController.vhd
 l0
 L5 1
-VhSd[I57@Mn5TfKKiOH?o`0
-!s100 G3I_VA5nnjbKADWb3<NB20
-Z7 OL;C;2021.2;73
+V2V`l5a1P95kd88G=bbc`e2
+!s100 z5PYSdh^3L]2jRPIz35EW2
+Z13 OL;C;2021.2;73
 31
-Z8 !s110 1716032789
+Z14 !s110 1716141446
 !i10b 1
-Z9 !s108 1716032788.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|/home/tiago/Documents/lsd-project/src/TemperatureController.vhd|
-Z11 !s107 /home/tiago/Documents/lsd-project/src/TemperatureController.vhd|
+Z15 !s108 1716141446.000000
+Z16 !s90 -reportprogress|300|-93|-work|work|/home/tiago/Documents/lsd-project/src/TemperatureController.vhd|
+Z17 !s107 /home/tiago/Documents/lsd-project/src/TemperatureController.vhd|
 !i113 0
-Z12 o-93 -work work
-Z13 tExplicit 1 CvgOpt 0
+Z18 o-93 -work work
+Z19 tExplicit 1 CvgOpt 0
 Abehavioral
-R2
-R3
-R4
-Z14 DEx4 work 21 temperaturecontroller 0 22 hSd[I57@Mn5TfKKiOH?o`0
-!i122 0
-l26
-L21 34
-V=W6Tzj^]jfB2LoQHM;mAQ0
-!s100 UYId^h10KE<8DTDGIA34:0
-R7
-31
 R8
-!i10b 1
 R9
 R10
-R11
-!i113 0
-R12
+DEx4 work 21 temperaturecontroller 0 22 2V`l5a1P95kd88G=bbc`e2
+!i122 0
+l29
+L23 52
+ViQA7D]aMcogcfVj9o3<`k2
+!s100 gSZTC8e=c5GE7;iz_JAP?1
 R13
+31
+R14
+!i10b 1
+R15
+R16
+R17
+!i113 0
+R18
+R19
 Etemperaturecontroller_tb
-Z15 w1716032748
-R2
-R3
-R4
+Z20 w1716141347
+R8
+R9
+R10
 !i122 1
-R0
-Z16 8/home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd
-Z17 F/home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd
+R1
+Z21 8/home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd
+Z22 F/home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd
 l0
 L5 1
 V]RPG>I6MGoZlnO_<D9al10
 !s100 O9]W@d[>>fKZ1cRT]IYBH3
-R7
-32
-Z18 !s110 1716032793
-!i10b 1
-Z19 !s108 1716032792.000000
-Z20 !s90 -reportprogress|300|-work|work|/home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd|
-Z21 !s107 /home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd|
-!i113 0
-Z22 o-work work
 R13
+32
+Z23 !s110 1716141454
+!i10b 1
+Z24 !s108 1716141454.000000
+Z25 !s90 -reportprogress|300|-work|work|/home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd|
+Z26 !s107 /home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd|
+!i113 0
+Z27 o-work work
+R19
 Abehavioral
-R14
-R2
-R3
-R4
+R8
+R9
+R10
 DEx4 work 24 temperaturecontroller_tb 0 22 ]RPG>I6MGoZlnO_<D9al10
 !i122 1
-l26
-L8 84
-VFg?>LKGoajSWd;E;K]2]?0
-!s100 [>@SzSdooLZJI7I9ZEF3o1
-R7
-32
-R18
-!i10b 1
-R19
-R20
-R21
-!i113 0
-R22
+l46
+L8 117
+V<4ViJDFQ44]f9YKiRS]o_0
+!s100 0M4O>X6NgO2:8AonaghBP3
 R13
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 0
+R27
+R19

@@ -21,7 +21,7 @@ entity AirFryer is
     -- Temperature Display: HEX0, HEX1 e HEX2 (código BCD)
     -- Time Display: HEX4 e HEX5 (código BCD)
     -- RefClock: CLOCK_50
-	port(CLOCK_50    : in  std_logic;
+	port(CLOCK_50    	: in  std_logic;
             KEY      : in  std_logic_vector(3 downto 0); 
             SW       : in  std_logic_vector(8 downto 0);
             
@@ -32,7 +32,7 @@ entity AirFryer is
             HEX1     : out std_logic_vector(6 downto 0);
             HEX2     : out std_logic_vector(6 downto 0);
             HEX4     : out std_logic_vector(6 downto 0);
-		    HEX5     : out std_logic_vector(6 downto 0));
+		      HEX5     : out std_logic_vector(6 downto 0));
 end AirFryer;
 
 architecture Demo of AirFryer is 
@@ -43,6 +43,7 @@ architecture Demo of AirFryer is
 		  signal s_1Hz													  : std_logic;
 		  signal s_timeCook, s_timeHeat				  			  : std_logic_vector(4 downto 0);
 		  signal s_temp											     : std_logic_vector(7 downto 0);
+		  signal s_programChosen									  : std_logic_vector(2 downto 0);
 
 begin 
     -- Debouncer for all keys
@@ -61,8 +62,8 @@ begin
 	 -- CLOCK DIVIDER
 	 clkDivider : entity work.ClkDividerN(Behavioral)
     generic map (divFactor => 50_000_000)
-    port map (clkIn => CLOCK_50,
-              clkOut => s_1Hz);
+    port map (clkIn 			=> CLOCK_50,
+              clkOut 		=> s_1Hz);
 				  
 				  
 	 -- PROGRAM SELECTOR
@@ -71,25 +72,24 @@ begin
 				 input			=> SW(6 downto 4),
 				  ps_temp 		=> s_temp,
 				  ps_timeCook 	=> s_timeCook,
-				  ps_timeHeat 	=> s_timeHeat);
+				  ps_timeHeat 	=> s_timeHeat,
+				  ps_programChosen => s_programChosen);
 				
 				
 	 -- TEMPERATURA
     TemperatureController : entity work.TemperatureController(Behavioral)
     port map(clk            => CLOCK_50,
-				 clkEnable		 => s_1Hz,
-             startingTemp   => "01100100", -- temperatura do programa selecionado
+             startingTemp   => s_temp, -- temperatura do programa selecionado
              enable         => SW(0),
              run        	 => SW(1),
-             estado         => '0',    	 -- estar aberto ou fechado (a cuba)
+             estado         => SW(2),    	 -- estar aberto ou fechado (a cuba)
 				 fastCooler		 => SW(8),
-             program        => "001",
+             program        => s_programChosen,
              tempUp         => s_tempUp,
              tempDown       => s_tempDown,
              tempUnits      => s_temp_Uni,
              tempDozens     => s_temp_Doz,
              tempHundreds   => s_temp_Cen);
-				 
 				 
 				 
 	-- TEMPO
@@ -99,30 +99,30 @@ begin
 				 timeCook		 => "00000", -- MUDAR
 				 
              estado         => '0',    -- estar aberto ou fechado (a cuba)
-             program       => "001",
-				 heatOrCook		=> SW(8),
+             program        => "001",
+				 heatOrCook		 => SW(8),
              timeUp         => s_timeUp,
              timeDown       => s_timeDown,
              enable         => SW(0),
              run        	 => SW(1),
-             timeUnits   	=> s_time_Uni,
-             timeDozens    => s_time_Doz,
-				 ledSignal		=> LEDR(8));
+             timeUnits   	 => s_time_Uni,
+             timeDozens     => s_time_Doz,
+				 ledSignal		 => LEDR(8));
 
 	 -- DISPLAYS CONTROLLER
     DisplaysController : entity work.DisplaysController(Behavioral)
-    port map(enable 			  => SW(0),
-	          tempUnits       => s_temp_Uni,
-             tempDozens      => s_temp_Doz,
-             tempHundreds    => s_temp_Cen,
+    port map(enable 			 => SW(0),
+	          tempUnits      => s_temp_Uni,
+             tempDozens     => s_temp_Doz,
+             tempHundreds   => s_temp_Cen,
 				 
-				 timeUnits			=> s_time_Uni,
-				 timeDozens			=> s_time_Doz,
+				 timeUnits		 => s_time_Uni,
+				 timeDozens		 => s_time_Doz,
             
-             s_HEX0          => HEX0,
-             s_HEX1          => HEX1,
-             s_HEX2          => HEX2,
-             s_HEX4          => HEX4,
-             s_HEX5          => HEX5);
+             s_HEX0         => HEX0,
+             s_HEX1         => HEX1,
+             s_HEX2         => HEX2,
+             s_HEX4         => HEX4,
+             s_HEX5         => HEX5);
 
 end Demo;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AirFryer
-Sun May 19 18:06:47 2024
+Mon May 20 14:03:23 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -15,30 +15,9 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
   9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:time_up_debouncer
- 12. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer
- 13. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer
- 14. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer
- 15. Parameter Settings for User Entity Instance: ClkDividerN:clkDivider
- 16. Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Mod2
- 17. Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Div1
- 18. Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Mod1
- 19. Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Div0
- 20. Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Mod0
- 21. Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod3
- 22. Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod1
- 23. Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Div1
- 24. Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod2
- 25. Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Div0
- 26. Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod0
- 27. Port Connectivity Checks: "DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime"
- 28. Port Connectivity Checks: "TimeController:TimeController"
- 29. Port Connectivity Checks: "TemperatureController:TemperatureController"
- 30. Port Connectivity Checks: "ProgramSelector:progamSelector"
- 31. Post-Synthesis Netlist Statistics for Top Partition
- 32. Elapsed Time Per Partition
- 33. Analysis & Synthesis Messages
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -65,16 +44,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 19 18:06:47 2024          ;
+; Analysis & Synthesis Status        ; Successful - Mon May 20 14:03:23 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; AirFryer                                       ;
-; Top-level Entity Name              ; AirFryer                                       ;
+; Top-level Entity Name              ; ProgramSelector                                ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 13,619                                         ;
-;     Total combinational functions  ; 13,615                                         ;
-;     Dedicated logic registers      ; 125                                            ;
-; Total registers                    ; 125                                            ;
-; Total pins                         ; 66                                             ;
+; Total logic elements               ; 18                                             ;
+;     Total combinational functions  ; 13                                             ;
+;     Dedicated logic registers      ; 18                                             ;
+; Total registers                    ; 18                                             ;
+; Total pins                         ; 25                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -88,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; AirFryer           ; AirFryer           ;
+; Top-level entity name                                            ; ProgramSelector    ; AirFryer           ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -177,169 +156,74 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                            ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
-; Debouncer.vhd                    ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/Debouncer.vhd                                     ;         ;
-; DebounceUnits.vhd                ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/DebounceUnits.vhd                                 ;         ;
-; DisplaysController.vhd           ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/DisplaysController.vhd                            ;         ;
-; Bin7SegDecoder.vhd               ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/Bin7SegDecoder.vhd                                ;         ;
-; AirFryer.vhd                     ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/AirFryer.vhd                                      ;         ;
-; TemperatureController.vhd        ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/TemperatureController.vhd                         ;         ;
-; TimeController.vhd               ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/TimeController.vhd                                ;         ;
-; ProgramSelector.vhd              ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd                               ;         ;
-; ClkDividerN.vhd                  ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/ClkDividerN.vhd                                   ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/tiago/.intel_fpga_lite/22.1.2/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/tiago/.intel_fpga_lite/22.1.2/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/tiago/.intel_fpga_lite/22.1.2/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
-; aglobal221.inc                   ; yes             ; Megafunction                 ; /home/tiago/.intel_fpga_lite/22.1.2/quartus/libraries/megafunctions/aglobal221.inc      ;         ;
-; db/lpm_divide_cqo.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/lpm_divide_cqo.tdf                             ;         ;
-; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/abs_divider_4dg.tdf                            ;         ;
-; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/alt_u_div_6af.tdf                              ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/add_sub_7pc.tdf                                ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/add_sub_8pc.tdf                                ;         ;
-; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/lpm_abs_i0a.tdf                                ;         ;
-; db/lpm_divide_p0p.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/lpm_divide_p0p.tdf                             ;         ;
-; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/abs_divider_kbg.tdf                            ;         ;
-; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/alt_u_div_67f.tdf                              ;         ;
-; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/lpm_abs_2v9.tdf                                ;         ;
-; db/lpm_divide_s0p.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/lpm_divide_s0p.tdf                             ;         ;
-; db/abs_divider_nbg.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/abs_divider_nbg.tdf                            ;         ;
-; db/alt_u_div_c7f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/alt_u_div_c7f.tdf                              ;         ;
-; db/lpm_abs_5v9.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Documents/lsd-project/src/db/lpm_abs_5v9.tdf                                ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                              ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
+; ProgramSelector.vhd              ; yes             ; User VHDL File  ; /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                             ;
-+---------------------------------------------+-----------------------------------------------------------+
-; Resource                                    ; Usage                                                     ;
-+---------------------------------------------+-----------------------------------------------------------+
-; Estimated Total logic elements              ; 13,619                                                    ;
-;                                             ;                                                           ;
-; Total combinational functions               ; 13615                                                     ;
-; Logic element usage by number of LUT inputs ;                                                           ;
-;     -- 4 input functions                    ; 4244                                                      ;
-;     -- 3 input functions                    ; 4483                                                      ;
-;     -- <=2 input functions                  ; 4888                                                      ;
-;                                             ;                                                           ;
-; Logic elements by mode                      ;                                                           ;
-;     -- normal mode                          ; 9148                                                      ;
-;     -- arithmetic mode                      ; 4467                                                      ;
-;                                             ;                                                           ;
-; Total registers                             ; 125                                                       ;
-;     -- Dedicated logic registers            ; 125                                                       ;
-;     -- I/O registers                        ; 0                                                         ;
-;                                             ;                                                           ;
-; I/O pins                                    ; 66                                                        ;
-;                                             ;                                                           ;
-; Embedded Multiplier 9-bit elements          ; 0                                                         ;
-;                                             ;                                                           ;
-; Maximum fan-out node                        ; TemperatureController:TemperatureController|tempShown[31] ;
-; Maximum fan-out                             ; 250                                                       ;
-; Total fan-out                               ; 40174                                                     ;
-; Average fan-out                             ; 2.90                                                      ;
-+---------------------------------------------+-----------------------------------------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 18        ;
+;                                             ;           ;
+; Total combinational functions               ; 13        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 0         ;
+;     -- 3 input functions                    ; 9         ;
+;     -- <=2 input functions                  ; 4         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 13        ;
+;     -- arithmetic mode                      ; 0         ;
+;                                             ;           ;
+; Total registers                             ; 18        ;
+;     -- Dedicated logic registers            ; 18        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 25        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 18        ;
+; Total fan-out                               ; 112       ;
+; Average fan-out                             ; 1.38      ;
++---------------------------------------------+-----------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                     ;
-+--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; Compilation Hierarchy Node                       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                ; Entity Name           ; Library Name ;
-+--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |AirFryer                                        ; 13615 (1)           ; 125 (0)                   ; 0           ; 0            ; 0       ; 0         ; 66   ; 0            ; |AirFryer                                                                                                                                          ; AirFryer              ; work         ;
-;    |DebounceUnits:keys_debounce|                 ; 56 (0)              ; 28 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce                                                                                                              ; DebounceUnits         ; work         ;
-;       |Debouncer:temp_dw_debouncer|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer                                                                                  ; Debouncer             ; work         ;
-;       |Debouncer:temp_up_debouncer|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer                                                                                  ; Debouncer             ; work         ;
-;       |Debouncer:time_dw_debouncer|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer                                                                                  ; Debouncer             ; work         ;
-;       |Debouncer:time_up_debouncer|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_up_debouncer                                                                                  ; Debouncer             ; work         ;
-;    |DisplaysController:DisplaysController|       ; 86 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DisplaysController:DisplaysController                                                                                                    ; DisplaysController    ; work         ;
-;       |Bin7SegDecoder:bin7SegTemperatura|        ; 49 (49)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura                                                                  ; Bin7SegDecoder        ; work         ;
-;       |Bin7SegDecoder:bin7SegTime|               ; 37 (37)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime                                                                         ; Bin7SegDecoder        ; work         ;
-;    |TemperatureController:TemperatureController| ; 5943 (175)          ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController                                                                                              ; TemperatureController ; work         ;
-;       |lpm_divide:Div0|                          ; 685 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div0                                                                              ; lpm_divide            ; work         ;
-;          |lpm_divide_s0p:auto_generated|         ; 685 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div0|lpm_divide_s0p:auto_generated                                                ; lpm_divide_s0p        ; work         ;
-;             |abs_divider_nbg:divider|            ; 685 (58)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div0|lpm_divide_s0p:auto_generated|abs_divider_nbg:divider                        ; abs_divider_nbg       ; work         ;
-;                |alt_u_div_c7f:divider|           ; 625 (625)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div0|lpm_divide_s0p:auto_generated|abs_divider_nbg:divider|alt_u_div_c7f:divider  ; alt_u_div_c7f         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div0|lpm_divide_s0p:auto_generated|abs_divider_nbg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Div1|                          ; 553 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div1                                                                              ; lpm_divide            ; work         ;
-;          |lpm_divide_p0p:auto_generated|         ; 553 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div1|lpm_divide_p0p:auto_generated                                                ; lpm_divide_p0p        ; work         ;
-;             |abs_divider_kbg:divider|            ; 553 (64)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg       ; work         ;
-;                |alt_u_div_67f:divider|           ; 449 (449)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider  ; alt_u_div_67f         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 40 (40)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Mod0|                          ; 1476 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod0                                                                              ; lpm_divide            ; work         ;
-;          |lpm_divide_cqo:auto_generated|         ; 1476 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod0|lpm_divide_cqo:auto_generated                                                ; lpm_divide_cqo        ; work         ;
-;             |abs_divider_4dg:divider|            ; 1476 (8)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg       ; work         ;
-;                |alt_u_div_6af:divider|           ; 1441 (1441)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Mod1|                          ; 1536 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod1                                                                              ; lpm_divide            ; work         ;
-;          |lpm_divide_cqo:auto_generated|         ; 1536 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod1|lpm_divide_cqo:auto_generated                                                ; lpm_divide_cqo        ; work         ;
-;             |abs_divider_4dg:divider|            ; 1536 (8)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg       ; work         ;
-;                |alt_u_div_6af:divider|           ; 1498 (1498)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Mod2|                          ; 1518 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2                                                                              ; lpm_divide            ; work         ;
-;          |lpm_divide_cqo:auto_generated|         ; 1518 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated                                                ; lpm_divide_cqo        ; work         ;
-;             |abs_divider_4dg:divider|            ; 1518 (6)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg       ; work         ;
-;                |alt_u_div_6af:divider|           ; 1508 (1508)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a           ; work         ;
-;    |TimeController:TimeController|               ; 7529 (300)          ; 65 (65)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController                                                                                                            ; TimeController        ; work         ;
-;       |lpm_divide:Div0|                          ; 556 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0                                                                                            ; lpm_divide            ; work         ;
-;          |lpm_divide_p0p:auto_generated|         ; 556 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0|lpm_divide_p0p:auto_generated                                                              ; lpm_divide_p0p        ; work         ;
-;             |abs_divider_kbg:divider|            ; 556 (64)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                                      ; abs_divider_kbg       ; work         ;
-;                |alt_u_div_67f:divider|           ; 449 (449)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider                ; alt_u_div_67f         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 43 (43)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Div1|                          ; 553 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div1                                                                                            ; lpm_divide            ; work         ;
-;          |lpm_divide_p0p:auto_generated|         ; 553 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div1|lpm_divide_p0p:auto_generated                                                              ; lpm_divide_p0p        ; work         ;
-;             |abs_divider_kbg:divider|            ; 553 (64)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                                      ; abs_divider_kbg       ; work         ;
-;                |alt_u_div_67f:divider|           ; 449 (449)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider                ; alt_u_div_67f         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 40 (40)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Mod0|                          ; 1543 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod0                                                                                            ; lpm_divide            ; work         ;
-;          |lpm_divide_cqo:auto_generated|         ; 1543 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod0|lpm_divide_cqo:auto_generated                                                              ; lpm_divide_cqo        ; work         ;
-;             |abs_divider_4dg:divider|            ; 1543 (6)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                                      ; abs_divider_4dg       ; work         ;
-;                |alt_u_div_6af:divider|           ; 1498 (1498)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider                ; alt_u_div_6af         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 39 (39)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Mod1|                          ; 1519 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod1                                                                                            ; lpm_divide            ; work         ;
-;          |lpm_divide_cqo:auto_generated|         ; 1519 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod1|lpm_divide_cqo:auto_generated                                                              ; lpm_divide_cqo        ; work         ;
-;             |abs_divider_4dg:divider|            ; 1519 (5)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                                      ; abs_divider_4dg       ; work         ;
-;                |alt_u_div_6af:divider|           ; 1510 (1510)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider                ; alt_u_div_6af         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Mod2|                          ; 1536 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod2                                                                                            ; lpm_divide            ; work         ;
-;          |lpm_divide_cqo:auto_generated|         ; 1536 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated                                                              ; lpm_divide_cqo        ; work         ;
-;             |abs_divider_4dg:divider|            ; 1536 (6)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                                      ; abs_divider_4dg       ; work         ;
-;                |alt_u_div_6af:divider|           ; 1498 (1498)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider                ; alt_u_div_6af         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
-;       |lpm_divide:Mod3|                          ; 1522 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod3                                                                                            ; lpm_divide            ; work         ;
-;          |lpm_divide_cqo:auto_generated|         ; 1522 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod3|lpm_divide_cqo:auto_generated                                                              ; lpm_divide_cqo        ; work         ;
-;             |abs_divider_4dg:divider|            ; 1522 (5)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod3|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                                      ; abs_divider_4dg       ; work         ;
-;                |alt_u_div_6af:divider|           ; 1510 (1510)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod3|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider                ; alt_u_div_6af         ; work         ;
-;                |lpm_abs_i0a:my_abs_num|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod3|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
-+--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                          ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name     ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-----------------+--------------+
+; |ProgramSelector           ; 13 (13)             ; 18 (18)                   ; 0           ; 0            ; 0       ; 0         ; 25   ; 0            ; |ProgramSelector    ; ProgramSelector ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                 ;
-+----------------------------------------------------------+-------------------------------------------------------------------------+
-; Register name                                            ; Reason for Removal                                                      ;
-+----------------------------------------------------------+-------------------------------------------------------------------------+
-; TemperatureController:TemperatureController|tempShown[0] ; Stuck at GND due to stuck port data_in                                  ;
-; TimeController:TimeController|timeInitialized            ; Merged with TemperatureController:TemperatureController|tempInitialized ;
-; Total Number of Removed Registers = 2                    ;                                                                         ;
-+----------------------------------------------------------+-------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; ps_timeHeat[3]~reg0                   ; Stuck at GND due to stuck port data_in ;
+; ps_timeHeat[4]~reg0                   ; Stuck at GND due to stuck port data_in ;
+; ps_temp[0]~reg0                       ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 3 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -347,399 +231,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 125   ;
+; Total registers                              ; 18    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 95    ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 96    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |AirFryer|TemperatureController:TemperatureController|tempShown[21]                           ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AirFryer|TimeController:TimeController|timeCookShown[21]                                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AirFryer|TimeController:TimeController|timePreHeatShown[15]                                  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer|s_debounceCnt[1]            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer|s_debounceCnt[0]            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_up_debouncer|s_debounceCnt[1]            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer|s_debounceCnt[0]            ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura|decOut_u[0] ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura|decOut_d[6] ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura|decOut_h[5] ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_u[0]        ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime|decOut_d[6]        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:time_up_debouncer ;
-+----------------+--------+----------------------------------------------------------------------------+
-; Parameter Name ; Value  ; Type                                                                       ;
-+----------------+--------+----------------------------------------------------------------------------+
-; khzclkfreq     ; 100000 ; Signed Integer                                                             ;
-; msecmininwidth ; 100    ; Signed Integer                                                             ;
-; inpolarity     ; '0'    ; Enumerated                                                                 ;
-; outpolarity    ; '1'    ; Enumerated                                                                 ;
-+----------------+--------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer ;
-+----------------+--------+----------------------------------------------------------------------------+
-; Parameter Name ; Value  ; Type                                                                       ;
-+----------------+--------+----------------------------------------------------------------------------+
-; khzclkfreq     ; 100000 ; Signed Integer                                                             ;
-; msecmininwidth ; 100    ; Signed Integer                                                             ;
-; inpolarity     ; '0'    ; Enumerated                                                                 ;
-; outpolarity    ; '1'    ; Enumerated                                                                 ;
-+----------------+--------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer ;
-+----------------+--------+----------------------------------------------------------------------------+
-; Parameter Name ; Value  ; Type                                                                       ;
-+----------------+--------+----------------------------------------------------------------------------+
-; khzclkfreq     ; 100000 ; Signed Integer                                                             ;
-; msecmininwidth ; 100    ; Signed Integer                                                             ;
-; inpolarity     ; '0'    ; Enumerated                                                                 ;
-; outpolarity    ; '1'    ; Enumerated                                                                 ;
-+----------------+--------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer ;
-+----------------+--------+----------------------------------------------------------------------------+
-; Parameter Name ; Value  ; Type                                                                       ;
-+----------------+--------+----------------------------------------------------------------------------+
-; khzclkfreq     ; 100000 ; Signed Integer                                                             ;
-; msecmininwidth ; 100    ; Signed Integer                                                             ;
-; inpolarity     ; '0'    ; Enumerated                                                                 ;
-; outpolarity    ; '1'    ; Enumerated                                                                 ;
-+----------------+--------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ClkDividerN:clkDivider ;
-+----------------+----------+-----------------------------------------+
-; Parameter Name ; Value    ; Type                                    ;
-+----------------+----------+-----------------------------------------+
-; divfactor      ; 50000000 ; Signed Integer                          ;
-+----------------+----------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Mod2 ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                               ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                                            ;
-; LPM_WIDTHD             ; 32             ; Untyped                                                            ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                            ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                            ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                            ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                                                            ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                            ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                            ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                         ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                       ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                       ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                     ;
-+------------------------+----------------+--------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Div1 ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                               ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                                            ;
-; LPM_WIDTHD             ; 5              ; Untyped                                                            ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                            ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                            ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                            ;
-; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                                                            ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                            ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                            ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                         ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                       ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                       ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                     ;
-+------------------------+----------------+--------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Mod1 ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                               ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                                            ;
-; LPM_WIDTHD             ; 32             ; Untyped                                                            ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                            ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                            ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                            ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                                                            ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                            ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                            ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                         ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                       ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                       ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                     ;
-+------------------------+----------------+--------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Div0 ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                               ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                                            ;
-; LPM_WIDTHD             ; 8              ; Untyped                                                            ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                            ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                            ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                            ;
-; CBXI_PARAMETER         ; lpm_divide_s0p ; Untyped                                                            ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                            ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                            ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                         ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                       ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                       ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                     ;
-+------------------------+----------------+--------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Mod0 ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                               ;
-+------------------------+----------------+--------------------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                                            ;
-; LPM_WIDTHD             ; 32             ; Untyped                                                            ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                            ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                            ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                            ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                            ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                                                            ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                            ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                            ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                         ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                       ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                       ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                     ;
-+------------------------+----------------+--------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod3 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                              ;
-; LPM_WIDTHD             ; 32             ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod1 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                              ;
-; LPM_WIDTHD             ; 32             ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Div1 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                              ;
-; LPM_WIDTHD             ; 5              ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod2 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                              ;
-; LPM_WIDTHD             ; 32             ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Div0 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                              ;
-; LPM_WIDTHD             ; 5              ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                              ;
-; LPM_WIDTHD             ; 32             ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime"                                ;
-+-------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port              ; Type   ; Severity ; Details                                                                             ;
-+-------------------+--------+----------+-------------------------------------------------------------------------------------+
-; bininput_hundreds ; Input  ; Info     ; Stuck at GND                                                                        ;
-; decout_h          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------+
-; Port Connectivity Checks: "TimeController:TimeController" ;
-+---------------+-------+----------+------------------------+
-; Port          ; Type  ; Severity ; Details                ;
-+---------------+-------+----------+------------------------+
-; timeheat      ; Input ; Info     ; Stuck at GND           ;
-; timecook      ; Input ; Info     ; Stuck at GND           ;
-; estado        ; Input ; Info     ; Stuck at GND           ;
-; program[2..1] ; Input ; Info     ; Stuck at GND           ;
-; program[0]    ; Input ; Info     ; Stuck at VCC           ;
-+---------------+-------+----------+------------------------+
-
-
-+-------------------------------------------------------------------------+
-; Port Connectivity Checks: "TemperatureController:TemperatureController" ;
-+--------------------+-------+----------+---------------------------------+
-; Port               ; Type  ; Severity ; Details                         ;
-+--------------------+-------+----------+---------------------------------+
-; startingtemp[6..5] ; Input ; Info     ; Stuck at VCC                    ;
-; startingtemp[4..3] ; Input ; Info     ; Stuck at GND                    ;
-; startingtemp[1..0] ; Input ; Info     ; Stuck at GND                    ;
-; startingtemp[7]    ; Input ; Info     ; Stuck at GND                    ;
-; startingtemp[2]    ; Input ; Info     ; Stuck at VCC                    ;
-; estado             ; Input ; Info     ; Stuck at GND                    ;
-; program[2..1]      ; Input ; Info     ; Stuck at GND                    ;
-; program[0]         ; Input ; Info     ; Stuck at VCC                    ;
-+--------------------+-------+----------+---------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ProgramSelector:progamSelector"                                                            ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; ps_temp     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ps_timecook ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ps_timeheat ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -747,25 +246,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 66                          ;
-; cycloneiii_ff         ; 125                         ;
-;     ENA               ; 1                           ;
-;     ENA SLD           ; 95                          ;
-;     plain             ; 29                          ;
-; cycloneiii_lcell_comb ; 13616                       ;
-;     arith             ; 4467                        ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 158                         ;
-;         3 data inputs ; 4298                        ;
-;     normal            ; 9149                        ;
-;         0 data inputs ; 321                         ;
-;         1 data inputs ; 6                           ;
-;         2 data inputs ; 4393                        ;
-;         3 data inputs ; 185                         ;
-;         4 data inputs ; 4244                        ;
+; boundary_port         ; 25                          ;
+; cycloneiii_ff         ; 18                          ;
+;     plain             ; 18                          ;
+; cycloneiii_lcell_comb ; 14                          ;
+;     normal            ; 14                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 215.30                      ;
-; Average LUT depth     ; 173.41                      ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 0.61                        ;
 +-----------------------+-----------------------------+
 
 
@@ -774,7 +266,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:11     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -784,7 +276,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun May 19 18:06:27 2024
+    Info: Processing started: Mon May 20 14:03:14 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AirFryer -c AirFryer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -807,151 +299,42 @@ Info (12021): Found 2 design units, including 1 entities, in source file AirFrye
     Info (12022): Found design unit 1: AirFryer-Demo File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 38
     Info (12023): Found entity 1: AirFryer File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file TemperatureController.vhd
-    Info (12022): Found design unit 1: TemperatureController-Behavioral File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 23
+    Info (12022): Found design unit 1: TemperatureController-Behavioral File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 21
     Info (12023): Found entity 1: TemperatureController File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 5
-Info (12021): Found 0 design units, including 0 entities, in source file TemperatureController_tb.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file TemperatureController_tb.vhd
+    Info (12022): Found design unit 1: TemperatureController_tb-Behavioral File: /home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd Line: 8
+    Info (12023): Found entity 1: TemperatureController_tb File: /home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file TimeController.vhd
     Info (12022): Found design unit 1: TimeController-Behavioral File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 25
     Info (12023): Found entity 1: TimeController File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file ProgramSelector.vhd
-    Info (12022): Found design unit 1: ProgramSelector-Behavioral File: /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd Line: 14
+    Info (12022): Found design unit 1: ProgramSelector-Behavioral File: /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd Line: 15
     Info (12023): Found entity 1: ProgramSelector File: /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ClkDividerN.vhd
     Info (12022): Found design unit 1: ClkDividerN-Behavioral File: /home/tiago/Documents/lsd-project/src/ClkDividerN.vhd Line: 12
     Info (12023): Found entity 1: ClkDividerN File: /home/tiago/Documents/lsd-project/src/ClkDividerN.vhd Line: 4
-Info (12127): Elaborating entity "AirFryer" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at AirFryer.vhd(29): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-Warning (10036): Verilog HDL or VHDL warning at AirFryer.vhd(44): object "s_timeCook" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 44
-Warning (10036): Verilog HDL or VHDL warning at AirFryer.vhd(44): object "s_timeHeat" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 44
-Warning (10036): Verilog HDL or VHDL warning at AirFryer.vhd(45): object "s_temp" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 45
-Warning (10873): Using initial value X (don't care) for net "LEDR[7..0]" at AirFryer.vhd(28) File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-Info (12129): Elaborating entity "DebounceUnits" using architecture "A:behavioral" for hierarchy "DebounceUnits:keys_debounce" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 49
-Info (12129): Elaborating entity "Debouncer" using architecture "A:behavioral" for hierarchy "DebounceUnits:keys_debounce|Debouncer:time_up_debouncer" File: /home/tiago/Documents/lsd-project/src/DebounceUnits.vhd Line: 24
-Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDivider" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 62
-Info (12129): Elaborating entity "ProgramSelector" using architecture "A:behavioral" for hierarchy "ProgramSelector:progamSelector" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 69
-Info (12129): Elaborating entity "TemperatureController" using architecture "A:behavioral" for hierarchy "TemperatureController:TemperatureController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 78
-Warning (10540): VHDL Signal Declaration warning at TemperatureController.vhd(24): used explicit default value for signal "tempMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 24
-Warning (10540): VHDL Signal Declaration warning at TemperatureController.vhd(25): used explicit default value for signal "tempMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 25
-Info (12129): Elaborating entity "TimeController" using architecture "A:behavioral" for hierarchy "TimeController:TimeController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 96
-Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(27): used explicit default value for signal "timeCookMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 27
-Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(28): used explicit default value for signal "timeCookMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 28
-Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(31): used explicit default value for signal "timePreHeatMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 31
-Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(32): used explicit default value for signal "timePreHeatMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 32
-Info (12129): Elaborating entity "DisplaysController" using architecture "A:behavioral" for hierarchy "DisplaysController:DisplaysController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 113
-Warning (10036): Verilog HDL or VHDL warning at DisplaysController.vhd(21): object "teste" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/DisplaysController.vhd Line: 21
-Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura" File: /home/tiago/Documents/lsd-project/src/DisplaysController.vhd Line: 24
-Info (278001): Inferred 11 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 60
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod3" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 88
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 84
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 87
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod2" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 87
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div0" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 83
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod0" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 83
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 60
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod2" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 60
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_cqo.tdf
-    Info (12023): Found entity 1: lpm_divide_cqo File: /home/tiago/Documents/lsd-project/src/db/lpm_divide_cqo.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
-    Info (12023): Found entity 1: abs_divider_4dg File: /home/tiago/Documents/lsd-project/src/db/abs_divider_4dg.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
-    Info (12023): Found entity 1: alt_u_div_6af File: /home/tiago/Documents/lsd-project/src/db/alt_u_div_6af.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: /home/tiago/Documents/lsd-project/src/db/add_sub_7pc.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: /home/tiago/Documents/lsd-project/src/db/add_sub_8pc.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
-    Info (12023): Found entity 1: lpm_abs_i0a File: /home/tiago/Documents/lsd-project/src/db/lpm_abs_i0a.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "5"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_p0p.tdf
-    Info (12023): Found entity 1: lpm_divide_p0p File: /home/tiago/Documents/lsd-project/src/db/lpm_divide_p0p.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
-    Info (12023): Found entity 1: abs_divider_kbg File: /home/tiago/Documents/lsd-project/src/db/abs_divider_kbg.tdf Line: 29
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_67f.tdf
-    Info (12023): Found entity 1: alt_u_div_67f File: /home/tiago/Documents/lsd-project/src/db/alt_u_div_67f.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
-    Info (12023): Found entity 1: lpm_abs_2v9 File: /home/tiago/Documents/lsd-project/src/db/lpm_abs_2v9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 59
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div0" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 58
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "8"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_s0p.tdf
-    Info (12023): Found entity 1: lpm_divide_s0p File: /home/tiago/Documents/lsd-project/src/db/lpm_divide_s0p.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_nbg.tdf
-    Info (12023): Found entity 1: abs_divider_nbg File: /home/tiago/Documents/lsd-project/src/db/abs_divider_nbg.tdf Line: 29
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_c7f.tdf
-    Info (12023): Found entity 1: alt_u_div_c7f File: /home/tiago/Documents/lsd-project/src/db/alt_u_div_c7f.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_5v9.tdf
-    Info (12023): Found entity 1: lpm_abs_5v9 File: /home/tiago/Documents/lsd-project/src/db/lpm_abs_5v9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "TimeController:TimeController|lpm_divide:Div1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 87
-Info (12133): Instantiated megafunction "TimeController:TimeController|lpm_divide:Div1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 87
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "5"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (13014): Ignored 338 buffer(s)
-    Info (13016): Ignored 338 CARRY_SUM buffer(s)
+Info (12021): Found 2 design units, including 1 entities, in source file TimerN.vhd
+    Info (12022): Found design unit 1: TimerN-Behavioral File: /home/tiago/Documents/lsd-project/src/TimerN.vhd Line: 13
+    Info (12023): Found entity 1: TimerN File: /home/tiago/Documents/lsd-project/src/TimerN.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file PulseGen.vhd
+    Info (12022): Found design unit 1: PulseGen-Behavioral File: /home/tiago/Documents/lsd-project/src/PulseGen.vhd Line: 12
+    Info (12023): Found entity 1: PulseGen File: /home/tiago/Documents/lsd-project/src/PulseGen.vhd Line: 5
+Info (12127): Elaborating entity "ProgramSelector" for the top level hierarchy
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[1]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[3]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
+    Warning (13410): Pin "ps_temp[0]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd Line: 19
+    Warning (13410): Pin "ps_timeHeat[3]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd Line: 19
+    Warning (13410): Pin "ps_timeHeat[4]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd Line: 19
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 6 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[2]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 26
-    Warning (15610): No output dependent on input pin "SW[3]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 26
-    Warning (15610): No output dependent on input pin "SW[4]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 26
-    Warning (15610): No output dependent on input pin "SW[5]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 26
-    Warning (15610): No output dependent on input pin "SW[6]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 26
-    Warning (15610): No output dependent on input pin "SW[7]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 26
-Info (21057): Implemented 13685 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 14 input pins
-    Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 13619 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
-    Info: Peak virtual memory: 541 megabytes
-    Info: Processing ended: Sun May 19 18:06:47 2024
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:29
+Info (21057): Implemented 44 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 21 output pins
+    Info (21061): Implemented 19 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 457 megabytes
+    Info: Processing ended: Mon May 20 14:03:23 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:19
 
 
