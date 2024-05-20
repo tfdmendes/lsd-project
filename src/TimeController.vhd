@@ -28,15 +28,26 @@ architecture Behavioral of TimeController is
     signal timeCookMax     : INTEGER := 30;
     
     -- Sinais de Pré-aquecimento
-    signal timePreHeatMin  : INTEGER := 3;
+    signal timePreHeatMin  : INTEGER := 0;
     signal timePreHeatMax  : INTEGER := 10;
     
 	 -- Sinais de mostragem
     signal timePreHeatShown : INTEGER := 0;
     signal timeCookShown    : INTEGER := 0;
+	 signal timeTotalShown   : INTEGER := 0;
     signal timeInitialized  : std_logic := '0';
+	 signal timeRun          : std_logic := '0';
+	 
+	 signal one_sec_pulse   : std_logic := '0';
 
 begin
+	 -- TIMER
+    timer : entity work.TimerN(Behavioral)
+    port map(clk       => clk,
+             reset       => not enable,
+             timerEnable => run,
+             timerOut    => one_sec_pulse);
+
     process(clk)
     begin
         if rising_edge(clk) then
@@ -45,9 +56,10 @@ begin
                     if program = "001" then
                         if timeInitialized = '0' then
                             -- Inicializa os tempos de pré-aquecimento e cozimento
-                            timePreHeatShown <= timePreHeatMin;
-                            timeCookShown <= timeCookMin;
+                            timePreHeatShown <= to_integer(unsigned(timeHeat));
+                            timeCookShown <= to_integer(unsigned(timeCook));
                             timeInitialized <= '1';
+									 timeRun <= '0';
                         else
                             -- Editando o tempo de pré-aquecimento
                             if heatOrCook = '1' then
@@ -67,9 +79,22 @@ begin
                                 end if;
                             end if;
                         end if;
+							else
+								timePreHeatShown <= to_integer(unsigned(timeHeat));
+								timeCookShown <= to_integer(unsigned(timeCook));
                     end if;
                 else
-                    timeInitialized <= '0'; -- Redefine a inicialização quando run está ativado
+						  if timeRun = '0' then
+                        timeTotalShown <= timePreHeatShown + timeCookShown;
+                        timeInitialized <= '0'; -- Reset timeInitialized para próxima vez que run for 0
+                        timeRun <= '1';
+                    else
+                        if one_sec_pulse = '1' then
+                            if timeTotalShown > 0 then
+                                timeTotalShown <= timeTotalShown - 1;
+                            end if;
+                        end if;
+                    end if;
                 end if;
             end if;
         end if;
@@ -78,6 +103,7 @@ begin
     -- Converte o tempo em dígitos BCD para os displays de sete segmentos
     process(timeCookShown, timePreHeatShown, heatOrCook)
     begin
+		if run = '0' then
         if heatOrCook = '1' then
             -- Mostra o tempo de pré-aquecimento
             timeDozens <= std_logic_vector(to_unsigned((timePreHeatShown / 10) mod 10, 4));
@@ -87,5 +113,9 @@ begin
             timeDozens <= std_logic_vector(to_unsigned((timeCookShown / 10) mod 10, 4));
             timeUnits <= std_logic_vector(to_unsigned(timeCookShown mod 10, 4));
         end if;
+		else
+			timeDozens <= std_logic_vector(to_unsigned((timeTotalShown / 10) mod 10, 4));
+         timeUnits <= std_logic_vector(to_unsigned(timeTotalShown mod 10, 4));
+		end if;
     end process;
 end Behavioral;

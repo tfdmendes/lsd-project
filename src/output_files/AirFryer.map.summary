@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon May 20 14:03:23 2024
+Analysis & Synthesis Status : Successful - Mon May 20 16:23:31 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : AirFryer
-Top-level Entity Name : ProgramSelector
+Top-level Entity Name : AirFryer
 Family : Cyclone IV E
-Total logic elements : 18
-    Total combinational functions : 13
-    Dedicated logic registers : 18
-Total registers : 18
-Total pins : 25
+Total logic elements : 17,684
+    Total combinational functions : 17,650
+    Dedicated logic registers : 237
+Total registers : 237
+Total pins : 66
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

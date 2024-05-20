@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY ProgramSelector
+set_global_assignment -name TOP_LEVEL_ENTITY AirFryer
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.2
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:48:13  MAY 18, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.2 Lite Edition"
@@ -586,10 +586,8 @@ set_global_assignment -name VHDL_FILE TimeController.vhd
 set_global_assignment -name VHDL_FILE ProgramSelector.vhd
 set_global_assignment -name VHDL_FILE ClkDividerN.vhd
 set_global_assignment -name VHDL_FILE TimerN.vhd
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name VHDL_FILE PulseGen.vhd
+set_global_assignment -name VHDL_FILE tb_ProgramSelector.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

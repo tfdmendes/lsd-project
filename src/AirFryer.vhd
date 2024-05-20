@@ -83,7 +83,7 @@ begin
              enable         => SW(0),
              run        	 => SW(1),
              estado         => SW(2),    	 -- estar aberto ou fechado (a cuba)
-				 fastCooler		 => SW(8),
+				 fastCooler		 => SW(7),
              program        => s_programChosen,
              tempUp         => s_tempUp,
              tempDown       => s_tempDown,
@@ -95,11 +95,11 @@ begin
 	-- TEMPO
 	 TimeController : entity work.TimeController(Behavioral)
     port map(clk            => CLOCK_50,
-				 timeHeat		 => "00000", -- MUDAR
-				 timeCook		 => "00000", -- MUDAR
+				 timeHeat		 => s_timeHeat,
+				 timeCook		 => s_timeCook, 
 				 
              estado         => '0',    -- estar aberto ou fechado (a cuba)
-             program        => "001",
+             program        => s_programChosen,
 				 heatOrCook		 => SW(8),
              timeUp         => s_timeUp,
              timeDown       => s_timeDown,

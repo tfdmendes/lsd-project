@@ -23,8 +23,8 @@ begin
                     ps_timeCook <= "10010"; -- 18 mins Cozimento
                     ps_timeHeat <= "00000"; -- 0 minutos Preaquecimento
                 when "001" =>
-                    ps_temp <= "01100100"; -- 100°
-                    ps_timeCook <= "01111"; -- 15 mins Cozimento
+                    ps_temp <= "11001000"; -- 200°
+                    ps_timeCook <= "10010"; -- 18 mins Cozimento
                     ps_timeHeat <= "00000"; -- 0 minutos Preaquecimento
                 when "010" =>
                     ps_temp <= "10110100"; -- 180°

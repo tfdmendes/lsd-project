@@ -27,25 +27,25 @@
 # Modifying modelsim.ini
 # vcom -93 -work altera {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_syn_attributes.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:20 on May 19,2024
+# Start time: 14:17:16 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_syn_attributes.vhd 
 # -- Loading package STANDARD
 # -- Compiling package altera_syn_attributes
-# End time: 18:57:20 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:16 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_standard_functions.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:20 on May 19,2024
+# Start time: 14:17:16 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_standard_functions.vhd 
 # -- Loading package STANDARD
 # -- Compiling package altera_standard_functions
 # -- Compiling package body altera_standard_functions
 # -- Loading package altera_standard_functions
-# End time: 18:57:20 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:16 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/alt_dspbuilder_package.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:20 on May 19,2024
+# Start time: 14:17:16 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/alt_dspbuilder_package.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -54,11 +54,11 @@
 # -- Compiling package alt_dspbuilder_package
 # -- Compiling package body alt_dspbuilder_package
 # -- Loading package alt_dspbuilder_package
-# End time: 18:57:21 on May 19,2024, Elapsed time: 0:00:01
+# End time: 14:17:17 on May 20,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_europa_support_lib.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:21 on May 19,2024
+# Start time: 14:17:17 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_europa_support_lib.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -69,11 +69,11 @@
 # -- Compiling package altera_europa_support_lib
 # -- Compiling package body altera_europa_support_lib
 # -- Loading package altera_europa_support_lib
-# End time: 18:57:21 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:17 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_primitives_components.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:21 on May 19,2024
+# Start time: 14:17:17 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_primitives_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -83,11 +83,11 @@
 # -- Compiling package dffeas_pack
 # -- Loading package dffeas_pack
 # -- Compiling package altera_primitives_components
-# End time: 18:57:21 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:17 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_primitives.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:21 on May 19,2024
+# Start time: 14:17:17 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_primitives.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -175,7 +175,7 @@
 # -- Compiling architecture BEHAVIOR of alt_bidir_diff
 # -- Compiling entity alt_bidir_buf
 # -- Compiling architecture BEHAVIOR of alt_bidir_buf
-# End time: 18:57:21 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:18 on May 20,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/lpm
@@ -187,17 +187,17 @@
 # Modifying modelsim.ini
 # vcom -93 -work lpm {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/220pack.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:22 on May 19,2024
+# Start time: 14:17:18 on May 20,2024
 # vcom -reportprogress 300 -93 -work lpm /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/220pack.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package LPM_COMPONENTS
-# End time: 18:57:22 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:18 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work lpm {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/220model.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:22 on May 19,2024
+# Start time: 14:17:18 on May 20,2024
 # vcom -reportprogress 300 -93 -work lpm /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/220model.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -293,7 +293,7 @@
 # -- Compiling architecture LPM_SYN of LPM_OUTpad
 # -- Compiling entity LPM_BIpad
 # -- Compiling architecture LPM_SYN of LPM_BIpad
-# End time: 18:57:22 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:19 on May 20,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/sgate
@@ -305,7 +305,7 @@
 # Modifying modelsim.ini
 # vcom -93 -work sgate {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/sgate_pack.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:23 on May 19,2024
+# Start time: 14:17:19 on May 20,2024
 # vcom -reportprogress 300 -93 -work sgate /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/sgate_pack.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -313,11 +313,11 @@
 # -- Compiling package sgate_pack
 # -- Compiling package body sgate_pack
 # -- Loading package sgate_pack
-# End time: 18:57:23 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:19 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work sgate {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/sgate.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:23 on May 19,2024
+# Start time: 14:17:19 on May 20,2024
 # vcom -reportprogress 300 -93 -work sgate /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/sgate.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -367,7 +367,7 @@
 # -- Compiling architecture sim_arch of oper_bus_mux
 # -- Compiling entity oper_latch
 # -- Compiling architecture sim_arch of oper_latch
-# End time: 18:57:23 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:19 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/altera_mf
@@ -379,17 +379,17 @@
 # Modifying modelsim.ini
 # vcom -93 -work altera_mf {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_mf_components.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:23 on May 19,2024
+# Start time: 14:17:19 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera_mf /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_mf_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package altera_mf_components
-# End time: 18:57:24 on May 19,2024, Elapsed time: 0:00:01
+# End time: 14:17:19 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera_mf {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_mf.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:24 on May 19,2024
+# Start time: 14:17:19 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera_mf /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_mf.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -628,7 +628,7 @@
 # -- Compiling architecture sim_sld_virtual_jtag_basic of sld_virtual_jtag_basic
 # -- Compiling entity altsource_probe
 # -- Compiling architecture sim_altsource_probe of altsource_probe
-# End time: 18:57:24 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:20 on May 20,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/altera_lnsim
@@ -640,21 +640,21 @@
 # Modifying modelsim.ini
 # vlog -sv -work altera_lnsim {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/mentor/altera_lnsim_for_vhdl.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:24 on May 19,2024
+# Start time: 14:17:20 on May 20,2024
 # vlog -reportprogress 300 -sv -work altera_lnsim /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/mentor/altera_lnsim_for_vhdl.sv 
 # 
 # Top level modules:
-# End time: 18:57:25 on May 19,2024, Elapsed time: 0:00:01
+# End time: 14:17:21 on May 20,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera_lnsim {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_lnsim_components.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:25 on May 19,2024
+# Start time: 14:17:21 on May 20,2024
 # vcom -reportprogress 300 -93 -work altera_lnsim /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/altera_lnsim_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package altera_lnsim_components
-# End time: 18:57:25 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:21 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/cycloneive
@@ -666,7 +666,7 @@
 # Modifying modelsim.ini
 # vcom -93 -work cycloneive {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/cycloneive_atoms.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:25 on May 19,2024
+# Start time: 14:17:21 on May 20,2024
 # vcom -reportprogress 300 -93 -work cycloneive /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/cycloneive_atoms.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -766,11 +766,11 @@
 # -- Compiling architecture architecture_crcblock of cycloneive_crcblock
 # -- Compiling entity cycloneive_oscillator
 # -- Compiling architecture architecture_oscillator of cycloneive_oscillator
-# End time: 18:57:26 on May 19,2024, Elapsed time: 0:00:01
+# End time: 14:17:21 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # vcom -93 -work cycloneive {/home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/cycloneive_components.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:26 on May 19,2024
+# Start time: 14:17:21 on May 20,2024
 # vcom -reportprogress 300 -93 -work cycloneive /home/tiago/.intel_fpga_lite/22.1.2/quartus/eda/sim_lib/cycloneive_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -779,7 +779,7 @@
 # -- Loading package VITAL_Primitives
 # -- Loading package cycloneive_atom_pack
 # -- Compiling package cycloneive_components
-# End time: 18:57:26 on May 19,2024, Elapsed time: 0:00:00
+# End time: 14:17:21 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists rtl_work]} {
@@ -794,57 +794,49 @@
 # vmap work rtl_work 
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {/home/tiago/Documents/lsd-project/src/TemperatureController.vhd}
+# vcom -93 -work work {/home/tiago/Documents/lsd-project/src/ProgramSelector.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:26 on May 19,2024
-# vcom -reportprogress 300 -93 -work work /home/tiago/Documents/lsd-project/src/TemperatureController.vhd 
+# Start time: 14:17:21 on May 20,2024
+# vcom -reportprogress 300 -93 -work work /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity TemperatureController
-# -- Compiling architecture Behavioral of TemperatureController
-# End time: 18:57:26 on May 19,2024, Elapsed time: 0:00:00
+# -- Compiling entity ProgramSelector
+# -- Compiling architecture Behavioral of ProgramSelector
+# End time: 14:17:21 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # 
 # stdin: <EOF>
-vcom -reportprogress 300 -work work /home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd
+vcom -reportprogress 300 -work work /home/tiago/Documents/lsd-project/src/tb_ProgramSelector.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 18:57:34 on May 19,2024
-# vcom -reportprogress 300 -work work /home/tiago/Documents/lsd-project/src/TemperatureController_tb.vhd 
+# Start time: 14:17:26 on May 20,2024
+# vcom -reportprogress 300 -work work /home/tiago/Documents/lsd-project/src/tb_ProgramSelector.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity TemperatureController_tb
-# -- Compiling architecture Behavioral of TemperatureController_tb
-# End time: 18:57:34 on May 19,2024, Elapsed time: 0:00:00
+# -- Compiling entity tb_ProgramSelector
+# -- Compiling architecture Behavioral of tb_ProgramSelector
+# -- Loading entity ProgramSelector
+# End time: 14:17:26 on May 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -i -l msim_transcript work.temperaturecontroller_tb(behavioral) -voptargs=+acc
-# vsim -i -l msim_transcript work.temperaturecontroller_tb(behavioral) -voptargs="+acc" 
-# Start time: 18:57:47 on May 19,2024
+vsim -i -l msim_transcript work.tb_programselector(behavioral) -voptargs=+acc
+# vsim -i -l msim_transcript work.tb_programselector(behavioral) -voptargs="+acc" 
+# Start time: 14:17:42 on May 20,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.temperaturecontroller_tb(behavioral)#1
-# Loading work.temperaturecontroller(behavioral)#1
-add wave -position end  sim:/temperaturecontroller_tb/clk
-add wave -position end  sim:/temperaturecontroller_tb/clkEnable
-add wave -position end  sim:/temperaturecontroller_tb/startingTemp
-add wave -position end  sim:/temperaturecontroller_tb/enable
-add wave -position end  sim:/temperaturecontroller_tb/run
-add wave -position end  sim:/temperaturecontroller_tb/estado
-add wave -position end  sim:/temperaturecontroller_tb/fastCooler
-add wave -position end  sim:/temperaturecontroller_tb/program
-add wave -position end  sim:/temperaturecontroller_tb/tempUp
-add wave -position end  sim:/temperaturecontroller_tb/tempDown
-add wave -position end  sim:/temperaturecontroller_tb/tempUnits
-add wave -position end  sim:/temperaturecontroller_tb/tempDozens
-add wave -position end  sim:/temperaturecontroller_tb/tempHundreds
-add wave -position end  sim:/temperaturecontroller_tb/clk_period
+# Loading work.tb_programselector(behavioral)#1
+# Loading work.programselector(behavioral)#1
+add wave -position end  sim:/tb_programselector/clk
+add wave -position end  sim:/tb_programselector/input
+add wave -position end  sim:/tb_programselector/ps_temp
+add wave -position end  sim:/tb_programselector/ps_timeCook
+add wave -position end  sim:/tb_programselector/ps_timeHeat
+add wave -position end  sim:/tb_programselector/ps_programChosen
+add wave -position end  sim:/tb_programselector/clk_period
 run
-# End time: 19:00:03 on May 19,2024, Elapsed time: 0:02:16
+# Causality operation skipped due to absence of debug database file
+# End time: 14:20:33 on May 20,2024, Elapsed time: 0:02:51
 # Errors: 0, Warnings: 0

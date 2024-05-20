@@ -21,7 +21,7 @@ end TemperatureController;
 architecture Behavioral of TemperatureController is
     signal tempMin         : INTEGER := 20;
     signal tempMax         : INTEGER := 250;
-    signal tempShown       : INTEGER := 0;
+    signal tempShown       : INTEGER := 50;
     signal tempTarget      : INTEGER := 100;
     signal tempInitialized : std_logic := '0';
     signal tempRun         : std_logic := '0';
@@ -29,12 +29,12 @@ architecture Behavioral of TemperatureController is
     signal timerOut        : std_logic;
 
 begin
-    -- Instanciação do TimerModule
+    -- TIMER
     timer : entity work.TimerN(Behavioral)
     port map(clk       => clk,
-            reset       => not enable,
-            timerEnable => run,
-            timerOut    => one_sec_pulse);
+             reset       => not enable,
+             timerEnable => run,
+             timerOut    => one_sec_pulse);
 
     process(clk)
     begin
@@ -42,8 +42,8 @@ begin
             if enable = '1' then
                 if run = '0' then
                     if tempInitialized = '0' then
-                        tempShown <= to_integer(unsigned(startingTemp));
-                        tempInitialized <= '1';
+							   tempShown <= to_integer(unsigned(startingTemp));
+								tempInitialized <= '1';
                         tempRun <= '0';
                     end if;
                     -- Se o programa for o USER - pode definir temperatura
@@ -53,18 +53,25 @@ begin
                         elsif tempDown = '1' and tempShown >= tempMin + 10 then
                             tempShown <= tempShown - 10;
                         end if;
+						  else
+								tempShown <= to_integer(unsigned(startingTemp));
                     end if;
-						  tempTarget <= tempShown; -- Define a temperatura alvo
+                    tempTarget <= tempShown; -- Define a temperatura alvo
                 else
-                    -- Quando run é 1, a temperatura inicial é definida como 20°C
+                    -- Quando run é 1, a temperatura inicial é definida como 20°
                     if tempRun = '0' then
                         tempShown <= tempMin;
-                        tempInitialized <= '0';
+                        tempInitialized <= '0'; -- Reset tempInitialized para próxima vez que run for 0
                         tempRun <= '1';
                     else
                         if one_sec_pulse = '1' then
                             if tempShown < tempTarget then
-                                tempShown <= tempShown + 10;
+											-- Enquanto estiver RUN ativo, se abrir a CUBA
+											if estado = '1' and tempShown >= tempMin then
+												tempShown <= tempShown - 20;
+											else
+												tempShown <= tempShown + 10;
+											end if;
                             end if;
                         end if;
                     end if;

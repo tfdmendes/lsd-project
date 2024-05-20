@@ -13,7 +13,8 @@ end TimerN;
 architecture Behavioral of TimerN is
     signal s_pulse : std_logic;
 begin
-    pulse_gen_inst : entity work.PulseGen
+
+    pulseGen : entity work.PulseGen
         generic map (MAX => 50_000_000)
         port map (clk => clk,
             reset => reset,
