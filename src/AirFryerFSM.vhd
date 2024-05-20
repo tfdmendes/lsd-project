@@ -23,6 +23,7 @@ architecture rtl of AirFryerFSM is
 
   type TState is (IDLE, PREHEAT, COOK, COOL);
   signal pState, nState : TState;
+  signal foodIn : boolean := false;
 
 begin
 
@@ -56,7 +57,12 @@ begin
         ledStatePREHEAT <= '1';
         ledStateCOOK    <= '0';
         ledStateCOOL    <= '0';
-        if unsigned(timeTotal) - unsigned(timePreHeat) = timeNow then
+
+        if unsigned(timeTotal) - unsigned(timePreHeat) = unsigned(timeNow) and OPEN_OVEN = '1' then
+          foodIn <= true;
+        end if;
+        
+        if unsigned(timeTotal) - unsigned(timePreHeat) = unsigned(timeNow) and foodIn = true then
           nState <= COOK;
         else
           nState <= PREHEAT;
