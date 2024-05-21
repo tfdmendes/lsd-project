@@ -584,7 +584,6 @@ set_location_assignment PIN_D9 -to EX_IO[6]
 set_global_assignment -name VHDL_FILE TemperatureController_tb.vhd
 set_global_assignment -name VHDL_FILE TimeController.vhd
 set_global_assignment -name VHDL_FILE ProgramSelector.vhd
-set_global_assignment -name VHDL_FILE ClkDividerN.vhd
 set_global_assignment -name VHDL_FILE TimerN.vhd
 set_global_assignment -name VHDL_FILE PulseGen.vhd
 set_global_assignment -name VHDL_FILE tb_ProgramSelector.vhd

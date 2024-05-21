@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AirFryer
-Mon May 20 18:07:55 2024
+Tue May 21 18:13:45 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -13,16 +13,16 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:time_up_debouncer
- 14. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer
- 15. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer
- 16. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer
- 17. Parameter Settings for User Entity Instance: ClkDividerN:clkDivider
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:time_up_debouncer
+ 15. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer
+ 16. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer
+ 17. Parameter Settings for User Entity Instance: DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer
  18. Parameter Settings for User Entity Instance: TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen
  19. Parameter Settings for User Entity Instance: TimeController:TimeController|TimerN:timer|PulseGen:pulseGen
  20. Parameter Settings for Inferred Entity Instance: TemperatureController:TemperatureController|lpm_divide:Mod2
@@ -40,10 +40,9 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
  32. Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Div2
  33. Parameter Settings for Inferred Entity Instance: TimeController:TimeController|lpm_divide:Mod4
  34. Port Connectivity Checks: "DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime"
- 35. Port Connectivity Checks: "ClkDividerN:clkDivider"
- 36. Post-Synthesis Netlist Statistics for Top Partition
- 37. Elapsed Time Per Partition
- 38. Analysis & Synthesis Messages
+ 35. Post-Synthesis Netlist Statistics for Top Partition
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
 
 
 
@@ -70,15 +69,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May 20 18:07:55 2024          ;
+; Analysis & Synthesis Status        ; Successful - Tue May 21 18:13:45 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; AirFryer                                       ;
 ; Top-level Entity Name              ; AirFryer                                       ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 17,733                                         ;
-;     Total combinational functions  ; 17,699                                         ;
-;     Dedicated logic registers      ; 235                                            ;
-; Total registers                    ; 235                                            ;
+; Total logic elements               ; 17,755                                         ;
+;     Total combinational functions  ; 17,720                                         ;
+;     Dedicated logic registers      ; 234                                            ;
+; Total registers                    ; 234                                            ;
 ; Total pins                         ; 66                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -207,7 +206,6 @@ https://fpgasoftware.intel.com/eula.
 ; TemperatureController.vhd        ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/TemperatureController.vhd                         ;         ;
 ; TimeController.vhd               ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/TimeController.vhd                                ;         ;
 ; ProgramSelector.vhd              ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd                               ;         ;
-; ClkDividerN.vhd                  ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/ClkDividerN.vhd                                   ;         ;
 ; TimerN.vhd                       ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/TimerN.vhd                                        ;         ;
 ; PulseGen.vhd                     ; yes             ; User VHDL File               ; /home/tiago/Documents/lsd-project/src/PulseGen.vhd                                      ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/tiago/.intel_fpga_lite/22.1.2/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
@@ -236,20 +234,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------------------------------+
 ; Resource                                    ; Usage                                                     ;
 +---------------------------------------------+-----------------------------------------------------------+
-; Estimated Total logic elements              ; 17,733                                                    ;
+; Estimated Total logic elements              ; 17,755                                                    ;
 ;                                             ;                                                           ;
-; Total combinational functions               ; 17699                                                     ;
+; Total combinational functions               ; 17720                                                     ;
 ; Logic element usage by number of LUT inputs ;                                                           ;
-;     -- 4 input functions                    ; 5556                                                      ;
-;     -- 3 input functions                    ; 5761                                                      ;
-;     -- <=2 input functions                  ; 6382                                                      ;
+;     -- 4 input functions                    ; 5595                                                      ;
+;     -- 3 input functions                    ; 5763                                                      ;
+;     -- <=2 input functions                  ; 6362                                                      ;
 ;                                             ;                                                           ;
 ; Logic elements by mode                      ;                                                           ;
-;     -- normal mode                          ; 11827                                                     ;
+;     -- normal mode                          ; 11848                                                     ;
 ;     -- arithmetic mode                      ; 5872                                                      ;
 ;                                             ;                                                           ;
-; Total registers                             ; 235                                                       ;
-;     -- Dedicated logic registers            ; 235                                                       ;
+; Total registers                             ; 234                                                       ;
+;     -- Dedicated logic registers            ; 234                                                       ;
 ;     -- I/O registers                        ; 0                                                         ;
 ;                                             ;                                                           ;
 ; I/O pins                                    ; 66                                                        ;
@@ -258,7 +256,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                                                           ;
 ; Maximum fan-out node                        ; TemperatureController:TemperatureController|tempShown[31] ;
 ; Maximum fan-out                             ; 258                                                       ;
-; Total fan-out                               ; 52303                                                     ;
+; Total fan-out                               ; 52400                                                     ;
 ; Average fan-out                             ; 2.90                                                      ;
 +---------------------------------------------+-----------------------------------------------------------+
 
@@ -268,17 +266,17 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                ; Entity Name           ; Library Name ;
 +--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |AirFryer                                        ; 17699 (0)           ; 235 (0)                   ; 0           ; 0            ; 0       ; 0         ; 66   ; 0            ; |AirFryer                                                                                                                                          ; AirFryer              ; work         ;
-;    |DebounceUnits:keys_debounce|                 ; 56 (0)              ; 28 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce                                                                                                              ; DebounceUnits         ; work         ;
+; |AirFryer                                        ; 17720 (0)           ; 234 (0)                   ; 0           ; 0            ; 0       ; 0         ; 66   ; 0            ; |AirFryer                                                                                                                                          ; AirFryer              ; work         ;
+;    |DebounceUnits:keys_debounce|                 ; 54 (0)              ; 28 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce                                                                                                              ; DebounceUnits         ; work         ;
 ;       |Debouncer:temp_dw_debouncer|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_dw_debouncer                                                                                  ; Debouncer             ; work         ;
-;       |Debouncer:temp_up_debouncer|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer                                                                                  ; Debouncer             ; work         ;
+;       |Debouncer:temp_up_debouncer|              ; 12 (12)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer                                                                                  ; Debouncer             ; work         ;
 ;       |Debouncer:time_dw_debouncer|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer                                                                                  ; Debouncer             ; work         ;
 ;       |Debouncer:time_up_debouncer|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_up_debouncer                                                                                  ; Debouncer             ; work         ;
 ;    |DisplaysController:DisplaysController|       ; 91 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DisplaysController:DisplaysController                                                                                                    ; DisplaysController    ; work         ;
 ;       |Bin7SegDecoder:bin7SegTemperatura|        ; 53 (53)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura                                                                  ; Bin7SegDecoder        ; work         ;
 ;       |Bin7SegDecoder:bin7SegTime|               ; 38 (38)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTime                                                                         ; Bin7SegDecoder        ; work         ;
 ;    |ProgramSelector:progamSelector|              ; 9 (9)               ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|ProgramSelector:progamSelector                                                                                                           ; ProgramSelector       ; work         ;
-;    |TemperatureController:TemperatureController| ; 6156 (341)          ; 98 (64)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController                                                                                              ; TemperatureController ; work         ;
+;    |TemperatureController:TemperatureController| ; 6178 (363)          ; 98 (64)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController                                                                                              ; TemperatureController ; work         ;
 ;       |TimerN:timer|                             ; 47 (1)              ; 34 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|TimerN:timer                                                                                 ; TimerN                ; work         ;
 ;          |PulseGen:pulseGen|                     ; 46 (46)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen                                                               ; PulseGen              ; work         ;
 ;       |lpm_divide:Div0|                          ; 685 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Div0                                                                              ; lpm_divide            ; work         ;
@@ -306,7 +304,7 @@ https://fpgasoftware.intel.com/eula.
 ;             |abs_divider_4dg:divider|            ; 1518 (6)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg       ; work         ;
 ;                |alt_u_div_6af:divider|           ; 1508 (1508)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af         ; work         ;
 ;                |lpm_abs_i0a:my_abs_num|          ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TemperatureController:TemperatureController|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a           ; work         ;
-;    |TimeController:TimeController|               ; 11387 (553)         ; 97 (97)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController                                                                                                            ; TimeController        ; work         ;
+;    |TimeController:TimeController|               ; 11388 (554)         ; 96 (96)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController                                                                                                            ; TimeController        ; work         ;
 ;       |lpm_divide:Div0|                          ; 557 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0                                                                                            ; lpm_divide            ; work         ;
 ;          |lpm_divide_p0p:auto_generated|         ; 557 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0|lpm_divide_p0p:auto_generated                                                              ; lpm_divide_p0p        ; work         ;
 ;             |abs_divider_kbg:divider|            ; 557 (64)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                                      ; abs_divider_kbg       ; work         ;
@@ -354,6 +352,17 @@ https://fpgasoftware.intel.com/eula.
 ;                |lpm_abs_i0a:my_abs_num|          ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AirFryer|TimeController:TimeController|lpm_divide:Mod5|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num               ; lpm_abs_i0a           ; work         ;
 +--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; TimeController:TimeController|ledSignal            ; SW[1]               ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -425,12 +434,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 235   ;
-; Number of registers using Synchronous Clear  ; 33    ;
-; Number of registers using Synchronous Load   ; 58    ;
+; Total registers                              ; 234   ;
+; Number of registers using Synchronous Clear  ; 57    ;
+; Number of registers using Synchronous Load   ; 35    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 158   ;
+; Number of registers using Clock Enable       ; 159   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -440,7 +449,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------+---------+
 ; Inverted Register                                         ; Fan out ;
 +-----------------------------------------------------------+---------+
-; TemperatureController:TemperatureController|tempShown[1]  ; 27      ;
+; TemperatureController:TemperatureController|tempShown[1]  ; 26      ;
 ; TemperatureController:TemperatureController|tempShown[4]  ; 20      ;
 ; TemperatureController:TemperatureController|tempShown[5]  ; 12      ;
 ; TemperatureController:TemperatureController|tempTarget[6] ; 1       ;
@@ -461,13 +470,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:temp_up_debouncer|s_debounceCnt[3]            ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_up_debouncer|s_debounceCnt[2]            ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |AirFryer|DebounceUnits:keys_debounce|Debouncer:time_dw_debouncer|s_debounceCnt[0]            ;
-; 4:1                ; 27 bits   ; 54 LEs        ; 27 LEs               ; 27 LEs                 ; Yes        ; |AirFryer|TimeController:TimeController|timeCookShown[16]                                     ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AirFryer|TimeController:TimeController|timeCookShown[3]                                      ;
-; 4:1                ; 29 bits   ; 58 LEs        ; 29 LEs               ; 29 LEs                 ; Yes        ; |AirFryer|TimeController:TimeController|timePreHeatShown[18]                                  ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |AirFryer|TimeController:TimeController|timePreHeatShown[2]                                   ;
-; 11:1               ; 25 bits   ; 175 LEs       ; 75 LEs               ; 100 LEs                ; Yes        ; |AirFryer|TemperatureController:TemperatureController|tempShown[21]                           ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 6 LEs                ; 15 LEs                 ; Yes        ; |AirFryer|TemperatureController:TemperatureController|tempShown[2]                            ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; Yes        ; |AirFryer|TemperatureController:TemperatureController|tempShown[5]                            ;
+; 6:1                ; 27 bits   ; 108 LEs       ; 27 LEs               ; 81 LEs                 ; Yes        ; |AirFryer|TimeController:TimeController|timeCookShown[16]                                     ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |AirFryer|TimeController:TimeController|timeCookShown[3]                                      ;
+; 6:1                ; 29 bits   ; 116 LEs       ; 29 LEs               ; 87 LEs                 ; Yes        ; |AirFryer|TimeController:TimeController|timePreHeatShown[18]                                  ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |AirFryer|TimeController:TimeController|timePreHeatShown[2]                                   ;
+; 12:1               ; 25 bits   ; 200 LEs       ; 100 LEs              ; 100 LEs                ; Yes        ; |AirFryer|TemperatureController:TemperatureController|tempShown[21]                           ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |AirFryer|TemperatureController:TemperatureController|tempShown[2]                            ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |AirFryer|TemperatureController:TemperatureController|tempShown[5]                            ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AirFryer|TimeController:TimeController|Add9                                                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AirFryer|TimeController:TimeController|timeUnits[3]                                          ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AirFryer|TimeController:TimeController|timeDozens[2]                                         ;
@@ -528,16 +537,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; inpolarity     ; '0'    ; Enumerated                                                                 ;
 ; outpolarity    ; '1'    ; Enumerated                                                                 ;
 +----------------+--------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ClkDividerN:clkDivider ;
-+----------------+----------+-----------------------------------------+
-; Parameter Name ; Value    ; Type                                    ;
-+----------------+----------+-----------------------------------------+
-; divfactor      ; 50000000 ; Signed Integer                          ;
-+----------------+----------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -893,40 +892,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ClkDividerN:clkDivider"                                                               ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; clkout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 66                          ;
-; cycloneiii_ff         ; 235                         ;
+; cycloneiii_ff         ; 234                         ;
 ;     ENA               ; 100                         ;
-;     ENA SLD           ; 58                          ;
+;     ENA SCLR          ; 24                          ;
+;     ENA SLD           ; 35                          ;
 ;     SCLR              ; 33                          ;
-;     plain             ; 44                          ;
-; cycloneiii_lcell_comb ; 17701                       ;
+;     plain             ; 42                          ;
+; cycloneiii_lcell_comb ; 17722                       ;
 ;     arith             ; 5872                        ;
 ;         1 data inputs ; 13                          ;
 ;         2 data inputs ; 348                         ;
 ;         3 data inputs ; 5511                        ;
-;     normal            ; 11829                       ;
+;     normal            ; 11850                       ;
 ;         0 data inputs ; 410                         ;
 ;         1 data inputs ; 16                          ;
-;         2 data inputs ; 5597                        ;
-;         3 data inputs ; 250                         ;
-;         4 data inputs ; 5556                        ;
+;         2 data inputs ; 5577                        ;
+;         3 data inputs ; 252                         ;
+;         4 data inputs ; 5595                        ;
 ;                       ;                             ;
 ; Max LUT depth         ; 215.30                      ;
-; Average LUT depth     ; 169.46                      ;
+; Average LUT depth     ; 169.32                      ;
 +-----------------------+-----------------------------+
 
 
@@ -945,7 +936,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon May 20 18:07:32 2024
+    Info: Processing started: Tue May 21 18:13:22 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AirFryer -c AirFryer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -965,7 +956,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file Bin7Seg
     Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: /home/tiago/Documents/lsd-project/src/Bin7SegDecoder.vhd Line: 15
     Info (12023): Found entity 1: Bin7SegDecoder File: /home/tiago/Documents/lsd-project/src/Bin7SegDecoder.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file AirFryer.vhd
-    Info (12022): Found design unit 1: AirFryer-Demo File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 38
+    Info (12022): Found design unit 1: AirFryer-Demo File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 20
     Info (12023): Found entity 1: AirFryer File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file TemperatureController.vhd
     Info (12022): Found design unit 1: TemperatureController-Behavioral File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 21
@@ -979,9 +970,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file TimeCon
 Info (12021): Found 2 design units, including 1 entities, in source file ProgramSelector.vhd
     Info (12022): Found design unit 1: ProgramSelector-Behavioral File: /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd Line: 15
     Info (12023): Found entity 1: ProgramSelector File: /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file ClkDividerN.vhd
-    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: /home/tiago/Documents/lsd-project/src/ClkDividerN.vhd Line: 12
-    Info (12023): Found entity 1: ClkDividerN File: /home/tiago/Documents/lsd-project/src/ClkDividerN.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file TimerN.vhd
     Info (12022): Found design unit 1: TimerN-Behavioral File: /home/tiago/Documents/lsd-project/src/TimerN.vhd Line: 13
     Info (12023): Found entity 1: TimerN File: /home/tiago/Documents/lsd-project/src/TimerN.vhd Line: 5
@@ -992,46 +980,46 @@ Info (12021): Found 2 design units, including 1 entities, in source file tb_Prog
     Info (12022): Found design unit 1: tb_ProgramSelector-Behavioral File: /home/tiago/Documents/lsd-project/src/tb_ProgramSelector.vhd Line: 7
     Info (12023): Found entity 1: tb_ProgramSelector File: /home/tiago/Documents/lsd-project/src/tb_ProgramSelector.vhd Line: 4
 Info (12127): Elaborating entity "AirFryer" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at AirFryer.vhd(29): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-Warning (10036): Verilog HDL or VHDL warning at AirFryer.vhd(43): object "s_1Hz" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 43
-Warning (10873): Using initial value X (don't care) for net "LEDR[7..0]" at AirFryer.vhd(28) File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-Info (12129): Elaborating entity "DebounceUnits" using architecture "A:behavioral" for hierarchy "DebounceUnits:keys_debounce" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 50
+Warning (10541): VHDL Signal Declaration warning at AirFryer.vhd(11): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
+Warning (10873): Using initial value X (don't care) for net "LEDR[7..0]" at AirFryer.vhd(10) File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+Info (12129): Elaborating entity "DebounceUnits" using architecture "A:behavioral" for hierarchy "DebounceUnits:keys_debounce" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 31
 Info (12129): Elaborating entity "Debouncer" using architecture "A:behavioral" for hierarchy "DebounceUnits:keys_debounce|Debouncer:time_up_debouncer" File: /home/tiago/Documents/lsd-project/src/DebounceUnits.vhd Line: 24
-Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDivider" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 63
-Info (12129): Elaborating entity "ProgramSelector" using architecture "A:behavioral" for hierarchy "ProgramSelector:progamSelector" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 70
-Info (12129): Elaborating entity "TemperatureController" using architecture "A:behavioral" for hierarchy "TemperatureController:TemperatureController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 80
+Info (12129): Elaborating entity "ProgramSelector" using architecture "A:behavioral" for hierarchy "ProgramSelector:progamSelector" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 43
+Info (12129): Elaborating entity "TemperatureController" using architecture "A:behavioral" for hierarchy "TemperatureController:TemperatureController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 53
 Warning (10540): VHDL Signal Declaration warning at TemperatureController.vhd(22): used explicit default value for signal "tempMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 22
 Warning (10540): VHDL Signal Declaration warning at TemperatureController.vhd(23): used explicit default value for signal "tempMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 23
 Info (12129): Elaborating entity "TimerN" using architecture "A:behavioral" for hierarchy "TemperatureController:TemperatureController|TimerN:timer" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 33
 Info (12128): Elaborating entity "PulseGen" for hierarchy "TemperatureController:TemperatureController|TimerN:timer|PulseGen:pulseGen" File: /home/tiago/Documents/lsd-project/src/TimerN.vhd Line: 17
-Info (12129): Elaborating entity "TimeController" using architecture "A:behavioral" for hierarchy "TimeController:TimeController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 96
+Info (12129): Elaborating entity "TimeController" using architecture "A:behavioral" for hierarchy "TimeController:TimeController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 69
 Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(26): used explicit default value for signal "timeCookMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 26
 Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(27): used explicit default value for signal "timeCookMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 27
 Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(30): used explicit default value for signal "timePreHeatMin" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 30
 Warning (10540): VHDL Signal Declaration warning at TimeController.vhd(31): used explicit default value for signal "timePreHeatMax" because signal was never assigned a value File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 31
-Warning (10492): VHDL Process Statement warning at TimeController.vhd(110): signal "run" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 110
-Warning (10492): VHDL Process Statement warning at TimeController.vhd(121): signal "timeTotalShown" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 121
-Warning (10492): VHDL Process Statement warning at TimeController.vhd(122): signal "timeTotalShown" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 122
-Info (12129): Elaborating entity "DisplaysController" using architecture "A:behavioral" for hierarchy "DisplaysController:DisplaysController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 112
+Warning (10492): VHDL Process Statement warning at TimeController.vhd(112): signal "run" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 112
+Warning (10492): VHDL Process Statement warning at TimeController.vhd(125): signal "timeTotalShown" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 125
+Warning (10492): VHDL Process Statement warning at TimeController.vhd(126): signal "timeTotalShown" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 126
+Warning (10631): VHDL Process Statement warning at TimeController.vhd(110): inferring latch(es) for signal or variable "ledSignal", which holds its previous value in one or more paths through the process File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 110
+Info (10041): Inferred latch for "ledSignal" at TimeController.vhd(110) File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 110
+Info (12129): Elaborating entity "DisplaysController" using architecture "A:behavioral" for hierarchy "DisplaysController:DisplaysController" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 85
 Warning (10036): Verilog HDL or VHDL warning at DisplaysController.vhd(21): object "teste" assigned a value but never read File: /home/tiago/Documents/lsd-project/src/DisplaysController.vhd Line: 21
 Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "DisplaysController:DisplaysController|Bin7SegDecoder:bin7SegTemperatura" File: /home/tiago/Documents/lsd-project/src/DisplaysController.vhd Line: 24
 Info (278001): Inferred 14 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 91
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 90
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 90
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 89
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 89
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod3" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 118
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 114
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod5" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 122
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 117
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod2" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 117
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div0" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 113
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod0" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 113
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div2" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 121
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod4" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 121
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 91
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod2" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 91
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 93
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 92
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 92
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 91
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TemperatureController:TemperatureController|Mod0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 91
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod3" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 122
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 117
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod5" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 126
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 121
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod2" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 121
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div0" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 116
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod0" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 116
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Div2" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 125
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "TimeController:TimeController|Mod4" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 125
+Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod2" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 93
+Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod2" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 93
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1049,8 +1037,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_8pc File: /home/tiago/Documents/lsd-project/src/db/add_sub_8pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
     Info (12023): Found entity 1: lpm_abs_i0a File: /home/tiago/Documents/lsd-project/src/db/lpm_abs_i0a.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 90
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 90
+Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 92
+Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 92
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1064,15 +1052,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_67f File: /home/tiago/Documents/lsd-project/src/db/alt_u_div_67f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
     Info (12023): Found entity 1: lpm_abs_2v9 File: /home/tiago/Documents/lsd-project/src/db/lpm_abs_2v9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 90
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 90
+Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Mod1" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 92
+Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Mod1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 92
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 89
-Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div0" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 89
+Info (12130): Elaborated megafunction instantiation "TemperatureController:TemperatureController|lpm_divide:Div0" File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 91
+Info (12133): Instantiated megafunction "TemperatureController:TemperatureController|lpm_divide:Div0" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TemperatureController.vhd Line: 91
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1086,8 +1074,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_c7f File: /home/tiago/Documents/lsd-project/src/db/alt_u_div_c7f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_5v9.tdf
     Info (12023): Found entity 1: lpm_abs_5v9 File: /home/tiago/Documents/lsd-project/src/db/lpm_abs_5v9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "TimeController:TimeController|lpm_divide:Div1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 117
-Info (12133): Instantiated megafunction "TimeController:TimeController|lpm_divide:Div1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 117
+Info (12130): Elaborated megafunction instantiation "TimeController:TimeController|lpm_divide:Div1" File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 121
+Info (12133): Instantiated megafunction "TimeController:TimeController|lpm_divide:Div1" with the following parameter: File: /home/tiago/Documents/lsd-project/src/TimeController.vhd Line: 121
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1096,36 +1084,36 @@ Info (12133): Instantiated megafunction "TimeController:TimeController|lpm_divid
 Info (13014): Ignored 431 buffer(s)
     Info (13016): Ignored 431 CARRY_SUM buffer(s)
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 28
-    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[1]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[3]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
-    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 29
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 10
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 11
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[3]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 26
-    Warning (15610): No output dependent on input pin "SW[7]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 26
-Info (21057): Implemented 17801 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "SW[3]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[7]" File: /home/tiago/Documents/lsd-project/src/AirFryer.vhd Line: 8
+Info (21057): Implemented 17824 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 17735 logic cells
+    Info (21061): Implemented 17758 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
-    Info: Peak virtual memory: 585 megabytes
-    Info: Processing ended: Mon May 20 18:07:55 2024
-    Info: Elapsed time: 00:00:23
+    Info: Peak virtual memory: 613 megabytes
+    Info: Processing ended: Tue May 21 18:13:46 2024
+    Info: Elapsed time: 00:00:24
     Info: Total CPU time (on all processors): 00:00:33
 
 

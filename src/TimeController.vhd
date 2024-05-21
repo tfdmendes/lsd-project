@@ -63,7 +63,6 @@ begin
                     if program = "001" then
                         -- Editando o tempo de pré-aquecimento
                         if heatOrCook = '1' then
-                            ledSignal <= '1'; -- LED ligado para sinalizar edição do tempo de pré-aquecimento
                             if timeUp = '1' and timePreHeatShown < timePreHeatMax then
                                 timePreHeatShown <= timePreHeatShown + 1;
                             elsif timeDown = '1' and timePreHeatShown > timePreHeatMin then
@@ -71,7 +70,6 @@ begin
                             end if;
                         -- Editando o tempo de cozimento
                         else
-                            ledSignal <= '0'; -- LED desligado para sinalizar edição do tempo de cozimento
                             if timeUp = '1' and timeCookShown < timeCookMax then
                                 timeCookShown <= timeCookShown + 1;
                             elsif timeDown = '1' and timeCookShown > timeCookMin then
@@ -98,8 +96,12 @@ begin
                         end if;
                     else
                         timeTotalShown <= timeTotalShown;
-					end if;
+							end if;
                 end if;
+					 
+				elsif enable = '0' then
+					timePreHeatShown <= to_integer(unsigned(timeHeat));
+					timeCookShown <= to_integer(unsigned(timeCook));
             end if;
         end if;
     end process;
@@ -109,10 +111,12 @@ begin
     begin
 		if run = '0' then
         if heatOrCook = '1' then
+				ledSignal <= '1';
             -- Mostra o tempo de pré-aquecimento
             timeDozens <= std_logic_vector(to_unsigned((timePreHeatShown / 10) mod 10, 4));
             timeUnits <= std_logic_vector(to_unsigned(timePreHeatShown mod 10, 4));
         else
+				ledSignal <= '0';
             -- Mostra o tempo de cozimento
             timeDozens <= std_logic_vector(to_unsigned((timeCookShown / 10) mod 10, 4));
             timeUnits <= std_logic_vector(to_unsigned(timeCookShown mod 10, 4));

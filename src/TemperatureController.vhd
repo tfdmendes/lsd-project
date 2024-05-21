@@ -79,6 +79,8 @@ begin
                         end if;
                     end if;
                 end if;
+				elsif enable = '0' then
+					tempShown <= to_integer(unsigned(startingTemp));
             end if;
         end if;
     end process;
