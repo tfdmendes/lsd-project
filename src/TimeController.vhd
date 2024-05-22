@@ -5,9 +5,10 @@ use IEEE.NUMERIC_STD.all;
 entity TimeController is
     Port(
         clk          : in std_logic;
+		  clkEnable		: in std_logic;
 		  
-        timeHeat	 : in std_logic_vector(4 downto 0); -- tempo de Aquecimento que vira do programa
-        timeCook	 : in std_logic_vector(4 downto 0); -- tempo de Coccao que vira do programa
+        timeHeat	 	: in std_logic_vector(4 downto 0); -- tempo de Aquecimento que vira do programa
+        timeCook	 	: in std_logic_vector(4 downto 0); -- tempo de Coccao que vira do programa
 		  
         estado       : in std_logic; -- estar aberto ou fechado (a cuba)
         program      : in std_logic_vector(2 downto 0);
@@ -43,13 +44,14 @@ begin
 	 -- TIMER
     timer : entity work.TimerN(Behavioral)
     port map(clk         => clk,
+				 clkEnable	 => clkEnable,
              reset       => not enable,
              timerEnable => run,
              timerOut    => one_sec_pulse);
 
     process(clk)
     begin
-        if rising_edge(clk) then
+        if (rising_edge(clk)) then
             if enable = '1' then
                 if run = '0' then
                     if timeInitialized = '0' then

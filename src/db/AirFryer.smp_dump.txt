@@ -1,0 +1,8 @@
+
+State Machine - |AirFryer|AirFryerFSM:AirFryerFSM|state
+Name state.COOL state.FINISH state.COOK state.PREHEAT state.IDLE 
+state.IDLE 0 0 0 0 0 
+state.PREHEAT 0 0 0 1 1 
+state.COOK 0 0 1 0 1 
+state.FINISH 0 1 0 0 1 
+state.COOL 1 0 0 0 1 

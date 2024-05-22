@@ -19,6 +19,6 @@ Sim dir               :  simulation/modelsim
 
 Info: Starting NativeLink simulation with ModelSim software
 Sourced NativeLink script /home/tiago/.intel_fpga_lite/22.1.2/quartus/common/tcl/internal/nativelink/modelsim.tcl
-Warning: File AirFryer_run_msim_rtl_vhdl.do already exists - backing up current file as AirFryer_run_msim_rtl_vhdl.do.bak5
+Warning: File AirFryer_run_msim_rtl_vhdl.do already exists - backing up current file as AirFryer_run_msim_rtl_vhdl.do.bak6
 Info: Spawning ModelSim Simulation software 
 Info: NativeLink simulation flow was successful

@@ -43,5 +43,15 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/Debouncer.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/DebounceUnits.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/DisplaysController.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/Bin7SegDecoder.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/AirFryer.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/TemperatureController.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/TimeController.vhd}
 vcom -93 -work work {/home/tiago/Documents/lsd-project/src/ProgramSelector.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/PulseGen.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/AirFryerFSM.vhd}
+vcom -93 -work work {/home/tiago/Documents/lsd-project/src/TimerN.vhd}
 

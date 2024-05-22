@@ -5,6 +5,7 @@ use IEEE.NUMERIC_STD.all;
 entity TemperatureController is
     port(
         clk          : in std_logic;
+		  clkEnable		: in std_logic;
         startingTemp : in std_logic_vector(7 downto 0); -- temperatura do programa selecionado
         enable       : in std_logic;
         run          : in std_logic; -- se está a trabalhar
@@ -32,13 +33,14 @@ begin
     -- TIMER
     timer : entity work.TimerN(Behavioral)
     port map(clk       => clk,
+				 clkEnable	=> clkEnable,
              reset       => not enable,
              timerEnable => run,
              timerOut    => one_sec_pulse);
 
     process(clk)
     begin
-        if rising_edge(clk) then
+        if (rising_edge(clk)) then
             if enable = '1' then
                 if run = '0' then
                     if tempInitialized = '0' then
