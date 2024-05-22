@@ -160,6 +160,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[1]",
+					"strict" : false
+				},
+				{
 					"name" : "CLOCK_50",
 					"strict" : false
 				},
@@ -172,7 +176,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[1]",
+					"name" : "SW[2]",
 					"strict" : false
 				},
 				{
@@ -185,10 +189,6 @@
 				},
 				{
 					"name" : "SW[6]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[2]",
 					"strict" : false
 				},
 				{

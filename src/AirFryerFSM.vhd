@@ -12,7 +12,8 @@ entity AirFryerFSM is
         OPEN_OVEN       : in std_logic;
 		  heatFinished    : in std_logic;
 		  timeFinished    : in std_logic;
-		  program         : in std_logic_vector(2 downto 0);
+		  timePreHeat     : in std_logic_vector(4 downto 0);
+	 	  program         : in std_logic_vector(2 downto 0);
 		  foodIn          : out std_logic;
         ledStateIDLE    : out std_logic;
         ledStatePREHEAT : out std_logic;
@@ -52,29 +53,41 @@ begin
                 ledStateIDLE <= '1';
                 if run = '1' then
 						if program /= "000" then
-							next_state <= PREHEAT;
+							if timePreHeat /= "00000" then
+								next_state <= PREHEAT;
+							else
+								next_state <= COOK;
+							end if;
 						else
 							next_state <= COOK;
 						end if;
                 end if;
 
              when PREHEAT =>
-                ledStatePREHEAT <= '1';
-                if heatFinished = '1' then
-                    s_foodIn <= '1';
-                end if;
-                if s_foodIn = '1' and OPEN_OVEN = '1' then
-                    next_state <= COOK;
-                end if;
+					 if run = '0' then
+						next_state <= IDLE;
+					 else
+						 ledStatePREHEAT <= '1';
+						 if heatFinished = '1' then
+							  s_foodIn <= '1';
+						 end if;
+						 if s_foodIn = '1' and OPEN_OVEN = '1' then
+							  next_state <= COOK;
+						 end if;
+					 end if;
 
             when COOK =>
-                ledStateCOOK <= '1';
-                if OPEN_OVEN = '0' then
-                    foodIn <= s_foodIn;
-                    if timeFinished = '1' then
-                        next_state <= IDLE;
-                    end if;
-                end if;
+					 if run = '0' then
+						next_state <= IDLE;
+					 else
+						 ledStateCOOK <= '1';
+						 if OPEN_OVEN = '0' then
+							  foodIn <= s_foodIn;
+							  if timeFinished = '1' then
+									next_state <= IDLE;
+							  end if;
+						 end if;
+					 end if;
 
             when others =>
 					 ledStateIDLE <= '1';

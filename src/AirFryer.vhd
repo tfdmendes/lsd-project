@@ -22,10 +22,13 @@ architecture Demo of AirFryer is
         signal s_temp_Uni, s_temp_Doz, s_temp_Cen          : std_logic_vector(3 downto 0);
 		  signal s_time_Uni, s_time_Doz							  : std_logic_vector(3 downto 0);
 		  signal s_1Hz													  : std_logic;
-		  signal s_timeCook, s_timeHeat, s_timeNow			  : std_logic_vector(4 downto 0);
-		  signal s_temp, s_tempNow									  : std_logic_vector(7 downto 0);
+		  signal s_timeCook, s_timeHeat, s_timeNow, s_timePreHeat			  : std_logic_vector(4 downto 0);
+		  signal s_temp									  			  : std_logic_vector(7 downto 0);
 		  signal s_programChosen									  : std_logic_vector(2 downto 0);
-		  signal s_heatFinished, s_timeFinished ,s_foodIn	  : std_logic;
+		  signal s_heatFinished , s_timeFinished	  						: std_logic;
+		  signal s_foodIn, s_foodInFSM : std_logic;
+		  
+		  -- Entradas Switches Sincrozinados
 		  signal sw1_ff_out, sw0_ff_out, sw2_ff_out, sw7_ff_out : std_logic;
 		  signal sw8_ff_out												: std_logic;
 
@@ -102,9 +105,13 @@ begin
              timeDown       => s_timeDown,
              enable         => sw0_ff_out,
              run        	 => sw1_ff_out,
+				 foodIn			 => s_foodIn,
              timeUnits   	 => s_time_Uni,
              timeDozens     => s_time_Doz,
-				 ledSignal		 => LEDR(8));
+				 ledSignal		 => LEDR(8),
+				 heatFinished 	 => s_heatFinished,
+				 timeFinished   => s_timeFinished,
+				 preHeatTime	 => s_timePreHeat);
 				 
 	 -- DISPLAYS CONTROLLER
     DisplaysController : entity work.DisplaysController(Behavioral)
@@ -132,12 +139,14 @@ begin
         OPEN_OVEN       => sw2_ff_out,
 		  heatFinished    => s_heatFinished,
 		  timeFinished    => s_timeFinished,
+		  timePreHeat     => s_timePreHeat,
 		  program         => s_programChosen,
-		  foodIn          => s_foodIn,
+		  foodIn          => s_foodInFSM,
         ledStateIDLE    => LEDG(3),
         ledStatePREHEAT => LEDG(2),
         ledStateCOOK    => LEDG(1),
-        ledStateCOOL    => LEDG(0)
-    );
+        ledStateCOOL    => LEDG(0));
+		  
+		  s_foodIn <= s_foodInFSM;
 
 end Demo;

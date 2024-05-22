@@ -20,10 +20,10 @@ entity TemperatureController is
 end TemperatureController;
 
 architecture Behavioral of TemperatureController is
-    signal tempMin         : INTEGER := 20;
-    signal tempMax         : INTEGER := 250;
-    signal tempShown       : INTEGER := 50;
-    signal tempTarget      : INTEGER := 100;
+    signal tempMin         : natural := 20;
+    signal tempMax         : natural := 250;
+    signal tempShown       : natural := 50;
+    signal tempTarget      : natural := 100;
     signal tempInitialized : std_logic := '0';
     signal tempRun         : std_logic := '0';
     signal one_sec_pulse   : std_logic := '0';
