@@ -6,47 +6,47 @@ entity TimeController is
     Port(
         clk          : in std_logic;
 		  clkEnable		: in std_logic;
+		  timerEnable	: in std_logic;
+		  
         timeHeat	 	: in std_logic_vector(4 downto 0); -- tempo de Aquecimento que vira do programa
         timeCook	 	: in std_logic_vector(4 downto 0); -- tempo de Coccao que vira do programa
 		  
-        estado       : in std_logic; -- estar aberto ou fechado (a cuba)
-        program      : in std_logic_vector(2 downto 0);
-        heatOrCook   : in std_logic; -- sinal para quando queremos editar um dos tempos (0 para alterar heat) (1 para alterar cook)
-        timeUp       : in std_logic;
-        timeDown     : in std_logic;
         enable       : in std_logic;
         run          : in std_logic;
-		  foodIn			: in std_logic;
+        estado       : in std_logic; -- estar aberto ou fechado (a cuba)
+        heatOrCook   : in std_logic; -- sinal para quando queremos editar um dos tempos (0 para alterar heat) (1 para alterar cook)
+		  
+        program      : in std_logic_vector(2 downto 0);
+        timeUp       : in std_logic;
+        timeDown     : in std_logic;
+
         timeUnits    : out std_logic_vector(3 downto 0);
         timeDozens   : out std_logic_vector(3 downto 0);
         ledSignal    : out std_logic;
 		  
-		  heatFinished	: out std_logic;
-		  timeFinished	: out std_logic;
-		  preHeatTime	: out std_logic_vector(4 downto 0));
+		  timePreHeatTotal : out std_logic_vector(5 downto 0);
+		  timeCookTotal	 : out std_logic_vector(5 downto 0);
+		  currentTime 		 : out std_logic_vector(5 downto 0));
 		  
 end TimeController;
 
 architecture Behavioral of TimeController is
-	 signal totalTime			 : natural;
     -- Sinais de Coccao
-    signal timeCookMin      : natural := 10;
-    signal timeCookMax      : natural := 30;
+    signal timeCookMin      : INTEGER := 10;
+    signal timeCookMax      : INTEGER := 30;
     
     -- Sinais de Pré-aquecimento
-    signal timePreHeatMin   : natural := 0;
-    signal timePreHeatMax   : natural := 10;
+    signal timePreHeatMin   : INTEGER := 0;
+    signal timePreHeatMax   : INTEGER := 10;
     
 	-- Sinais de mostragem
-    signal timePreHeatShown : natural := 0;
-    signal timeCookShown    : natural := 0;
-	 signal timeTotalShown   : natural := 0;
+    signal timePreHeatShown : INTEGER := 0;
+    signal timeCookShown    : INTEGER := 0;
+	signal timeTotalShown   : INTEGER := 0;
     signal timeInitialized  : std_logic := '0';
- 	 signal timeRun          : std_logic := '0';
+	signal timeRun          : std_logic := '0';
 	 
-	signal one_sec_pulse     : std_logic := '0';
-	signal s_heatFinished	 : std_logic;
-	signal s_timeFinished    : std_logic;
+	signal one_sec_pulse    : std_logic := '0';
 
 begin
 	 -- TIMER
@@ -54,7 +54,7 @@ begin
     port map(clk         => clk,
 				 clkEnable	 => clkEnable,
              reset       => not enable,
-             timerEnable => run,
+             timerEnable => timerEnable,
              timerOut    => one_sec_pulse);
 
     process(clk)
@@ -64,12 +64,10 @@ begin
                 if run = '0' then
                     if timeInitialized = '0' then
                         -- Inicializa os tempos de pré-aquecimento e cozimento
-                        timePreHeatShown	<= to_integer(unsigned(timeHeat));
-                        timeCookShown 	 	<= to_integer(unsigned(timeCook));
-                        timeInitialized 	<= '1';
-                        timeRun 			 	<= '0';
-								heatFinished  	<= '0';
-								timeFinished    <= '0';
+                        timePreHeatShown <= to_integer(unsigned(timeHeat));
+                        timeCookShown <= to_integer(unsigned(timeCook));
+                        timeInitialized <= '1';
+                        timeRun <= '0';
                     end if;
                     -- Se o programa for o USER - pode definir TEMPO
                     if program = "001" then
@@ -94,31 +92,22 @@ begin
                     end if;
                 elsif run = '1' then
                     if timeRun = '0' then
-                            totalTime <= timePreHeatShown + timeCookShown;
-									 timeTotalShown <= totalTime;
-									 preHeatTime <= std_logic_vector(to_unsigned(timePreHeatShown, 5));
+                            timeTotalShown <= timePreHeatShown + timeCookShown;
+									 timePreHeatTotal <= std_logic_vector(to_unsigned(timePreHeatShown, 6));
+									 timeCookTotal <= std_logic_vector(to_unsigned(timeCookShown, 6));
+									 
                             timeInitialized <= '0'; -- Reset timeInitialized para próxima vez que run for 0
                             timeRun <= '1';
                     end if;
-						  
-						  -- Cuba Fechada
                     if estado = '0' then
                         if timeRun = '1' then
+									 currentTime		<= std_logic_vector(to_unsigned(timeTotalShown, 6));
                             if one_sec_pulse = '1' then
                                 if timeTotalShown > 0 then
                                     timeTotalShown <= timeTotalShown - 1;
-												if ((timeTotalShown = totalTime - timePreHeatShown) and (foodIn = '0')) then
-													timeTotalShown <= timeTotalShown;
-													heatFinished <= '1';
-												end if;
-												if timeTotalShown = 0 then
-													timeTotalShown <= timeTotalShown;
-													timeFinished <= '1';
-												end if;
                                 end if;
                             end if;
                         end if;
-							
                     else
                         timeTotalShown <= timeTotalShown;
 							end if;

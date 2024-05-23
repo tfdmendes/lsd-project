@@ -4,6 +4,11 @@ z2
 Z0 !s99 nomlopt
 R0
 R0
+R0
+R0
+R0
+R0
+R0
 !s11e vcom 2021.2 2021.04, Apr 14 2021
 13
 !s112 1.1
@@ -17,102 +22,75 @@ T_opt
 VYVHY_<?2W>Y0DAM9:MVVo0
 04 24 10 work temperaturecontroller_tb behavioral 1
 =1-000ae431a4f1-66489524-fe30-c679
-Z2 !s124 OEM10U2 
-Z3 o-quiet -auto_acc_if_foreign -work work +acc
-Z4 tCvgOpt 0
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
 n@_opt
-Z5 OL;O;2021.2;73
+OL;O;2021.2;73
 R1
-T_opt1
-!s110 1716211063
-VZI=:TgkO39PaPXHATP5b01
-04 18 10 work tb_programselector behavioral 1
-=1-000ae431a4f1-664b4d76-f2a4c-dff
+Etimecontroller
+w1716474935
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R1
+8/home/tiago/Documents/lsd-project/src/TimeController.vhd
+F/home/tiago/Documents/lsd-project/src/TimeController.vhd
+l0
+L5 1
+VB=9WSTTO;k:TXNzZP?_;z0
+!s100 `R7SCF@]ENU:UH<83n]Zl0
+Z5 OL;C;2021.2;73
+31
+!s110 1716475083
+!i10b 1
+!s108 1716475083.000000
+!s90 -reportprogress|300|-93|-work|work|/home/tiago/Documents/lsd-project/src/TimeController.vhd|
+!s107 /home/tiago/Documents/lsd-project/src/TimeController.vhd|
+!i113 0
+o-93 -work work
+Z6 tExplicit 1 CvgOpt 0
+Etimecontroller_tb
+Z7 w1716474929
 R2
 R3
 R4
-n@_opt1
+!i122 1
+R1
+Z8 8/home/tiago/Documents/lsd-project/src/TimeController_tb.vhd
+Z9 F/home/tiago/Documents/lsd-project/src/TimeController_tb.vhd
+l0
+L5 1
+VA:_b?3X?ID:7aLm=FHOzh0
+!s100 @n41^XndAF>ZlYhf_gP]]3
 R5
-Eprogramselector
-Z6 w1716210188
-Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 0
-R1
-Z9 8/home/tiago/Documents/lsd-project/src/ProgramSelector.vhd
-Z10 F/home/tiago/Documents/lsd-project/src/ProgramSelector.vhd
-l0
-L4 1
-Vk7^e<LjOelG4iK2>VKZ]i3
-!s100 T3biGN::jFQ[3I=WnPe=l3
-Z11 OL;C;2021.2;73
-31
-Z12 !s110 1716211041
+32
+Z10 !s110 1716475089
 !i10b 1
-Z13 !s108 1716211041.000000
-Z14 !s90 -reportprogress|300|-93|-work|work|/home/tiago/Documents/lsd-project/src/ProgramSelector.vhd|
-Z15 !s107 /home/tiago/Documents/lsd-project/src/ProgramSelector.vhd|
+Z11 !s108 1716475089.000000
+Z12 !s90 -reportprogress|300|-work|work|/home/tiago/Documents/lsd-project/src/TimeController_tb.vhd|
+!s107 /home/tiago/Documents/lsd-project/src/TimeController_tb.vhd|
 !i113 0
-Z16 o-93 -work work
-Z17 tExplicit 1 CvgOpt 0
+Z13 o-work work
+R6
 Abehavioral
-R7
-R8
-Z18 DEx4 work 15 programselector 0 22 k7^e<LjOelG4iK2>VKZ]i3
-!i122 0
-l16
-L15 39
-VQF3e]SfHoU4KziWdBUOC01
-!s100 ic?NDFGk[ARI@>EQH3`FJ0
+R2
+R3
+R4
+DEx4 work 17 timecontroller_tb 0 22 A:_b?3X?ID:7aLm=FHOzh0
+!i122 1
+l50
+L8 129
+VoPaMbK9Z6Ie8?daD31cm13
+!s100 ]JXHd<fK0ngY7RA9J@7DS1
+R5
+32
+R10
+!i10b 1
 R11
-31
 R12
-!i10b 1
+Z14 !s107 /home/tiago/Documents/lsd-project/src/TimeController_tb.vhd|
+!i113 0
 R13
-R14
-R15
-!i113 0
-R16
-R17
-Etb_programselector
-Z19 w1716211025
-R7
-R8
-!i122 1
-R1
-Z20 8/home/tiago/Documents/lsd-project/src/tb_ProgramSelector.vhd
-Z21 F/home/tiago/Documents/lsd-project/src/tb_ProgramSelector.vhd
-l0
-L4 1
-Vkj09YcPQ^M7PGH[VGGXXE3
-!s100 VO`gaz@[X=o2SS><K3ziJ0
-R11
-32
-Z22 !s110 1716211046
-!i10b 1
-Z23 !s108 1716211046.000000
-Z24 !s90 -reportprogress|300|-work|work|/home/tiago/Documents/lsd-project/src/tb_ProgramSelector.vhd|
-Z25 !s107 /home/tiago/Documents/lsd-project/src/tb_ProgramSelector.vhd|
-!i113 0
-Z26 o-work work
-R17
-Abehavioral
-R18
-R7
-R8
-DEx4 work 18 tb_programselector 0 22 kj09YcPQ^M7PGH[VGGXXE3
-!i122 1
-l17
-L7 44
-V;7@1LmiTzQ;4Wj7:eS[e`1
-!s100 8VJ3]ikFEFPS>E0dA6Hb92
-R11
-32
-R22
-!i10b 1
-R23
-R24
-R25
-!i113 0
-R26
-R17
+R6

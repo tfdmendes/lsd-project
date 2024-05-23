@@ -3,99 +3,135 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -7.780
-TNS   : -1099.233
+Slack : -7.164
+TNS   : -1127.469
 
 Type  : Slow 1200mV 85C Model Setup 'sw1_ff_out'
-Slack : -2.840
-TNS   : -2.840
+Slack : -3.120
+TNS   : -4.798
+
+Type  : Slow 1200mV 85C Model Setup 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : -2.704
+TNS   : -2.704
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.346
-TNS   : 0.000
+Slack : -0.292
+TNS   : -0.292
 
 Type  : Slow 1200mV 85C Model Hold 'sw1_ff_out'
-Slack : 2.604
+Slack : 1.422
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : 1.566
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'CLOCK_50'
-Slack : -0.548
-TNS   : -1.644
+Slack : -1.062
+TNS   : -4.089
 
 Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
-Slack : 1.046
+Slack : 1.434
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -352.520
+TNS   : -335.815
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sw1_ff_out'
-Slack : 0.441
+Slack : 0.125
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : 0.371
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -7.152
-TNS   : -991.682
+Slack : -6.440
+TNS   : -1016.109
 
 Type  : Slow 1200mV 0C Model Setup 'sw1_ff_out'
-Slack : -2.469
-TNS   : -2.469
+Slack : -2.855
+TNS   : -4.247
+
+Type  : Slow 1200mV 0C Model Setup 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : -2.414
+TNS   : -2.414
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.298
-TNS   : 0.000
+Slack : -0.254
+TNS   : -0.254
 
 Type  : Slow 1200mV 0C Model Hold 'sw1_ff_out'
-Slack : 2.347
+Slack : 1.252
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : 1.460
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : -0.388
-TNS   : -1.164
+Slack : -0.871
+TNS   : -3.291
 
 Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 0.955
+Slack : 1.270
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -352.520
+TNS   : -335.815
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sw1_ff_out'
-Slack : 0.485
+Slack : 0.089
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : 0.325
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -3.460
-TNS   : -429.965
+Slack : -3.168
+TNS   : -451.780
 
 Type  : Fast 1200mV 0C Model Setup 'sw1_ff_out'
-Slack : -1.033
-TNS   : -1.033
+Slack : -1.333
+TNS   : -1.799
+
+Type  : Fast 1200mV 0C Model Setup 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : -0.907
+TNS   : -0.907
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : -0.058
-TNS   : -0.406
+Slack : -0.278
+TNS   : -0.769
+
+Type  : Fast 1200mV 0C Model Hold 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : 0.808
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'sw1_ff_out'
-Slack : 1.401
+Slack : 0.826
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : 0.222
-TNS   : 0.000
+Slack : -0.066
+TNS   : -0.177
 
 Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 0.495
+Slack : 0.718
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -291.926
+TNS   : -276.732
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sw1_ff_out'
-Slack : 0.428
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AirFryerFSM:AirFryerFSM|state.IDLE'
+Slack : 0.444
 TNS   : 0.000
 
 ------------------------------------------------------------

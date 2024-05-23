@@ -67,7 +67,7 @@ begin
                         tempRun <= '1';
                     else
                         if one_sec_pulse = '1' then
-                            if tempShown < tempTarget then
+                            if tempTarget >= tempShown then
                                 -- Enquanto estiver RUN ativo, se abrir a CUBA
                                 if estado = '1' and tempShown >= tempMin + 20 then
                                     tempShown <= tempShown - 20;
