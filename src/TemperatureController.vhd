@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.all;
 entity TemperatureController is
     port(
         clk          : in std_logic;
-		  clkEnable		: in std_logic;
+        clkEnable    : in std_logic;
         startingTemp : in std_logic_vector(7 downto 0); -- temperatura do programa selecionado
         enable       : in std_logic;
         run          : in std_logic; -- se está a trabalhar
@@ -16,7 +16,8 @@ entity TemperatureController is
         tempDown     : in std_logic;
         tempUnits    : out std_logic_vector(3 downto 0);
         tempDozens   : out std_logic_vector(3 downto 0);
-        tempHundreds : out std_logic_vector(3 downto 0));
+        tempHundreds : out std_logic_vector(3 downto 0)
+    );
 end TemperatureController;
 
 architecture Behavioral of TemperatureController is
@@ -32,11 +33,13 @@ architecture Behavioral of TemperatureController is
 begin
     -- TIMER
     timer : entity work.TimerN(Behavioral)
-    port map(clk       => clk,
-				 clkEnable	=> clkEnable,
-             reset       => not enable,
-             timerEnable => run,
-             timerOut    => one_sec_pulse);
+    port map(
+        clk         => clk,
+        clkEnable   => clkEnable,
+        reset       => not enable,
+        timerEnable => run,
+        timerOut    => one_sec_pulse
+    );
 
     process(clk)
     begin
@@ -55,9 +58,9 @@ begin
                         elsif tempDown = '1' and tempShown >= tempMin + 10 then
                             tempShown <= tempShown - 10;
                         end if;
-						  else
-								tempShown <= to_integer(unsigned(startingTemp));
-						  end if;
+                    else
+                        tempShown <= to_integer(unsigned(startingTemp));
+                    end if;
                     tempTarget <= tempShown; -- Define a temperatura alvo
                 elsif run = '1' then
                     -- Quando run é 1, a temperatura inicial é definida como 20°
@@ -67,22 +70,22 @@ begin
                         tempRun <= '1';
                     else
                         if one_sec_pulse = '1' then
-                            if tempTarget >= tempShown then
-                                -- Enquanto estiver RUN ativo, se abrir a CUBA
-                                if estado = '1' and tempShown >= tempMin + 20 then
+                            if estado = '1' then
+                                -- Diminuir a temperatura quando a cuba está aberta
+                                if tempShown >= tempMin + 20 then
                                     tempShown <= tempShown - 20;
-										  -- Para o caso em que começa a temperatura  a diminuir num numero em que as dezenas e impar 
-										  elsif estado = '1' and tempShown = 30 then
-												tempShown <= tempShown - 10;
-                                elsif estado = '0' then
-                                    tempShown <= tempShown + 10;
+                                elsif tempShown = 30 then
+                                    tempShown <= tempShown - 10;
                                 end if;
+                            elsif estado = '0' and tempShown < tempTarget then
+                                -- Aumentar a temperatura quando a cuba está fechada e abaixo do alvo
+                                tempShown <= tempShown + 10;
                             end if;
                         end if;
                     end if;
                 end if;
-				elsif enable = '0' then
-					tempShown <= to_integer(unsigned(startingTemp));
+            elsif enable = '0' then
+                tempShown <= to_integer(unsigned(startingTemp));
             end if;
         end if;
     end process;

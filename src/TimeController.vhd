@@ -86,6 +86,8 @@ begin
                                 timeCookShown <= timeCookShown - 1;
                             end if;
                         end if;
+							  timePreHeatTotal <= std_logic_vector(to_unsigned(timePreHeatShown, 6));
+							  timeCookTotal <= std_logic_vector(to_unsigned(timeCookShown, 6));
                     else
                         timePreHeatShown <= to_integer(unsigned(timeHeat));
                         timeCookShown <= to_integer(unsigned(timeCook));

@@ -143,11 +143,12 @@ begin
         program         => s_programChosen,
 		  
 		  ledFoodIn       => LEDG(0),
-        ledStateIDLE    => LEDR(4),
-        ledStatePREHEAT => LEDR(3),
-        ledStateCOOK    => LEDR(2),
-		  ledStateFINISH    => LEDR(1),
-        ledStateCOOL    => LEDR(0),
+		  ledFoodInside	=> LEDG(1),
+		  ledHalfTime		=> LEDG(7 downto 4),
+        ledStateIDLE    => LEDR(3),
+        ledStatePREHEAT => LEDR(2),
+        ledStateCOOK    => LEDR(1),
+		  ledStateFINISH  => LEDR(0),
 		  
 		  timerEnable 		=> s_timerEnable);
      
