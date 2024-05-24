@@ -14,7 +14,9 @@ entity TimeController is
         enable       : in std_logic;
         run          : in std_logic;
         estado       : in std_logic; -- estar aberto ou fechado (a cuba)
-        heatOrCook   : in std_logic; -- sinal para quando queremos editar um dos tempos (0 para alterar heat) (1 para alterar cook)
+		  coolingMode	: in std_logic;
+        heatOrCook   : in std_logic; -- sinal para quando queremos editar um dos tempos
+
 		  
         program      : in std_logic_vector(2 downto 0);
         timeUp       : in std_logic;
@@ -123,9 +125,12 @@ begin
     end process;
 
     -- Converte o tempo em dígitos BCD para os displays de sete segmentos
-    process(timeCookShown, timePreHeatShown, heatOrCook)
+    process(timeCookShown, timePreHeatShown, heatOrCook, coolingMode)
     begin
-		if run = '0' then
+		if coolingMode = '1' then
+			timeDozens <= "0000";
+			timeUnits  <= "0000";
+		elsif run = '0' then
         if heatOrCook = '1' then
 				ledSignal <= '1';
             -- Mostra o tempo de pré-aquecimento

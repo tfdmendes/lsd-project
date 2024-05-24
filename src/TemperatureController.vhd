@@ -6,14 +6,21 @@ entity TemperatureController is
     port(
         clk          : in std_logic;
         clkEnable    : in std_logic;
+        timerEnable  : in std_logic;
+                
         startingTemp : in std_logic_vector(7 downto 0); -- temperatura do programa selecionado
         enable       : in std_logic;
         run          : in std_logic; -- se está a trabalhar
         estado       : in std_logic; -- estar aberto ou fechado (a cuba)
-        fastCooler   : in std_logic;
+        coolingMode  : in std_logic;
+        
+        N            : in integer;
+        
         program      : in std_logic_vector(2 downto 0);
         tempUp       : in std_logic;
         tempDown     : in std_logic;
+        
+        currentTemp  : out std_logic_vector(7 downto 0);
         tempUnits    : out std_logic_vector(3 downto 0);
         tempDozens   : out std_logic_vector(3 downto 0);
         tempHundreds : out std_logic_vector(3 downto 0)
@@ -37,7 +44,7 @@ begin
         clk         => clk,
         clkEnable   => clkEnable,
         reset       => not enable,
-        timerEnable => run,
+        timerEnable => timerEnable,
         timerOut    => one_sec_pulse
     );
 
@@ -45,48 +52,60 @@ begin
     begin
         if (rising_edge(clk)) then
             if enable = '1' then
-                if run = '0' then
-                    if tempInitialized = '0' then
-                        tempShown <= to_integer(unsigned(startingTemp));
-                        tempInitialized <= '1';
-                        tempRun <= '0';
-                    end if;
-                    -- Se o programa for o USER - pode definir temperatura
-                    if program = "001" then
-                        if tempUp = '1' and tempShown <= tempMax - 10 then
-                            tempShown <= tempShown + 10;
-                        elsif tempDown = '1' and tempShown >= tempMin + 10 then
-                            tempShown <= tempShown - 10;
+                if coolingMode = '0' then
+                    if run = '0' then
+                        if tempInitialized = '0' then
+                            tempShown <= to_integer(unsigned(startingTemp));
+                            tempInitialized <= '1';
+                            tempRun <= '0';
                         end if;
-                    else
-                        tempShown <= to_integer(unsigned(startingTemp));
-                    end if;
-                    tempTarget <= tempShown; -- Define a temperatura alvo
-                elsif run = '1' then
-                    -- Quando run é 1, a temperatura inicial é definida como 20°
-                    if tempRun = '0' then
-                        tempShown <= tempMin;
-                        tempInitialized <= '0'; -- Reset tempInitialized para próxima vez que run for 0
-                        tempRun <= '1';
-                    else
-                        if one_sec_pulse = '1' then
-                            if estado = '1' then
-                                -- Diminuir a temperatura quando a cuba está aberta
-                                if tempShown >= tempMin + 20 then
-                                    tempShown <= tempShown - 20;
-                                elsif tempShown = 30 then
-                                    tempShown <= tempShown - 10;
-                                end if;
-                            elsif estado = '0' and tempShown < tempTarget then
-                                -- Aumentar a temperatura quando a cuba está fechada e abaixo do alvo
+                        -- Se o programa for o USER - pode definir temperatura
+                        if program = "001" then
+                            if tempUp = '1' and tempShown <= tempMax - 10 then
                                 tempShown <= tempShown + 10;
+                            elsif tempDown = '1' and tempShown >= tempMin + 10 then
+                                tempShown <= tempShown - 10;
                             end if;
+                        else
+                            tempShown <= to_integer(unsigned(startingTemp));
+                        end if;
+                    elsif run = '1' then
+                        -- Quando run é 1, a temperatura inicial é definida como 20°
+                        if tempRun = '0' then
+                            tempTarget <= tempShown; -- Define a temperatura alvo
+                            tempShown <= tempMin;
+                            tempInitialized <= '0'; -- Reset tempInitialized para próxima vez que run for 0
+                            tempRun <= '1';
+                        end if;
+                        if tempRun = '1' then
+                            if one_sec_pulse = '1' then
+                                if estado = '1' then
+                                    -- Diminuir a temperatura quando a cuba está aberta
+                                    if tempShown >= tempMin + 20 then
+                                        tempShown <= tempShown - 20;
+                                    elsif tempShown = 30 then
+                                        tempShown <= tempShown - 10;
+                                    end if;
+                                elsif estado = '0' and tempShown < tempTarget then
+                                    -- Aumentar a temperatura quando a cuba está fechada e abaixo do alvo
+                                    tempShown <= tempShown + 10;
+                                end if;
+                            end if;
+                        end if;
+                    end if;
+                elsif coolingMode = '1' then
+                    if one_sec_pulse = '1' then
+                        if tempShown >= tempMin + N then
+                            tempShown <= tempShown - N;
+                        else
+                            tempShown <= tempMin;
                         end if;
                     end if;
                 end if;
             elsif enable = '0' then
                 tempShown <= to_integer(unsigned(startingTemp));
             end if;
+            currentTemp <= std_logic_vector(to_unsigned(tempShown, 8));
         end if;
     end process;
 

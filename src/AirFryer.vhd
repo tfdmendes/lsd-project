@@ -27,9 +27,11 @@ architecture Demo of AirFryer is
     signal s_timeCook, s_timeHeat                      : std_logic_vector(4 downto 0);
     signal s_temp                                      : std_logic_vector(7 downto 0);
     signal s_programChosen                             : std_logic_vector(2 downto 0);
-    signal s_foodInFSM                                 : std_logic;
-	 signal s_timerEnable										 : std_logic;
-    signal s_timePreHeatTotal, s_timeCookTotal, s_currentTime : std_logic_vector(5 downto 0);  -- Adicionados
+	 signal s_tempTimerEnable, s_timeTimerEnable			 : std_logic;
+    signal s_timePreHeatTotal, s_timeCookTotal, s_currentTime : std_logic_vector(5 downto 0);
+	 signal s_currentTemp										 : std_logic_vector(7 downto 0);
+	 signal s_N														 : INTEGER;
+	 signal s_coolingMode										 : std_logic;
     
     -- Entradas Switches Sincronizados
     signal sw1_ff_out, sw0_ff_out, sw2_ff_out, sw7_ff_out : std_logic;
@@ -86,14 +88,22 @@ begin
     port map(
         clk            => CLOCK_50,
         clkEnable      => s_1Hz,
-        startingTemp   => s_temp, -- temperatura do programa selecionado
+		  timerEnable	  => s_tempTimerEnable,
+		  		  
+		  startingTemp   => s_temp, -- temperatura do programa selecionado
+
         enable         => sw0_ff_out,
         run            => sw1_ff_out,
         estado         => sw2_ff_out,     -- estar aberto ou fechado (a cuba)
-        fastCooler     => sw7_ff_out,
+		  coolingMode	  => s_coolingMode,
+		  
+		  N 				  => s_N,
+		  
         program        => s_programChosen,
         tempUp         => s_tempUp,
         tempDown       => s_tempDown,
+		  
+		  currentTemp	  => s_currentTemp,
         tempUnits      => s_temp_Uni,
         tempDozens     => s_temp_Doz,
         tempHundreds   => s_temp_Cen
@@ -104,7 +114,7 @@ begin
     port map(
         clk            => CLOCK_50,
         clkEnable      => s_1Hz,
-		  timerEnable	  => s_timerEnable,
+		  timerEnable	  => s_timeTimerEnable,
 		  
         timeHeat       => s_timeHeat,
         timeCook       => s_timeCook, 
@@ -112,6 +122,7 @@ begin
 		  enable         => sw0_ff_out,
         run            => sw1_ff_out,
         estado         => sw2_ff_out,    -- estar aberto ou fechado (a cuba)
+		  coolingMode	  => s_coolingMode,
 		  heatOrCook     => sw8_ff_out,
 		  
         program        => s_programChosen,
@@ -135,10 +146,12 @@ begin
         reset           => not sw0_ff_out,
         run             => sw1_ff_out,
         OPEN_OVEN       => sw2_ff_out,
+		  fastCool			=> sw7_ff_out,
 		  
         timePreHeat     => s_timePreHeatTotal, 
         timeCook        => s_timeCookTotal,
 		  currentTime 		=> s_currentTime,
+		  currentTemp		=> s_currentTemp,
 		  
         program         => s_programChosen,
 		  
@@ -150,7 +163,10 @@ begin
         ledStateCOOK    => LEDR(1),
 		  ledStateFINISH  => LEDR(0),
 		  
-		  timerEnable 		=> s_timerEnable);
+		  N					=> s_N,
+		  coolingMode		=> s_coolingMode,
+		  tempTimerEnable	=> s_tempTimerEnable,
+		  timeTimerEnable => s_timeTimerEnable);
      
 	  
     -- DISPLAYS CONTROLLER
