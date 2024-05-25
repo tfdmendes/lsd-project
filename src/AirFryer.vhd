@@ -35,6 +35,7 @@ architecture Demo of AirFryer is
     -- Entradas Switches Sincronizados
     signal sw1_ff_out, sw0_ff_out, sw2_ff_out, sw7_ff_out : std_logic;
     signal sw3_ff_out, sw8_ff_out                         : std_logic;
+	 signal swProgram_ff_out										 : std_logic_vector(2 downto 0);
 
 begin 
     process(CLOCK_50)
@@ -44,6 +45,7 @@ begin
             sw1_ff_out <= SW(1);
             sw2_ff_out <= SW(2);
 				sw3_ff_out <= SW(3);
+				swProgram_ff_out <= SW(6 downto 4);
             sw7_ff_out <= SW(7);
             sw8_ff_out <= SW(8);
         end if;
@@ -76,7 +78,7 @@ begin
     progamSelector : entity work.ProgramSelector(Behavioral)
     port map(
         clk             => CLOCK_50,
-        input           => SW(6 downto 4),
+        input           => swProgram_ff_out,
         ps_temp         => s_temp,
         ps_timeCook     => s_timeCook,
         ps_timeHeat     => s_timeHeat,
@@ -140,6 +142,7 @@ begin
     -- STATE MACHINE
     AirFryerFSM : entity work.AirFryerFSM(Behavioral)
     port map(
+		  enable          => sw0_ff_out,
         clk             => CLOCK_50,
         clkEnable       => s_1Hz,
 		  
@@ -151,9 +154,7 @@ begin
         timeCook        => s_timeCookTotal,
 		  currentTime 		=> s_currentTime,
 		  currentTemp		=> s_currentTemp,
-		  
-        program         => s_programChosen,
-		  
+		  		  
 		  ledFoodIn       => LEDG(0),
 		  ledHalfTime		=> LEDG(7 downto 4),
         ledStateIDLE    => LEDR(3),

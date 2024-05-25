@@ -2,6 +2,9 @@
 CLOCK_50 => debounceunits:keys_debounce.clock
 CLOCK_50 => sw8_ff_out.CLK
 CLOCK_50 => sw7_ff_out.CLK
+CLOCK_50 => swProgram_ff_out[0].CLK
+CLOCK_50 => swProgram_ff_out[1].CLK
+CLOCK_50 => swProgram_ff_out[2].CLK
 CLOCK_50 => sw2_ff_out.CLK
 CLOCK_50 => sw1_ff_out.CLK
 CLOCK_50 => sw0_ff_out.CLK
@@ -18,9 +21,9 @@ SW[0] => sw0_ff_out.DATAIN
 SW[1] => sw1_ff_out.DATAIN
 SW[2] => sw2_ff_out.DATAIN
 SW[3] => ~NO_FANOUT~
-SW[4] => programselector:progamSelector.input[0]
-SW[5] => programselector:progamSelector.input[1]
-SW[6] => programselector:progamSelector.input[2]
+SW[4] => swProgram_ff_out[0].DATAIN
+SW[5] => swProgram_ff_out[1].DATAIN
+SW[6] => swProgram_ff_out[2].DATAIN
 SW[7] => sw7_ff_out.DATAIN
 SW[8] => sw8_ff_out.DATAIN
 SW[9] => ~NO_FANOUT~
@@ -1961,6 +1964,24 @@ timerOut <= timerOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |AirFryer|AirFryerFSM:AirFryerFSM
+enable => ledStateIDLE.OUTPUTSELECT
+enable => timeTimerEnable.OUTPUTSELECT
+enable => tempTimerEnable.OUTPUTSELECT
+enable => ledFoodIn.OUTPUTSELECT
+enable => next_state.IDLE.OUTPUTSELECT
+enable => next_state.PREHEAT.OUTPUTSELECT
+enable => next_state.COOK.OUTPUTSELECT
+enable => next_state.FINISH.OUTPUTSELECT
+enable => next_state.COOL.OUTPUTSELECT
+enable => ledStatePREHEAT.OUTPUTSELECT
+enable => ledStateCOOK.OUTPUTSELECT
+enable => ledHalfTime.OUTPUTSELECT
+enable => ledHalfTime.OUTPUTSELECT
+enable => ledHalfTime.OUTPUTSELECT
+enable => ledHalfTime.OUTPUTSELECT
+enable => ledStateFINISH.OUTPUTSELECT
+enable => finished.OUTPUTSELECT
+enable => coolingMode.OUTPUTSELECT
 clk => blinkgen:blinkGen.clk
 clk => state~1.DATAIN
 clkEnable => ~NO_FANOUT~
@@ -2049,10 +2070,7 @@ currentTemp[4] => Equal4.IN11
 currentTemp[5] => Equal4.IN10
 currentTemp[6] => Equal4.IN9
 currentTemp[7] => Equal4.IN8
-program[0] => ~NO_FANOUT~
-program[1] => ~NO_FANOUT~
-program[2] => ~NO_FANOUT~
-ledFoodIn <= Selector1.DB_MAX_OUTPUT_PORT_TYPE
+ledFoodIn <= ledFoodIn.DB_MAX_OUTPUT_PORT_TYPE
 ledHalfTime[0] <= ledHalfTime.DB_MAX_OUTPUT_PORT_TYPE
 ledHalfTime[1] <= ledHalfTime.DB_MAX_OUTPUT_PORT_TYPE
 ledHalfTime[2] <= ledHalfTime.DB_MAX_OUTPUT_PORT_TYPE
@@ -2064,7 +2082,7 @@ ledStateFINISH <= ledStateFINISH.DB_MAX_OUTPUT_PORT_TYPE
 finished <= finished.DB_MAX_OUTPUT_PORT_TYPE
 coolingMode <= coolingMode.DB_MAX_OUTPUT_PORT_TYPE
 tempTimerEnable <= tempTimerEnable.DB_MAX_OUTPUT_PORT_TYPE
-timeTimerEnable <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
+timeTimerEnable <= timeTimerEnable.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |AirFryer|AirFryerFSM:AirFryerFSM|BlinkGen:blinkGen

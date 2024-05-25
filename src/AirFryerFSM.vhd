@@ -4,6 +4,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity AirFryerFSM is
     Port (
+		  enable          : in std_logic;
         clk             : in std_logic;
         clkEnable       : in std_logic;
         reset           : in std_logic;
@@ -13,7 +14,6 @@ entity AirFryerFSM is
         timeCook        : in std_logic_vector(5 downto 0);
         currentTime     : in std_logic_vector(5 downto 0);
         currentTemp     : in std_logic_vector(7 downto 0);
-        program         : in std_logic_vector(2 downto 0);
 		  
         ledFoodIn       : out std_logic; -- Liga quando pre-aquecimento e 0 
         ledHalfTime     : out std_logic_vector(3 downto 0);
@@ -52,7 +52,7 @@ begin
 				reset => reset, 
 				blink => s_blink);
 
-    process(state, run, OPEN_OVEN, program, currentTime, currentTemp)
+    process(enable, state, run, OPEN_OVEN, currentTime, currentTemp)
     begin
         -- Default values for outputs
         ledHalfTime     <= (others => '0');
@@ -66,80 +66,83 @@ begin
         coolingMode     <= '0';
 		  finished			<= '0';
         next_state      <= state;
-
-        case state is
-            when IDLE =>
-					ledStateIDLE <= '1';
-					if timePreHeat = "000000" then
-						  timeTimerEnable <= '0'; 
-						  tempTimerEnable <= '0';
-						  if run = '1' then
-							  ledFoodIn <= '1';
-							  if OPEN_OVEN = '1' then
-									 next_state <= COOK;
+			
+		  if enable = '1' then
+			  case state is
+					when IDLE =>
+						ledStateIDLE <= '1';
+						if timePreHeat = "000000" then
+							  timeTimerEnable <= '0'; 
+							  tempTimerEnable <= '0';
+							  if run = '1' then
+								  ledFoodIn <= '1';
+								  if OPEN_OVEN = '1' then
+										 next_state <= COOK;
+								  end if;
+							  else
+									ledFoodIn <= '0';
 							  end if;
-						  else
-								ledFoodIn <= '0';
-						  end if;
-						  
-						  
-					elsif timePreHeat /= "000000" then
-						ledFoodIn <= '0';
-						if run = '1' then
-						  next_state <= PREHEAT;
+							  
+							  
+						elsif timePreHeat /= "000000" then
+							ledFoodIn <= '0';
+							if run = '1' then
+							  next_state <= PREHEAT;
+							end if;
 						end if;
-					end if;
-                
-            when PREHEAT =>
-                if run = '0' then
-                    next_state <= IDLE;
-                else
-                    ledStatePREHEAT <= '1';
-                    if currentTime = timeCook then
-                        ledFoodIn <= '1'; -- Pre Aquecimento a zero
-                        timeTimerEnable <= '0';
-                    end if;
-                    if OPEN_OVEN = '1' then
-                        next_state <= COOK;
-                    end if;
-                end if;
-                
-            when COOK =>
-                if run = '0' then
-                    next_state <= IDLE;
-                else
-                    ledStateCOOK <= '1';
-                    if OPEN_OVEN = '0' then
-                        timeTimerEnable <= '1';
-                        -- Quando cook chegar a metade, LEDs piscam
-                        if ((unsigned(currentTime)) = (unsigned(timeCook) / 2)) then
-                            ledHalfTime <= (others => s_blink);
-                        end if;
-                        -- Quando o tempo chegar ao FIM
-                        if currentTime = "000000" then
-                            next_state <= FINISH;
-                        end if;
-                    end if;
-                end if;
-                
-            when FINISH =>
-                ledStateFINISH <= '1';
-					 finished <= '1';
-                if run = '0' and OPEN_OVEN = '1' then
-                    next_state <= COOL;
-                end if;
-                
-            when COOL =>
-                ledStateIDLE <= '1';
-                coolingMode <= '1';
-                if (unsigned(currentTemp) = 20) and (OPEN_OVEN = '0') then
-                    next_state <= IDLE;
-                end if;
-                
-            when others =>
-                ledStateIDLE <= '1';
-                next_state <= IDLE;
-                
-        end case;
+						 
+					when PREHEAT =>
+						 if run = '0' then
+							  next_state <= IDLE;
+						 else
+							  ledStatePREHEAT <= '1';
+							  if currentTime = timeCook then
+									ledFoodIn <= '1'; -- Pre Aquecimento a zero
+									timeTimerEnable <= '0';
+							  end if;
+							  if OPEN_OVEN = '1' then
+									next_state <= COOK;
+							  end if;
+						 end if;
+						 
+					when COOK =>
+						 if run = '0' then
+							  next_state <= IDLE;
+						 else
+							  ledStateCOOK <= '1';
+							  if OPEN_OVEN = '0' then
+									timeTimerEnable <= '1';
+									-- Quando cook chegar a metade, LEDs piscam
+									if ((unsigned(currentTime)) = (unsigned(timeCook) / 2)) then
+										 ledHalfTime <= (others => s_blink);
+									end if;
+									-- Quando o tempo chegar ao FIM
+									if currentTime = "000000" then
+										 next_state <= FINISH;
+									end if;
+							  end if;
+						 end if;
+						 
+					when FINISH =>
+						 ledHalfTime <= (others => '1');
+						 ledStateFINISH <= '1';
+						 finished <= '1';
+						 if run = '0' and OPEN_OVEN = '1' then
+							  next_state <= COOL;
+						 end if;
+						 
+					when COOL =>
+						 ledStateIDLE <= '1';
+						 coolingMode <= '1';
+						 if (unsigned(currentTemp) = 20) and (OPEN_OVEN = '0') then
+							  next_state <= IDLE;
+						 end if;
+						 
+					when others =>
+						 ledStateIDLE <= '1';
+						 next_state <= IDLE;
+						 
+			  end case;
+		  end if; 
     end process;
 end Behavioral;
