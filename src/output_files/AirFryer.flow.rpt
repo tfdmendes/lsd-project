@@ -1,5 +1,5 @@
 Flow report for AirFryer
-Sat May 25 12:48:32 2024
+Sat May 25 14:25:20 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Sat May 25 12:48:32 2024          ;
+; Flow Status                        ; Successful - Sat May 25 14:25:20 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; AirFryer                                       ;
 ; Top-level Entity Name              ; AirFryer                                       ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE115F29C7                                  ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 17,023 / 114,480 ( 15 % )                      ;
-;     Total combinational functions  ; 16,956 / 114,480 ( 15 % )                      ;
-;     Dedicated logic registers      ; 298 / 114,480 ( < 1 % )                        ;
-; Total registers                    ; 298                                            ;
+; Total logic elements               ; 17,133 / 114,480 ( 15 % )                      ;
+;     Total combinational functions  ; 17,070 / 114,480 ( 15 % )                      ;
+;     Dedicated logic registers      ; 336 / 114,480 ( < 1 % )                        ;
+; Total registers                    ; 336                                            ;
 ; Total pins                         ; 75 / 529 ( 14 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                          ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/25/2024 12:47:05 ;
+; Start date & time ; 05/25/2024 14:23:47 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; AirFryer            ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 277083306290105.171663762556559        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 277083306290105.171664342720871        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -99,12 +99,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:24     ; 1.0                     ; 593 MB              ; 00:00:34                           ;
-; Fitter               ; 00:00:46     ; 1.1                     ; 1503 MB             ; 00:01:46                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 427 MB              ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.4                     ; 707 MB              ; 00:00:05                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 676 MB              ; 00:00:02                           ;
-; Total                ; 00:01:18     ; --                      ; --                  ; 00:02:30                           ;
+; Analysis & Synthesis ; 00:00:25     ; 1.0                     ; 593 MB              ; 00:00:34                           ;
+; Fitter               ; 00:00:51     ; 1.1                     ; 1494 MB             ; 00:01:57                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 419 MB              ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.4                     ; 697 MB              ; 00:00:05                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 680 MB              ; 00:00:02                           ;
+; Total                ; 00:01:26     ; --                      ; --                  ; 00:02:41                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

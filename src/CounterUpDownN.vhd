@@ -36,6 +36,8 @@ begin
                     count_reg <= count_reg + INCREMENT_STEP;
                 elsif countUpDown = '0' and count_reg >= min_value + DECREMENT_STEP then
                     count_reg <= count_reg - DECREMENT_STEP;
+					 elsif countUpDown = '0' and count_reg = 30 then
+						  count_reg <= count_reg - 10;
                 end if;
             end if;
         end if;

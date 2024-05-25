@@ -12,7 +12,9 @@ entity TemperatureController is
         enable       : in std_logic;
         run          : in std_logic; -- se está a trabalhar
         estado       : in std_logic; -- estar aberto ou fechado (a cuba)
+        fastCool     : in std_logic;
         coolingMode  : in std_logic;
+        finished     : in std_logic;
                 
         program      : in std_logic_vector(2 downto 0);
         tempUp       : in std_logic;
@@ -31,14 +33,14 @@ architecture Behavioral of TemperatureController is
     signal tempInitialized : std_logic := '0';
     signal tempRun         : std_logic := '0';
     signal one_sec_pulse   : std_logic := '0';
-    signal countUpDown     : std_logic; -- Signal to control counter direction
-    signal enableCounter   : std_logic; -- Signal to enable the counter
+    signal countUpDown     : std_logic; -- increment/decrement
+    signal enableCounter   : std_logic; 
     signal initCount       : std_logic; -- Signal to initialize the counter
-    signal countInitValue  : natural;   -- Value to initialize the counter
+    signal countInitValue  : natural;   -- Value to initialize the counter as
     signal internalCount   : natural;   -- Internal count signal
     signal userDefinedTemp : natural := 200; 
 	 
-	 signal maxValue			: natural;
+    signal maxValue        : natural;
 
     signal s_INCREMENT_STEP : integer := 10;
     signal s_DECREMENT_STEP : integer := 10;
@@ -54,9 +56,11 @@ begin
         timerOut    => one_sec_pulse
     );
 	 
-	 process(program, userDefinedTemp, startingTemp)
+    process(program, userDefinedTemp, startingTemp, internalCount)
     begin
-        if program = "001" then
+        if finished = '1' then
+            maxValue <= internalCount;
+        elsif program = "001" then
             maxValue <= userDefinedTemp;
         else
             maxValue <= to_integer(unsigned(startingTemp));
@@ -68,7 +72,7 @@ begin
     port map (
         clk         => clk,
         reset       => not enable,
-        enable      => enableCounter, -- Use enableCounter to control counter
+        enable      => enableCounter,
         countUpDown => countUpDown,
         init_count  => initCount,
         count_init  => countInitValue,
@@ -83,11 +87,20 @@ begin
     begin
         if (rising_edge(clk)) then
             if enable = '1' then
-                if coolingMode = '1' then
+                if finished = '1' then
+                    enableCounter <= '0';
+                    initCount <= '1';
+                    countInitValue <= maxValue;
+                elsif coolingMode = '1' then
                     if one_sec_pulse = '1' then
-                        countUpDown <= '0'; -- Decrementar temperature
+                        countUpDown <= '0'; -- Decrementar temperatura
                         enableCounter <= '1';
                         initCount <= '0';
+                        if fastCool = '1' then
+                            s_DECREMENT_STEP <= 40; 
+                        else
+                            s_DECREMENT_STEP <= 20;
+                        end if;
                     end if;
                 elsif run = '1' then
                     if tempRun = '0' then

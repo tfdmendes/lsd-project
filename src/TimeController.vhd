@@ -21,6 +21,7 @@ entity TimeController is
         program      : in std_logic_vector(2 downto 0);
         timeUp       : in std_logic;
         timeDown     : in std_logic;
+		  finished		: in std_logic;
 
         timeUnits    : out std_logic_vector(3 downto 0);
         timeDozens   : out std_logic_vector(3 downto 0);
@@ -127,7 +128,7 @@ begin
     -- Converte o tempo em dígitos BCD para os displays de sete segmentos
     process(timeCookShown, timePreHeatShown, heatOrCook, coolingMode)
     begin
-		if coolingMode = '1' then
+		if coolingMode = '1' or finished = '1' then
 			timeDozens <= "0000";
 			timeUnits  <= "0000";
 		elsif run = '0' then

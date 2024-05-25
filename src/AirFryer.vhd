@@ -30,8 +30,7 @@ architecture Demo of AirFryer is
 	 signal s_tempTimerEnable, s_timeTimerEnable			 : std_logic;
     signal s_timePreHeatTotal, s_timeCookTotal, s_currentTime : std_logic_vector(5 downto 0);
 	 signal s_currentTemp										 : std_logic_vector(7 downto 0);
-	 signal s_N														 : INTEGER;
-	 signal s_coolingMode										 : std_logic;
+	 signal s_coolingMode, s_finished						 : std_logic;
     
     -- Entradas Switches Sincronizados
     signal sw1_ff_out, sw0_ff_out, sw2_ff_out, sw7_ff_out : std_logic;
@@ -96,7 +95,9 @@ begin
         enable         => sw0_ff_out,
         run            => sw1_ff_out,
         estado         => sw2_ff_out,     -- estar aberto ou fechado (a cuba)
+		  fastCool		  => sw7_ff_out,
 		  coolingMode	  => s_coolingMode,
+		  finished		  => s_finished,
 		  		  
         program        => s_programChosen,
         tempUp         => s_tempUp,
@@ -127,6 +128,7 @@ begin
         program        => s_programChosen,
         timeUp         => s_timeUp,
         timeDown       => s_timeDown,
+		  finished 		  => s_finished,
 
         timeUnits      => s_time_Uni,
         timeDozens     => s_time_Doz,
@@ -145,7 +147,6 @@ begin
         reset           => not sw0_ff_out,
         run             => sw1_ff_out,
         OPEN_OVEN       => sw2_ff_out,
-		  fastCool			=> sw7_ff_out,
 		  
         timePreHeat     => s_timePreHeatTotal, 
         timeCook        => s_timeCookTotal,
@@ -155,14 +156,14 @@ begin
         program         => s_programChosen,
 		  
 		  ledFoodIn       => LEDG(0),
-		  ledFoodInside	=> LEDG(1),
 		  ledHalfTime		=> LEDG(7 downto 4),
+		  ledStateCOOL		=> LEDR(4),
         ledStateIDLE    => LEDR(3),
         ledStatePREHEAT => LEDR(2),
         ledStateCOOK    => LEDR(1),
 		  ledStateFINISH  => LEDR(0),
 		  
-		  N					=> s_N,
+		  finished			=> s_finished,
 		  coolingMode		=> s_coolingMode,
 		  tempTimerEnable	=> s_tempTimerEnable,
 		  timeTimerEnable => s_timeTimerEnable);
