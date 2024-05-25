@@ -1,0 +1,40 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity CounterUpDownN is
+    generic(
+        N : integer := 1
+    );
+    port(
+        clk       : in  std_logic;
+        reset     : in  std_logic;
+        enable    : in  std_logic;
+        count_up  : in  std_logic;
+        count_down: in  std_logic;
+        max_value : in  natural;
+        min_value : in  natural;
+        count     : out natural
+    );
+end CounterUpDownN;
+
+architecture Behavioral of CounterUpDownN is
+    signal count_reg : natural := 0;
+begin
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            count_reg <= 0;
+        elsif rising_edge(clk) then
+            if enable = '1' then
+                if count_up = '1' and count_reg < max_value - N then
+                    count_reg <= count_reg + N;
+                elsif count_down = '1' and count_reg > min_value + N then
+                    count_reg <= count_reg - N;
+                end if;
+            end if;
+        end if;
+    end process;
+    
+    count <= count_reg;
+end Behavioral;

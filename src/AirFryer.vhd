@@ -35,7 +35,7 @@ architecture Demo of AirFryer is
     
     -- Entradas Switches Sincronizados
     signal sw1_ff_out, sw0_ff_out, sw2_ff_out, sw7_ff_out : std_logic;
-    signal sw8_ff_out                                      : std_logic;
+    signal sw3_ff_out, sw8_ff_out                         : std_logic;
 
 begin 
     process(CLOCK_50)
@@ -44,6 +44,7 @@ begin
             sw0_ff_out <= SW(0);
             sw1_ff_out <= SW(1);
             sw2_ff_out <= SW(2);
+				sw3_ff_out <= SW(3);
             sw7_ff_out <= SW(7);
             sw8_ff_out <= SW(8);
         end if;
@@ -96,9 +97,7 @@ begin
         run            => sw1_ff_out,
         estado         => sw2_ff_out,     -- estar aberto ou fechado (a cuba)
 		  coolingMode	  => s_coolingMode,
-		  
-		  N 				  => s_N,
-		  
+		  		  
         program        => s_programChosen,
         tempUp         => s_tempUp,
         tempDown       => s_tempDown,

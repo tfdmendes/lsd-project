@@ -1,6 +1,6 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use IEEE.NUMERIC_STD.all;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity TemperatureController is
     port(
@@ -13,9 +13,7 @@ entity TemperatureController is
         run          : in std_logic; -- se está a trabalhar
         estado       : in std_logic; -- estar aberto ou fechado (a cuba)
         coolingMode  : in std_logic;
-        
-        N            : in integer;
-        
+                
         program      : in std_logic_vector(2 downto 0);
         tempUp       : in std_logic;
         tempDown     : in std_logic;
@@ -30,12 +28,20 @@ end TemperatureController;
 architecture Behavioral of TemperatureController is
     signal tempMin         : natural := 20;
     signal tempMax         : natural := 250;
-    signal tempShown       : natural := 50;
-    signal tempTarget      : natural := 100;
     signal tempInitialized : std_logic := '0';
     signal tempRun         : std_logic := '0';
     signal one_sec_pulse   : std_logic := '0';
-    signal timerOut        : std_logic;
+    signal countUpDown     : std_logic; -- Signal to control counter direction
+    signal enableCounter   : std_logic; -- Signal to enable the counter
+    signal initCount       : std_logic; -- Signal to initialize the counter
+    signal countInitValue  : natural;   -- Value to initialize the counter
+    signal internalCount   : natural;   -- Internal count signal
+    signal userDefinedTemp : natural := 200; 
+	 
+	 signal maxValue			: natural;
+
+    signal s_INCREMENT_STEP : integer := 10;
+    signal s_DECREMENT_STEP : integer := 10;
 
 begin
     -- TIMER
@@ -47,73 +53,104 @@ begin
         timerEnable => timerEnable,
         timerOut    => one_sec_pulse
     );
+	 
+	 process(program, userDefinedTemp, startingTemp)
+    begin
+        if program = "001" then
+            maxValue <= userDefinedTemp;
+        else
+            maxValue <= to_integer(unsigned(startingTemp));
+        end if;
+    end process;
+
+    -- COUNTER UPDOWN
+    counter : entity work.CounterUpDownN
+    port map (
+        clk         => clk,
+        reset       => not enable,
+        enable      => enableCounter, -- Use enableCounter to control counter
+        countUpDown => countUpDown,
+        init_count  => initCount,
+        count_init  => countInitValue,
+        max_value   => maxValue,
+        min_value   => tempMin,
+        INCREMENT_STEP => s_INCREMENT_STEP,
+        DECREMENT_STEP => s_DECREMENT_STEP,
+        count       => internalCount
+    );
 
     process(clk)
     begin
         if (rising_edge(clk)) then
             if enable = '1' then
-                if coolingMode = '0' then
-                    if run = '0' then
-                        if tempInitialized = '0' then
-                            tempShown <= to_integer(unsigned(startingTemp));
-                            tempInitialized <= '1';
-                            tempRun <= '0';
-                        end if;
-                        -- Se o programa for o USER - pode definir temperatura
-                        if program = "001" then
-                            if tempUp = '1' and tempShown <= tempMax - 10 then
-                                tempShown <= tempShown + 10;
-                            elsif tempDown = '1' and tempShown >= tempMin + 10 then
-                                tempShown <= tempShown - 10;
-                            end if;
-                        else
-                            tempShown <= to_integer(unsigned(startingTemp));
-                        end if;
-                    elsif run = '1' then
-                        -- Quando run é 1, a temperatura inicial é definida como 20°
-                        if tempRun = '0' then
-                            tempTarget <= tempShown; -- Define a temperatura alvo
-                            tempShown <= tempMin;
-                            tempInitialized <= '0'; -- Reset tempInitialized para próxima vez que run for 0
-                            tempRun <= '1';
-                        end if;
-                        if tempRun = '1' then
-                            if one_sec_pulse = '1' then
-                                if estado = '1' then
-                                    -- Diminuir a temperatura quando a cuba está aberta
-                                    if tempShown >= tempMin + 20 then
-                                        tempShown <= tempShown - 20;
-                                    elsif tempShown = 30 then
-                                        tempShown <= tempShown - 10;
-                                    end if;
-                                elsif estado = '0' and tempShown < tempTarget then
-                                    -- Aumentar a temperatura quando a cuba está fechada e abaixo do alvo
-                                    tempShown <= tempShown + 10;
-                                end if;
-                            end if;
-                        end if;
-                    end if;
-                elsif coolingMode = '1' then
+                if coolingMode = '1' then
                     if one_sec_pulse = '1' then
-                        if tempShown >= tempMin + N then
-                            tempShown <= tempShown - N;
+                        countUpDown <= '0'; -- Decrementar temperature
+                        enableCounter <= '1';
+                        initCount <= '0';
+                    end if;
+                elsif run = '1' then
+                    if tempRun = '0' then
+                        countInitValue <= tempMin;
+                        initCount <= '1';
+                        tempInitialized <= '0'; -- Reset tempInitialized para próxima vez que run for 0
+                        tempRun <= '1';
+                    elsif one_sec_pulse = '1' then
+                        if estado = '1' then
+                            s_DECREMENT_STEP <= 20;
+                            countUpDown <= '0';
+                            enableCounter <= '1';
+                            initCount <= '0';
                         else
-                            tempShown <= tempMin;
+                            s_DECREMENT_STEP <= 10;
+                            countUpDown <= '1';
+                            enableCounter <= '1';
+                            initCount <= '0';
                         end if;
+                    else
+                        enableCounter <= '0';
+                    end if;
+                elsif run = '0' then
+                    if tempInitialized = '0' then
+                        countInitValue <= to_integer(unsigned(startingTemp));
+                        initCount <= '1';
+                        tempInitialized <= '1';
+                        tempRun <= '0';
+                    end if;
+                    if program = "001" then
+                        -- USER pode definir manualmente até tempMax (250)
+                        if tempUp = '1' and internalCount <= tempMax - s_INCREMENT_STEP then
+                            userDefinedTemp <= internalCount + s_INCREMENT_STEP;
+                            countUpDown <= '1';
+                            enableCounter <= '1';
+                            initCount <= '0';
+                        elsif tempDown = '1' and internalCount >= tempMin + s_DECREMENT_STEP then
+                            userDefinedTemp <= internalCount - s_DECREMENT_STEP;
+                            countUpDown <= '0';
+                            enableCounter <= '1';
+                            initCount <= '0';
+                        else
+                            enableCounter <= '0';
+                        end if;
+                    else
+                        userDefinedTemp <= to_integer(unsigned(startingTemp));
+                        countInitValue <= to_integer(unsigned(startingTemp));
+                        initCount <= '1';
                     end if;
                 end if;
             elsif enable = '0' then
-                tempShown <= to_integer(unsigned(startingTemp));
+                countInitValue <= to_integer(unsigned(startingTemp));
+                initCount <= '1';
             end if;
-            currentTemp <= std_logic_vector(to_unsigned(tempShown, 8));
+            currentTemp <= std_logic_vector(to_unsigned(internalCount, 8));
         end if;
     end process;
 
     -- Converte a temperatura em dígitos BCD
-    process(tempShown)
+    process(internalCount)
     begin
-        tempHundreds <= std_logic_vector(to_unsigned((tempShown / 100) mod 10, 4));
-        tempDozens   <= std_logic_vector(to_unsigned((tempShown / 10) mod 10, 4));
-        tempUnits    <= std_logic_vector(to_unsigned(tempShown mod 10, 4));
+        tempHundreds <= std_logic_vector(to_unsigned((internalCount / 100) mod 10, 4));
+        tempDozens   <= std_logic_vector(to_unsigned((internalCount / 10) mod 10, 4));
+        tempUnits    <= std_logic_vector(to_unsigned(internalCount mod 10, 4));
     end process;
 end Behavioral;
