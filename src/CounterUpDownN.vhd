@@ -8,16 +8,16 @@ entity CounterUpDownN is
         reset       : in  std_logic;
         enable      : in  std_logic;
         countUpDown : in  std_logic;
-		  
+          
         init_count  : in  std_logic;   -- Se o count inicializou
-		  
+          
         count_init  : in  natural;     --  Valor inicial count
         max_value   : in  natural;
         min_value   : in  natural;
-		  
-		  INCREMENT_STEP : in integer;
-		  DECREMENT_STEP : in integer;
-		  
+          
+        INCREMENT_STEP : in integer;
+        DECREMENT_STEP : in integer;
+          
         count       : out natural);
 end CounterUpDownN;
 
@@ -34,10 +34,12 @@ begin
             elsif enable = '1' then
                 if countUpDown = '1' and count_reg <= max_value - INCREMENT_STEP then
                     count_reg <= count_reg + INCREMENT_STEP;
-                elsif countUpDown = '0' and count_reg >= min_value + DECREMENT_STEP then
-                    count_reg <= count_reg - DECREMENT_STEP;
-					 elsif countUpDown = '0' and count_reg = 30 then
-						  count_reg <= count_reg - 10;
+                elsif countUpDown = '0' then
+                    if count_reg >= min_value + DECREMENT_STEP then
+                        count_reg <= count_reg - DECREMENT_STEP;
+                    elsif count_reg < min_value + DECREMENT_STEP then
+                        count_reg <= min_value;
+                    end if;
                 end if;
             end if;
         end if;

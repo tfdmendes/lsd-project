@@ -23,8 +23,7 @@ entity TemperatureController is
         currentTemp  : out std_logic_vector(7 downto 0);
         tempUnits    : out std_logic_vector(3 downto 0);
         tempDozens   : out std_logic_vector(3 downto 0);
-        tempHundreds : out std_logic_vector(3 downto 0)
-    );
+        tempHundreds : out std_logic_vector(3 downto 0));
 end TemperatureController;
 
 architecture Behavioral of TemperatureController is
@@ -39,7 +38,7 @@ architecture Behavioral of TemperatureController is
     signal countInitValue  : natural;   -- Value to initialize the counter as
     signal internalCount   : natural;   -- Internal count signal
     signal userDefinedTemp : natural := 200; 
-	 
+    
     signal maxValue        : natural;
 
     signal s_INCREMENT_STEP : integer := 10;
@@ -55,7 +54,7 @@ begin
         timerEnable => timerEnable,
         timerOut    => one_sec_pulse
     );
-	 
+    
     process(program, userDefinedTemp, startingTemp, internalCount)
     begin
         if finished = '1' then
@@ -80,8 +79,7 @@ begin
         min_value   => tempMin,
         INCREMENT_STEP => s_INCREMENT_STEP,
         DECREMENT_STEP => s_DECREMENT_STEP,
-        count       => internalCount
-    );
+        count       => internalCount);
 
     process(clk)
     begin
@@ -89,7 +87,6 @@ begin
             if enable = '1' then
                 if finished = '1' then
                     enableCounter <= '0';
-                    initCount <= '1';
                     countInitValue <= maxValue;
                 elsif coolingMode = '1' then
                     if one_sec_pulse = '1' then
@@ -101,6 +98,8 @@ begin
                         else
                             s_DECREMENT_STEP <= 20;
                         end if;
+                    else
+                        enableCounter <= '0';
                     end if;
                 elsif run = '1' then
                     if tempRun = '0' then

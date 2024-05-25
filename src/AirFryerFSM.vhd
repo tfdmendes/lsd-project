@@ -17,7 +17,6 @@ entity AirFryerFSM is
 		  
         ledFoodIn       : out std_logic; -- Liga quando pre-aquecimento e 0 
         ledHalfTime     : out std_logic_vector(3 downto 0);
-		  ledStateCOOL		: out std_logic;
         ledStateIDLE    : out std_logic;
         ledStatePREHEAT : out std_logic;
         ledStateCOOK    : out std_logic;
@@ -57,7 +56,6 @@ begin
     begin
         -- Default values for outputs
         ledHalfTime     <= (others => '0');
-		  ledStateCOOL		<= '0';
         ledStateIDLE    <= '0';
         ledStatePREHEAT <= '0';
         ledStateCOOK    <= '0';
@@ -132,9 +130,9 @@ begin
                 end if;
                 
             when COOL =>
-                ledStateCOOL <= '1';
+                ledStateIDLE <= '1';
                 coolingMode <= '1';
-                if unsigned(currentTemp) = 20 then
+                if (unsigned(currentTemp) = 20) and (OPEN_OVEN = '0') then
                     next_state <= IDLE;
                 end if;
                 

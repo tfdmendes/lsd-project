@@ -68,7 +68,7 @@ begin
     generic map (MAX => 50_000_000)
     port map (
         clk   => CLOCK_50,
-        reset => not sw1_ff_out,
+        reset => not sw0_ff_out,
         pulse => s_1Hz
     );
                   
@@ -106,8 +106,7 @@ begin
 		  currentTemp	  => s_currentTemp,
         tempUnits      => s_temp_Uni,
         tempDozens     => s_temp_Doz,
-        tempHundreds   => s_temp_Cen
-    );
+        tempHundreds   => s_temp_Cen);
                  
     -- TEMPO
     TimeController : entity work.TimeController(Behavioral)
@@ -157,7 +156,6 @@ begin
 		  
 		  ledFoodIn       => LEDG(0),
 		  ledHalfTime		=> LEDG(7 downto 4),
-		  ledStateCOOL		=> LEDR(4),
         ledStateIDLE    => LEDR(3),
         ledStatePREHEAT => LEDR(2),
         ledStateCOOK    => LEDR(1),
