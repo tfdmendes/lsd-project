@@ -25,8 +25,7 @@ entity AirFryerFSM is
 		  finished			: out std_logic;
         coolingMode     : out std_logic;
         tempTimerEnable : out std_logic;
-        timeTimerEnable : out std_logic
-    );
+        timeTimerEnable : out std_logic);
 end AirFryerFSM;
 
 architecture Behavioral of AirFryerFSM is
@@ -92,10 +91,13 @@ begin
 						end if;
 						 
 					when PREHEAT =>
+						 ledStatePREHEAT <= '1';
 						 if run = '0' then
-							  next_state <= IDLE;
+							  finished <= '1';
+							  if OPEN_OVEN = '1' then
+								  next_state <= COOL;
+							  end if;
 						 else
-							  ledStatePREHEAT <= '1';
 							  if currentTime = timeCook then
 									ledFoodIn <= '1'; -- Pre Aquecimento a zero
 									timeTimerEnable <= '0';
@@ -106,10 +108,13 @@ begin
 						 end if;
 						 
 					when COOK =>
+						 ledStateCOOK <= '1';
 						 if run = '0' then
-							  next_state <= IDLE;
+							  finished <= '1';
+							  if OPEN_OVEN = '1' then
+								   next_state <= COOL;
+								end if;
 						 else
-							  ledStateCOOK <= '1';
 							  if OPEN_OVEN = '0' then
 									timeTimerEnable <= '1';
 									-- Quando cook chegar a metade, LEDs piscam

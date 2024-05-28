@@ -110,12 +110,12 @@ begin
                     elsif one_sec_pulse = '1' then
                         if estado = '1' then
                             s_DECREMENT_STEP <= 20;
-                            countUpDown <= '0';
+                            countUpDown <= '0'; -- Decrementar Temperatura
                             enableCounter <= '1';
                             initCount <= '0';
                         else
-                            s_DECREMENT_STEP <= 10;
-                            countUpDown <= '1';
+                            s_INCREMENT_STEP <= 10;
+                            countUpDown <= '1'; -- Incrementar temperatura
                             enableCounter <= '1';
                             initCount <= '0';
                         end if;
