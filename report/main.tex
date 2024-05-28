@@ -152,13 +152,13 @@ Este projeto está amplamente focado numa máquina de estados finitos, mais espe
 \begin{itemize}
     \item \textbf{IDLE} - Estado inicial da máquina. Permite ao usuário selecionar o programa desejado, ajustar o tempo de cocção e pré-aquecimento, e definir a temperatura. O LED de "foodIn" acende se o programa não requer pré-aquecimento, indicando que a comida deve ser colocada imediatamente.
     
-    \item \textbf{COOK} - Estado de cocção. A comida é cozida conforme os parâmetros definidos. O LED de cocção acende. Quando metade do tempo de cocção é atingido, os LEDs de \textit{HalfTime} piscam com uma frequência de 2 \textit{Hertz}. A transição para o estado FINISH ocorre quando o tempo de cocção acaba.
+    \item \textbf{COOK} - Estado de cocção. A comida é cozida conforme os parâmetros definidos. O LED de cocção acende. Quando metade do tempo de cocção é atingido, os LEDs de \textit{HalfTime} piscam com uma frequência de 2 \textit{Hertz}. A transição para o estado FINISH ocorre quando o tempo de cocção acaba. No caso de o utilizador desligar o RUN a máquina mantém a temperatura, se também abrir a cuba, esta passa para o estado COOL.
 
-    \item \textbf{PREHEAT} - Estado de pré-aquecimento. A máquina aquece até à temperatura desejada antes de iniciar a cocção. Quando o tempo de pré-aquecimento termina, o LED de foodIn acende para indicar que a comida deve ser colocada. O LED de pré-aquecimento acende. 
+    \item \textbf{PREHEAT} - Estado de pré-aquecimento. A máquina aquece até à temperatura desejada antes de iniciar a cocção. Quando o tempo de pré-aquecimento termina, o LED de foodIn acende para indicar que a comida deve ser colocada. O LED de pré-aquecimento acende. No caso de o utilizador desligar o RUN a máquina mantém a temperatura, se também abrir a cuba, esta passa para o estado COOL.
 
-    \item \textbf{FINISH} - Indica que o processo de cocção está concluído. Os LEDs de \textit{HalfTime} permanecem acesos. A máquina aguarda o usuário retirar a comida antes de entrar em modo de arrefecimento.
+    \item \textbf{FINISH} - Indica que o processo de cocção está concluído. Os LEDs de \textit{HalfTime} permanecem acesos, indicando que a comida se encontra pronta. A máquina aguarda o usuário retirar a comida antes de entrar em modo de arrefecimento.
 
-    \item \textbf{COOL} - Estado de arrefecimento. A máquina arrefece até a uma temperatura segura. Quando a temperatura interna atinge os 20ºC e a cuba está fechada, a máquina retorna ao estado \textit{IDLE}.
+    \item \textbf{COOL} - Estado de arrefecimento. Com a cuba aberta, a máquina arrefece até a uma temperatura segura. Quando a temperatura interna atinge os 20ºC e a cuba está fechada, a máquina retorna ao estado \textit{IDLE}.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Manual do Utilizador %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -221,8 +221,10 @@ Em suma, o projeto da AirFryer controlada digitalmente mostrou-se uma experiênc
 \section{Validação}
 Ao longo do nosso projeto, enfrentámos diversas advertências relacionadas à simulação e validação. Por isso, a principal forma de validarmos os resultados foi através de testes práticos na placa. Como o trabalho foi desenvolvido com base em intervalos de tempo muito longos, em segundos, tornou-se difícil e inconveniente utilizar tanto o simulador quanto a \textit{testbench}.
 
-\section{Contribuições dos autores}
+\section{Contribuições dos autores e Autoavaliação}
 Cada autor contribuiu igualmente para o produto final do trabalho, sendo justamente atribuído a nota de 50\% a cada um.
+
+Auto avaliamos o nosso trabalho com 18.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{Acrónimos}
